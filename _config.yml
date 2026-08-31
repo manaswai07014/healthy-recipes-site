@@ -33,6 +33,14 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+collections:
+  recipes:
+    output: true
+    permalink: /:path/
+  ingredients:
+    output: true
+    permalink: /ingredients/:path/
+
 defaults:
   - scope:
       path: ""

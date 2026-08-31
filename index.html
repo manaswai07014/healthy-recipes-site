@@ -18,7 +18,7 @@ description: >-
 </section>
 
 <div class="container">
-  {%- assign recipes = site.recipes | sort: 'date' | reverse -%}
+  {%- assign recipes = site.recipes | default: empty | sort: 'date' | reverse -%}
 
   {% if recipes and recipes.size > 0 %}
   <section>
@@ -45,11 +45,11 @@ description: >-
   <section>
     <h2>Browse by Category</h2>
     <nav class="quick-nav" aria-label="Recipe categories">
-      <a href="{{ '/recipes/?diet=low-carb' | relative_url }}"><span>Low-Carb</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.diet_tags contains "Low-Carb"' | size }}</span></a>
-      <a href="{{ '/recipes/?diet=high-protein' | relative_url }}"><span>High-Protein</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.diet_tags contains "High-Protein"' | size }}</span></a>
-      <a href="{{ '/recipes/?cuisine=mediterranean' | relative_url }}"><span>Mediterranean</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.cuisine == "Mediterranean"' | size }}</span></a>
-      <a href="{{ '/recipes/?cuisine=italian' | relative_url }}"><span>Italian</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.cuisine == "Italian"' | size }}</span></a>
-      <a href="{{ '/recipes/?time=quick' | relative_url }}"><span>Under 30 min</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.total_time <= 30' | size }}</span></a>
+      <a href="{{ '/recipes/?diet=low-carb' | relative_url }}"><span>Low-Carb</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.diet_tags contains "Low-Carb"' | size }}</span></a>
+      <a href="{{ '/recipes/?diet=high-protein' | relative_url }}"><span>High-Protein</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.diet_tags contains "High-Protein"' | size }}</span></a>
+      <a href="{{ '/recipes/?cuisine=mediterranean' | relative_url }}"><span>Mediterranean</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.cuisine == "Mediterranean"' | size }}</span></a>
+      <a href="{{ '/recipes/?cuisine=italian' | relative_url }}"><span>Italian</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.cuisine == "Italian"' | size }}</span></a>
+      <a href="{{ '/recipes/?time=quick' | relative_url }}"><span>Under 30 min</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.total_time <= 30' | size }}</span></a>
       <a href="{{ '/ingredients/' | relative_url }}"><span>Browse Ingredients</span><span class="count">→</span></a>
     </nav>
   </section>

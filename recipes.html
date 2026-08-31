@@ -8,10 +8,10 @@ permalink: /recipes/
 <div class="container">
   <header>
     <h1>All Recipes</h1>
-    <p>{{ site.recipes | size }} recipes and counting.</p>
+    <p>{{ site.recipes | default: empty | size }} recipes and counting.</p>
   </header>
 
-  {% assign recipes_sorted = site.recipes | sort: 'date' | reverse %}
+  {% assign recipes_sorted = site.recipes | default: empty | sort: 'date' | reverse %}
   <ul class="recipe-grid">
     {%- for r in recipes_sorted -%}
     <li class="recipe-card">
