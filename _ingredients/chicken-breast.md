@@ -33,31 +33,11 @@ substitutes:
   - name: Pork Tenderloin
     note: slightly higher in fat, but cooks similarly
     url: /ingredients/pork-tenderloin/
-recipes:
-  - title: Lemon Herb Roasted Chicken Breast
-    url: /2026/08/30/lemon-herb-roasted-chicken-breast/
-    calories: 450
-    protein: 35
-    total_time: 40
-    image: /assets/recipes/lemon-herb-chicken.jpg
-  - title: Garlic Chicken & Broccoli Stir-Fry
-    url: /2026/08/29/garlic-chicken-broccoli-stir-fry/
-    calories: 480
-    protein: 38
-    total_time: 20
-    image: /assets/recipes/garlic-chicken-broccoli.jpg
-  - title: Italian Chicken Soup with Lemon & Caper
-    url: /2026/08/28/italian-chicken-soup-lemon-caper/
-    calories: 420
-    protein: 32
-    total_time: 30
-    image: /assets/recipes/chicken-leek-soup.jpg
-  - title: One-Pot Parmesan Chicken with White Beans
-    url: /2026/08/27/one-pot-parmesan-chicken-white-beans/
-    calories: 560
-    protein: 42
-    total_time: 30
-    image: /assets/recipes/parmesan-chicken-bean.jpg
+recipe_slugs:
+  - lemon-herb-roasted-chicken-breast
+  - garlic-chicken-broccoli-stir-fry
+  - italian-chicken-soup-lemon-caper
+  - one-pot-parmesan-chicken-white-beans
 ---
 
 # Chicken Breast — Healthy Recipes

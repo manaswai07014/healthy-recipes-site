@@ -45,14 +45,17 @@ layout: default
     </section>
     {% endif %}
 
-    {% if page.recipes and page.recipes.size > 0 %}
+    {% if page.recipe_slugs and page.recipe_slugs.size > 0 %}
     <section class="recipes-list">
-      <h2>Recipes with {{ page.ingredient_name }} ({{ page.recipes.size }})</h2>
+      <h2>Recipes with {{ page.ingredient_name }} ({{ page.recipe_slugs | size }})</h2>
       <ul class="recipe-grid">
-        {% for r in page.recipes %}
+        {%- assign recipes_by_slug = site.recipes | group_by: 'slug' -%}
+        {%- for rslug in page.recipe_slugs -%}
+        {%- assign r = site.recipes | where: 'slug', rslug | first -%}
+        {%- if r -%}
         <li class="recipe-card">
           <a href="{{ r.url | relative_url }}">
-            {% if r.image %}<img src="{{ r.image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
+            {% if r.hero_image %}<img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
             <h3>{{ r.title }}</h3>
             <div class="badges">
               <span class="badge badge-cal">{{ r.calories }} kcal</span>
@@ -61,7 +64,8 @@ layout: default
             </div>
           </a>
         </li>
-        {% endfor %}
+        {%- endif -%}
+        {%- endfor -%}
       </ul>
     </section>
     {% endif %}
