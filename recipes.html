@@ -1,0 +1,31 @@
+---
+layout: default
+title: All Recipes
+description: Browse all our healthy Western and Mediterranean recipes, sorted by date.
+permalink: /recipes/
+---
+
+<div class="container">
+  <header>
+    <h1>All Recipes</h1>
+    <p>{{ site.recipes | size }} recipes and counting.</p>
+  </header>
+
+  {% assign recipes_sorted = site.recipes | sort: 'date' | reverse %}
+  <ul class="recipe-grid">
+    {%- for r in recipes_sorted -%}
+    <li class="recipe-card">
+      <a href="{{ r.url | relative_url }}">
+        {% if r.hero_image %}<img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
+        <h3>{{ r.title }}</h3>
+        <p>{{ r.subtitle | default: r.description | truncatewords: 14 }}</p>
+        <div class="badges">
+          <span class="badge badge-cal">{{ r.calories }} kcal</span>
+          <span class="badge badge-pro">{{ r.protein }}g protein</span>
+          <span class="badge badge-time">{{ r.total_time }} min</span>
+        </div>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>

@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/ingredients/' | relative_url }}">Ingredients</a></li>
+      <li aria-current="page">{{ page.ingredient_name }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="ingredient-page">
+  <div class="container">
+    <header>
+      <h1>{{ page.ingredient_name }}</h1>
+      {% if page.zh_name %}<p class="zh-name">{{ page.zh_name }}</p>{% endif %}
+      {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    </header>
+
+    {% if page.nutrition_per_100g %}
+    <section class="nutrition-quick">
+      <h2>Nutrition at a Glance (per 100g)</h2>
+      <table>
+        {% for k, v in page.nutrition_per_100g %}
+        <tr><th>{{ k }}</th><td>{{ v }}</td></tr>
+        {% endfor %}
+      </table>
+    </section>
+    {% endif %}
+
+    {% if page.buying_guide %}
+    <section class="buying">
+      <h2>Buying Guide</h2>
+      {{ page.buying_guide | markdownify }}
+    </section>
+    {% endif %}
+
+    {% if page.storage %}
+    <section class="storage">
+      <h2>Storage</h2>
+      {{ page.storage | markdownify }}
+    </section>
+    {% endif %}
+
+    {% if page.recipes and page.recipes.size > 0 %}
+    <section class="recipes-list">
+      <h2>Recipes with {{ page.ingredient_name }} ({{ page.recipes.size }})</h2>
+      <ul class="recipe-grid">
+        {% for r in page.recipes %}
+        <li class="recipe-card">
+          <a href="{{ r.url | relative_url }}">
+            {% if r.image %}<img src="{{ r.image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
+            <h3>{{ r.title }}</h3>
+            <div class="badges">
+              <span class="badge badge-cal">{{ r.calories }} kcal</span>
+              <span class="badge badge-pro">{{ r.protein }}g protein</span>
+              <span class="badge badge-time">{{ r.total_time }} min</span>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.substitutes %}
+    <section class="substitutes">
+      <h2>Substitutes</h2>
+      <ul>
+        {% for s in page.substitutes %}
+        <li><a href="{{ s.url | relative_url }}">{{ s.name }}</a> — {{ s.note }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
+</article>

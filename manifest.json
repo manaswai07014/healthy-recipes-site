@@ -1,0 +1,15 @@
+{
+  "name": "Healthy Western Recipes",
+  "short_name": "Healthy Recipes",
+  "description": "Low-calorie Mediterranean and Western recipes — every serving 400-600 kcal with at least 15g protein.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffdf8",
+  "theme_color": "#c84a23",
+  "orientation": "portrait-primary",
+  "icons": [
+    {"src": "/assets/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ],
+  "categories": ["food", "lifestyle", "health"],
+  "lang": "en-US"
+}

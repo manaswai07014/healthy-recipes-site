@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/recipes/' | relative_url }}">Recipes</a></li>
+      {% if page.cuisine %}<li><a href="{{ '/cuisines/' | relative_url }}{{ page.cuisine | downcase | slugify }}/">{{ page.cuisine }}</a></li>{% endif %}
+      <li aria-current="page">{{ page.title }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="recipe-page">
+  <div class="container">
+    <header class="recipe-header">
+      <div class="badges">
+        <span class="badge badge-cal">{{ page.calories }} kcal</span>
+        <span class="badge badge-pro">{{ page.protein }}g protein</span>
+        <span class="badge badge-time">{{ page.total_time }} min</span>
+        {% if page.diet_tags %}{% for tag in page.diet_tags %}<span class="badge badge-diet">{{ tag }}</span>{% endfor %}{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="lead">{{ page.subtitle }}</p>{% endif %}
+      {% if page.hero_image %}
+      <img class="hero" src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}" width="1200" height="675" loading="eager" decoding="async" fetchpriority="high">
+      {% endif %}
+    </header>
+
+    {% if page.introduction %}
+    <section class="introduction">
+      {{ page.introduction | markdownify }}
+    </section>
+    {% endif %}
+
+    <div class="recipe-grid-layout">
+      <section class="ingredients">
+        <h2>Ingredients</h2>
+        <p class="servings">Serves {{ page.servings }}</p>
+        <ul>
+          {% for ing in page.ingredients_display %}
+          <li>{{ ing }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="instructions">
+        <h2>Method</h2>
+        <ol>
+          {% for step in page.instructions %}
+          <li id="step-{{ forloop.index }}">
+            <p>{{ step }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+    </div>
+
+    <section class="nutrition">
+      <h2>Nutrition (per serving)</h2>
+      <table>
+        <tr><th>Calories</th><td>{{ page.calories }} kcal</td></tr>
+        <tr><th>Protein</th><td>{{ page.protein }} g</td></tr>
+        <tr><th>Carbohydrates</th><td>{{ page.carbs }} g</td></tr>
+        <tr><th>Fat</th><td>{{ page.fat }} g</td></tr>
+        <tr><th>Fiber</th><td>{{ page.fiber | default: '—' }} {% if page.fiber %}g{% endif %}</td></tr>
+      </table>
+    </section>
+
+    {% if page.chef_tips %}
+    <aside class="chef-tips">
+      <h2>👨‍🍳 Chef Tips</h2>
+      <p>{{ page.chef_tips }}</p>
+    </aside>
+    {% endif %}
+
+    {% if page.ingredients_api %}
+    <section class="related">
+      <h2>Browse by Ingredient</h2>
+      <p>Looking for more recipes with the same ingredients? <a href="{{ '/ingredients/' | relative_url }}">Browse our A-Z ingredient index</a>.</p>
+    </section>
+    {% endif %}
+
+    <nav class="recipe-nav" aria-label="Recipe navigation">
+      <a href="{{ '/recipes/' | relative_url }}">← Back to all recipes</a>
+    </nav>
+  </div>
+</article>

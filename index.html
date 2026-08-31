@@ -1,0 +1,62 @@
+---
+layout: default
+title: Healthy Western Recipes — Low-Calorie Mediterranean Cooking
+description: >-
+  Low-calorie Mediterranean and Western recipes — every serving 400-600 kcal
+  with at least 15g protein. Inspired by BBC Good Food and EatingWell,
+  rewritten and tested by our editorial kitchen.
+---
+
+<section class="hero">
+  <h1>Healthy Western Recipes</h1>
+  <p class="tag">Low-calorie Mediterranean & Western cooking · 400-600 kcal · 15g+ protein</p>
+  <form class="search" role="search" action="{{ '/recipes/' | relative_url }}">
+    <label for="hero-search" class="skip-link">Search recipes</label>
+    <input type="search" id="hero-search" name="q" placeholder="Search recipes, e.g. salmon, chicken, lemon...">
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+<div class="container">
+  {%- assign recipes = site.recipes | sort: 'date' | reverse -%}
+
+  {% if recipes and recipes.size > 0 %}
+  <section>
+    <h2>Latest Recipes</h2>
+    <ul class="recipe-grid">
+      {%- for r in recipes limit: 9 -%}
+      <li class="recipe-card">
+        <a href="{{ r.url | relative_url }}">
+          {% if r.hero_image %}<img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
+          <h3>{{ r.title }}</h3>
+          <p>{{ r.subtitle | default: r.description | truncatewords: 14 }}</p>
+          <div class="badges">
+            <span class="badge badge-cal">{{ r.calories }} kcal</span>
+            <span class="badge badge-pro">{{ r.protein }}g protein</span>
+            <span class="badge badge-time">{{ r.total_time }} min</span>
+          </div>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2>Browse by Category</h2>
+    <nav class="quick-nav" aria-label="Recipe categories">
+      <a href="{{ '/recipes/?diet=low-carb' | relative_url }}"><span>Low-Carb</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.diet_tags contains "Low-Carb"' | size }}</span></a>
+      <a href="{{ '/recipes/?diet=high-protein' | relative_url }}"><span>High-Protein</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.diet_tags contains "High-Protein"' | size }}</span></a>
+      <a href="{{ '/recipes/?cuisine=mediterranean' | relative_url }}"><span>Mediterranean</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.cuisine == "Mediterranean"' | size }}</span></a>
+      <a href="{{ '/recipes/?cuisine=italian' | relative_url }}"><span>Italian</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.cuisine == "Italian"' | size }}</span></a>
+      <a href="{{ '/recipes/?time=quick' | relative_url }}"><span>Under 30 min</span><span class="count">{{ site.recipes | where_exp: 'r', 'r.total_time <= 30' | size }}</span></a>
+      <a href="{{ '/ingredients/' | relative_url }}"><span>Browse Ingredients</span><span class="count">→</span></a>
+    </nav>
+  </section>
+
+  <section>
+    <h2>Why Low-Calorie Western Cooking?</h2>
+    <p>Mediterranean and Western diets have centuries of tradition — and a treasure trove of dishes that happen to be naturally low in calories but rich in protein, fiber, and flavor. We focus on <strong>400-600 kcal per serving</strong> with at least 15g of protein, so you can enjoy satisfying meals that fit your goals.</p>
+    <p>Every recipe on this site has been tested in our editorial kitchen and reviewed for nutritional accuracy. We don't just rephrase other sites — we cook the dish, photograph it, and tell you exactly what works.</p>
+  </section>
+</div>

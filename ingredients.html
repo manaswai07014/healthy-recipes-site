@@ -1,0 +1,46 @@
+---
+layout: default
+title: Browse by Ingredient
+description: Find recipes by ingredient — from chicken breast to salmon, every ingredient has its own page with nutrition info, buying tips, and storage advice.
+permalink: /ingredients/
+---
+
+<div class="container">
+  <header>
+    <h1>Ingredients A-Z</h1>
+    <p class="lead">Got a specific ingredient? Find every recipe that uses it.</p>
+  </header>
+
+  <nav class="alpha-nav" aria-label="Jump to letter">
+    {% assign letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
+    {% for letter in letters %}
+      {% assign count = site.ingredients | where_exp: 'i', 'i.letter == letter' | size %}
+      {% if count > 0 %}
+      <a href="#letter-{{ letter }}">{{ letter }}</a>
+      {% else %}
+      <a href="#" style="opacity:0.3">{{ letter }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+
+  {% assign letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
+  {% for letter in letters %}
+    {% assign items = site.ingredients | where_exp: 'i', 'i.letter == letter' %}
+    {% if items.size > 0 %}
+    <section id="letter-{{ letter }}" class="letter-group">
+      <h3>{{ letter }} · {{ items.size }} ingredient{{ items.size | pluralize }}</h3>
+      <ul class="recipe-grid">
+        {%- for ing in items -%}
+        <li class="recipe-card">
+          <a href="{{ ing.url | relative_url }}">
+            {% if ing.image %}<img src="{{ ing.image | relative_url }}" alt="{{ ing.ingredient_name }}" width="1200" height="675" loading="lazy">{% endif %}
+            <h3>{{ ing.ingredient_name }}{% if ing.zh_name %} <span style="font-size:0.75em;color:var(--muted)">{{ ing.zh_name }}</span>{% endif %}</h3>
+            <p>{{ ing.recipe_count }} recipe{{ ing.recipe_count | pluralize: '', 's' }} · {{ ing.category }}</p>
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+    {% endif %}
+  {% endfor %}
+</div>
