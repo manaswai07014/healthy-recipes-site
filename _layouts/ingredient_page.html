@@ -24,8 +24,8 @@ layout: default
     <section class="nutrition-quick">
       <h2>Nutrition at a Glance (per 100g)</h2>
       <table>
-        {% for k, v in page.nutrition_per_100g %}
-        <tr><th>{{ k }}</th><td>{{ v }}</td></tr>
+        {% for pair in page.nutrition_per_100g %}
+        <tr><th>{{ pair[0] }}</th><td>{{ pair[1] }}</td></tr>
         {% endfor %}
       </table>
     </section>
