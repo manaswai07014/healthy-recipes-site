@@ -126,16 +126,18 @@
         "@type": "ItemList",
         "@id": "{{ page.url | absolute_url }}#itemlist",
         "name": {{ page.title | jsonify }},
-        "numberOfItems": {{ page.recipe_slugs | size }},
+        "numberOfItems": {{ slugs_json | size }},
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
         "itemListElement": [
-          {%- assign slugs = page.recipe_slugs | default: empty -%}
-          {%- for rslug in slugs -%}
+          {%- assign slugs_json = page.recipe_slugs -%}
+          {%- if slugs_json -%}
+          {%- for rslug in slugs_json -%}
           {%- assign r = site.recipes | where: 'slug', rslug | first -%}
           {%- if r -%}
           {"@type": "ListItem", "position": {{ forloop.index }}, "url": "{{ r.url | absolute_url }}", "name": {{ r.title | jsonify }}}{% unless forloop.last %},{% endunless %}
           {%- endif -%}
           {%- endfor -%}
+          {%- endif -%}
         ]
       },
       {

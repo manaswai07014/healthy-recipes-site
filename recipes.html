@@ -5,13 +5,19 @@ description: Browse all our healthy Western and Mediterranean recipes, sorted by
 permalink: /recipes/
 ---
 
+{%- assign recipes_all = site.recipes -%}
+{%- if recipes_all and recipes_all.size > 0 -%}
+  {%- assign recipes_sorted = recipes_all | sort: 'date' | reverse -%}
+{%- else -%}
+  {%- assign recipes_sorted = empty -%}
+{%- endif -%}
+
 <div class="container">
   <header>
     <h1>All Recipes</h1>
-    <p>{{ site.recipes | default: empty | size }} recipes and counting.</p>
+    <p>{{ recipes_sorted | size }} recipes and counting.</p>
   </header>
 
-  {% assign recipes_sorted = site.recipes | default: empty | sort: 'date' | reverse %}
   <ul class="recipe-grid">
     {%- for r in recipes_sorted -%}
     <li class="recipe-card">

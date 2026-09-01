@@ -45,13 +45,15 @@ layout: default
     </section>
     {% endif %}
 
-    {% if page.recipe_slugs and page.recipe_slugs.size > 0 %}
+    {%- assign slugs = page.recipe_slugs -%}
+    {%- if slugs and slugs.size > 0 -%}
     <section class="recipes-list">
-      <h2>Recipes with {{ page.ingredient_name }} ({{ page.recipe_slugs | size }})</h2>
+      <h2>Recipes with {{ page.ingredient_name }} ({{ slugs | size }})</h2>
       <ul class="recipe-grid">
-        {%- assign recipes_by_slug = site.recipes | group_by: 'slug' -%}
-        {%- for rslug in page.recipe_slugs -%}
-        {%- assign r = site.recipes | where: 'slug', rslug | first -%}
+        {%- assign recipes_all_p = site.recipes -%}
+        {%- if recipes_all_p and recipes_all_p.size > 0 -%}
+        {%- for rslug in slugs -%}
+        {%- assign r = recipes_all_p | where: 'slug', rslug | first -%}
         {%- if r -%}
         <li class="recipe-card">
           <a href="{{ r.url | relative_url }}">
@@ -66,9 +68,10 @@ layout: default
         </li>
         {%- endif -%}
         {%- endfor -%}
+        {%- endif -%}
       </ul>
     </section>
-    {% endif %}
+    {%- endif -%}
 
     {% if page.substitutes %}
     <section class="substitutes">

@@ -5,42 +5,57 @@ description: Find recipes by ingredient — from chicken breast to salmon, every
 permalink: /ingredients/
 ---
 
+{%- assign ingredients_all = site.ingredients -%}
+{%- if ingredients_all and ingredients_all.size > 0 -%}
+  {%- assign ingredients_sorted = ingredients_all | sort: 'letter' -%}
+{%- else -%}
+  {%- assign ingredients_sorted = empty -%}
+{%- endif -%}
+
 <div class="container">
   <header>
     <h1>Ingredients A-Z</h1>
     <p class="lead">Got a specific ingredient? Find every recipe that uses it.</p>
   </header>
 
+  {%- assign alpha_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" -%}
+
   <nav class="alpha-nav" aria-label="Jump to letter">
-    {% assign letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
-    {% for letter in letters %}
-      {% assign count = site.ingredients | default: empty | where_exp: 'i', 'i.letter == letter' | size %}
-      {% if count > 0 %}
-      <a href="#letter-{{ letter }}">{{ letter }}</a>
-      {% else %}
-      <a href="#" style="opacity:0.3">{{ letter }}</a>
-      {% endif %}
-    {% endfor %}
+    {%- for nav_letter in alpha_letters -%}
+      {%- assign nav_count = 0 -%}
+      {%- for ing in ingredients_sorted -%}
+        {%- if ing.letter == nav_letter -%}{%- assign nav_count = nav_count | plus: 1 -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if nav_count > 0 -%}
+      <a href="#letter-{{ nav_letter }}">{{ nav_letter }}</a>
+      {%- else -%}
+      <a href="#" style="opacity:0.3">{{ nav_letter }}</a>
+      {%- endif -%}
+    {%- endfor -%}
   </nav>
 
-  {% assign letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
-  {% for letter in letters %}
-    {% assign items = site.ingredients | default: empty | where_exp: 'i', 'i.letter == letter' %}
-    {% if items.size > 0 %}
-    <section id="letter-{{ letter }}" class="letter-group">
-      <h3>{{ letter }} · {{ items.size }} ingredient{{ items.size | pluralize }}</h3>
-      <ul class="recipe-grid">
-        {%- for ing in items -%}
-        <li class="recipe-card">
+  {%- for section_letter in alpha_letters -%}
+    {%- assign items_in_letter = "" | split: "" -%}
+    {%- for ing in ingredients_sorted -%}
+      {%- if ing.letter == section_letter -%}
+        {%- assign items_in_letter = items_in_letter | push: ing -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if items_in_letter.size > 0 -%}
+    <section id="letter-{{ section_letter }}" class="letter-group">
+      <h2>{{ section_letter }}</h2>
+      <ul class="ingredient-grid">
+        {%- for ing in items_in_letter -%}
+        <li class="ingredient-card">
           <a href="{{ ing.url | relative_url }}">
-            {% if ing.image %}<img src="{{ ing.image | relative_url }}" alt="{{ ing.ingredient_name }}" width="1200" height="675" loading="lazy">{% endif %}
-            <h3>{{ ing.ingredient_name }}{% if ing.zh_name %} <span style="font-size:0.75em;color:var(--muted)">{{ ing.zh_name }}</span>{% endif %}</h3>
-            <p>{{ ing.recipe_count }} recipe{{ ing.recipe_count | pluralize: '', 's' }} · {{ ing.category }}</p>
+            {% if ing.image %}<img src="{{ ing.image | relative_url }}" alt="{{ ing.ingredient_name }}" loading="lazy">{% endif %}
+            <h3>{{ ing.ingredient_name }}</h3>
+            <p>{{ ing.description | truncatewords: 14 }}</p>
           </a>
         </li>
         {%- endfor -%}
       </ul>
     </section>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
 </div>

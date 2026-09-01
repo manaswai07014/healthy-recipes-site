@@ -18,7 +18,10 @@ description: >-
 </section>
 
 <div class="container">
-  {%- assign recipes = site.recipes | default: empty | sort: 'date' | reverse -%}
+  {%- assign recipes_all = site.recipes -%}
+  {%- if recipes_all and recipes_all.size > 0 -%}
+    {%- assign recipes = recipes_all | sort: 'date' | reverse -%}
+  {%- endif -%}
 
   {% if recipes and recipes.size > 0 %}
   <section>
@@ -44,12 +47,27 @@ description: >-
 
   <section>
     <h2>Browse by Category</h2>
+    {%- assign cat_low_carb = 0 -%}
+    {%- assign cat_high_pro = 0 -%}
+    {%- assign cat_mediterranean = 0 -%}
+    {%- assign cat_italian = 0 -%}
+    {%- assign cat_quick = 0 -%}
+    {%- if recipes_all and recipes_all.size > 0 -%}
+      {%- for r in recipes_all -%}
+        {%- assign tags_lower = r.diet_tags | join: ' ' | downcase -%}
+        {%- if tags_lower contains 'low-carb' -%}{%- assign cat_low_carb = cat_low_carb | plus: 1 -%}{%- endif -%}
+        {%- if tags_lower contains 'high-protein' -%}{%- assign cat_high_pro = cat_high_pro | plus: 1 -%}{%- endif -%}
+        {%- if r.cuisine == 'Mediterranean' -%}{%- assign cat_mediterranean = cat_mediterranean | plus: 1 -%}{%- endif -%}
+        {%- if r.cuisine == 'Italian' -%}{%- assign cat_italian = cat_italian | plus: 1 -%}{%- endif -%}
+        {%- if r.total_time and r.total_time <= 30 -%}{%- assign cat_quick = cat_quick | plus: 1 -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
     <nav class="quick-nav" aria-label="Recipe categories">
-      <a href="{{ '/recipes/?diet=low-carb' | relative_url }}"><span>Low-Carb</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.diet_tags contains "Low-Carb"' | size }}</span></a>
-      <a href="{{ '/recipes/?diet=high-protein' | relative_url }}"><span>High-Protein</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.diet_tags contains "High-Protein"' | size }}</span></a>
-      <a href="{{ '/recipes/?cuisine=mediterranean' | relative_url }}"><span>Mediterranean</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.cuisine == "Mediterranean"' | size }}</span></a>
-      <a href="{{ '/recipes/?cuisine=italian' | relative_url }}"><span>Italian</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.cuisine == "Italian"' | size }}</span></a>
-      <a href="{{ '/recipes/?time=quick' | relative_url }}"><span>Under 30 min</span><span class="count">{{ site.recipes | default: empty | where_exp: 'r', 'r.total_time <= 30' | size }}</span></a>
+      <a href="{{ '/recipes/?diet=low-carb' | relative_url }}"><span>Low-Carb</span><span class="count">{{ cat_low_carb }}</span></a>
+      <a href="{{ '/recipes/?diet=high-protein' | relative_url }}"><span>High-Protein</span><span class="count">{{ cat_high_pro }}</span></a>
+      <a href="{{ '/recipes/?cuisine=mediterranean' | relative_url }}"><span>Mediterranean</span><span class="count">{{ cat_mediterranean }}</span></a>
+      <a href="{{ '/recipes/?cuisine=italian' | relative_url }}"><span>Italian</span><span class="count">{{ cat_italian }}</span></a>
+      <a href="{{ '/recipes/?time=quick' | relative_url }}"><span>Under 30 min</span><span class="count">{{ cat_quick }}</span></a>
       <a href="{{ '/ingredients/' | relative_url }}"><span>Browse Ingredients</span><span class="count">→</span></a>
     </nav>
   </section>
