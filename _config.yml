@@ -36,7 +36,7 @@ kramdown:
 collections:
   recipes:
     output: true
-    permalink: /:path/
+    permalink: /:year/:month/:day/:title/
   ingredients:
     output: true
     permalink: /ingredients/:path/
