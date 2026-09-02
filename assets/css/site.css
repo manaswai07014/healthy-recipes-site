@@ -131,11 +131,18 @@
   color: var(--fg);
 }
 .recipe-card img {
+  /* Default fallback styles for direct <img> children (legacy support).
+     For new code, wrap image in <div class="hero-wrap"> for P26 v6 intrinsic-free lock. */
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
   background: var(--line);
+}
+/* Recipe card: P26 v6 .hero-wrap style (matches recipe page hero). */
+.recipe-card .hero-wrap {
+  border-radius: 8px;
+  margin-bottom: 0;
 }
 .recipe-card h3 {
   margin: 1rem 1rem 0.5rem;

@@ -22,7 +22,11 @@ permalink: /recipes/
     {%- for r in recipes_sorted -%}
     <li class="recipe-card">
       <a href="{{ r.url | relative_url }}">
-        {% if r.hero_image %}<img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" width="1200" height="675" loading="lazy">{% endif %}
+        {% if r.hero_image %}
+        <div class="hero-wrap">
+          <img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" loading="lazy">
+        </div>
+        {% endif %}
         <h3>{{ r.title }}</h3>
         <p>{{ r.subtitle | default: r.description | truncatewords: 14 }}</p>
         <div class="badges">
