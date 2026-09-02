@@ -190,12 +190,7 @@
 @media (max-width: 768px) {
   .recipe-grid-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
-/* P26 universal 16:9 lock + legacy aspect-ratio fallback for old iOS Safari (< 15) and Telegram webview.
-   Combines:
-   1. CSS aspect-ratio (modern)
-   2. Legacy padding-bottom: 56.25% trick (iOS Safari 12-14, Telegram webview)
-   3. !important to override any browser default intrinsic ratio
-   4. width/height set explicitly to avoid img intrinsic-ratio conflict */
+/* P26 v4: universal 16:9 lock + min-height for visual presence on mobile */
 .recipe-header img.hero,
 .recipe-card img {
   display: block !important;
@@ -206,6 +201,20 @@
   aspect-ratio: 16 / 9 !important;
   object-fit: cover !important;
   object-position: center !important;
+}
+
+/* Mobile: bump image rendered height to ~30% of screen so image is visually prominent.
+   Without this, on a 521px-wide phone, image renders at ~293x165px = 11.7% of screen
+   and feels "incomplete" even though aspect ratio is correct. */
+@media (max-width: 768px) {
+  .recipe-header img.hero {
+    min-height: 240px !important;
+    background: var(--line);
+  }
+  .recipe-card img {
+    min-height: 180px !important;
+    background: var(--line);
+  }
 }
 
 /* Old iOS Safari / Webkit fallback: use ::before pseudo-element on parent for padding hack.
