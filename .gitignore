@@ -1,3 +1,11 @@
 _scripts/__pycache__/
 .local/
 node_modules/
+
+# Recipe research wiki: keep scripts + AGENTS.md + db schema, gitignore runtime artifacts
+_research/raw/
+_research/adapted/
+_research/logs/
+_research/scripts/__pycache__/
+_research/data/recipes.db
+_research/data/recipes.db-*
