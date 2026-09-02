@@ -190,7 +190,7 @@
 @media (max-width: 768px) {
   .recipe-grid-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
-/* P26 v4: universal 16:9 lock + min-height for visual presence on mobile */
+/* P26 v5: object-fit: contain so image is 100% visible (no crop), black background fills container. */
 .recipe-header img.hero,
 .recipe-card img {
   display: block !important;
@@ -199,21 +199,16 @@
   max-width: 100% !important;
   max-height: none !important;
   aspect-ratio: 16 / 9 !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background-color: #000 !important;
 }
 
-/* Mobile: bump image rendered height to ~30% of screen so image is visually prominent.
-   Without this, on a 521px-wide phone, image renders at ~293x165px = 11.7% of screen
-   and feels "incomplete" even though aspect ratio is correct. */
+/* Mobile: image height already determined by aspect-ratio: 16/9 from width, no extra min-height needed */
 @media (max-width: 768px) {
-  .recipe-header img.hero {
-    min-height: 240px !important;
-    background: var(--line);
-  }
+  .recipe-header img.hero,
   .recipe-card img {
-    min-height: 180px !important;
-    background: var(--line);
+    background-color: #000 !important;
   }
 }
 
