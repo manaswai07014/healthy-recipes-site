@@ -178,7 +178,7 @@
 .recipe-header .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
 .recipe-header h1 { font-size: 2.75rem; margin: 0.5rem 0 0.75rem; }
 .recipe-header .lead { font-size: 1.125rem; color: var(--muted); margin-bottom: 2rem; }
-.recipe-header img.hero { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; }
+.recipe-header img.hero { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; display: block; }
 
 /* Recipe grid layout (ingredients + method) */
 .recipe-grid-layout {
@@ -189,17 +189,18 @@
 }
 @media (max-width: 768px) {
   .recipe-grid-layout { grid-template-columns: 1fr; gap: 2rem; }
-  /* P26 mobile lock: force hero + card image to 16:9, override any iOS Safari / Telegram webview intrinsic-ratio bug.
-     Use !important because some mobile browsers reset aspect-ratio when parent container width changes. */
-  .recipe-header img.hero,
-  .recipe-card img {
-    width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
+}
+/* P26 mobile lock: force hero + card image to 16:9, override any iOS Safari / Telegram webview intrinsic-ratio bug.
+   Use !important because some mobile browsers reset aspect-ratio when parent container width changes.
+   Also force height/width independent of intrinsic ratio (HTML width/height attribute now removed). */
+.recipe-header img.hero,
+.recipe-card img {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 .ingredients { background: var(--card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--line); }
 .ingredients h2 { margin-top: 0; }
