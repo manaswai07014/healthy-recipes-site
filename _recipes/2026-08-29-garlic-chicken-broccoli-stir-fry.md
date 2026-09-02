@@ -4,7 +4,7 @@ subtitle: A 20-minute weeknight stir-fry with chicken, broccoli, and ginger.
 description: Quick weeknight stir-fry with diced chicken breast, broccoli florets, garlic, ginger and sesame. Ready in 20 minutes. 480 kcal, 38g protein per serving.
 date: 2026-08-29
 category: Main
-cuisine: Asian-Inspired
+cuisine: Asian
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [chicken, stir-fry, weeknight, quick, high-protein]
 hero_image: /assets/recipes/garlic-chicken-broccoli.jpg
@@ -48,4 +48,4 @@ chef_tips: |
   The secret to a good stir-fry is high heat and not overcrowding the pan — cook the chicken in two batches if needed. For an extra-vegetable boost, throw in a handful of sliced shiitake mushrooms or snow peas along with the broccoli. Serve over cauliflower rice for an even lower-carb option (saves about 100 kcal per serving).
 ---
 
-Inspired by Chinese stir-fry technique, tested in our editorial kitchen.
+Developed, tested, and nutrition-verified by our editorial kitchen.

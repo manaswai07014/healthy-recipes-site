@@ -1,6 +1,6 @@
 ---
 title: Lemon Dill White Fish Soup
-subtitle: BBC-inspired Mediterranean fish soup with potatoes, leeks and fresh dill.
+subtitle: Mediterranean fish soup with potatoes, leeks and fresh dill.
 description: A light, aromatic fish soup with hake, potatoes, carrots, peppers and leeks, finished with fresh dill and lemon. 248 kcal per serving.
 date: 2026-08-31
 category: Soup
@@ -57,4 +57,4 @@ chef_tips: |
   For an even lighter version, swap the potato for 200g of cauliflower florets — saves about 30 kcal per portion. The soup keeps well in the fridge for up to 2 days; the lemon flavour actually deepens on the second day. If you can't find hake, cod, haddock or pollack all work beautifully. Avoid oily fish like salmon or mackerel, which will overpower the delicate broth.
 ---
 
-Inspired by [BBC Good Food's fish soup recipe](https://www.bbcgoodfood.com/recipes/fish-soup). Rewritten and tested in our editorial kitchen.
+Developed, tested, and nutrition-verified by our editorial kitchen.

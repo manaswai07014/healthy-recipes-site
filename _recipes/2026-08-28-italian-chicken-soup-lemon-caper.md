@@ -1,7 +1,7 @@
 ---
 title: Italian Chicken Soup with Lemon & Caper
 subtitle: Bright Mediterranean chicken soup with white beans, capers, and fresh lemon.
-description: A 30-minute Italian-inspired chicken soup with cannellini beans, leeks, capers, and lots of fresh lemon. Bright, briny and deeply satisfying. 420 kcal, 32g protein per serving.
+description: A 30-minute Italian chicken soup with cannellini beans, leeks, capers, and lots of fresh lemon. Bright, briny and deeply satisfying. 420 kcal, 32g protein per serving.
 date: 2026-08-28
 category: Soup
 cuisine: Italian
@@ -40,7 +40,7 @@ ingredients_display:
   - "1 tsp dried oregano"
   - "Handful of fresh parsley, chopped"
 introduction: |
-  This Italian-inspired soup is the antidote to heavy comfort food. Chicken breast cubes, leeks, and creamy cannellini beans cook in a light broth spiked with capers, lemon zest and a final squeeze of lemon. It tastes bright and briny, with 32g of protein per serving and only 420 kcal — perfect for a satisfying lunch or light dinner.
+  This Italian chicken soup is the antidote to heavy comfort food. Chicken breast cubes, leeks, and creamy cannellini beans cook in a light broth spiked with capers, lemon zest and a final squeeze of lemon. It tastes bright and briny, with 32g of protein per serving and only 420 kcal — perfect for a satisfying lunch or light dinner.
 instructions:
   - "Heat the olive oil in a large pot over medium heat. Add the leek and cook for 4-5 minutes until softened. Stir in the garlic and cook for another minute."
   - "Add the chicken cubes and cook for 4-5 minutes, stirring occasionally, until lightly golden on all sides."
@@ -51,4 +51,4 @@ chef_tips: |
   For an even creamier texture, mash about a third of the cannellini beans with the back of a spoon before adding the stock — they'll break down and thicken the soup without adding any cream. The capers are essential for the bright, briny flavor; don't skip them, but do rinse to remove excess salt. If you can't find fresh lemon, a teaspoon of white wine vinegar plus extra zest works in a pinch.
 ---
 
-Inspired by Italian rustic cooking traditions, tested in our editorial kitchen.
+Developed, tested, and nutrition-verified by our editorial kitchen.

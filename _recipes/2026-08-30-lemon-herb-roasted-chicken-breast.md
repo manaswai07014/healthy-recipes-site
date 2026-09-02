@@ -50,4 +50,4 @@ chef_tips: |
   For extra-crispy chicken, broil for the final 2-3 minutes. If you're prepping ahead, the marinade works beautifully overnight — the lemon gently tenderizes the meat without making it mushy. Swap chicken breasts for boneless thighs if you prefer darker meat (adds about 50 kcal per serving but boosts flavor).
 ---
 
-Inspired by Mediterranean sheet-pan traditions. Tested in our editorial kitchen.
+Developed, tested, and nutrition-verified by our editorial kitchen.

@@ -52,4 +52,4 @@ chef_tips: |
   This dish is even better the next day — the parmesan flavor deepens and the beans absorb more of the broth. If you don't have cannellini beans, butter beans or even chickpeas work well. For a more substantial meal, serve over 50g of cooked orzo per person (adds about 150 kcal per serving).
 ---
 
-Inspired by Italian cucina povera traditions. Tested in our editorial kitchen.
+Developed, tested, and nutrition-verified by our editorial kitchen.

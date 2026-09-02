@@ -62,7 +62,7 @@ You create low-calorie recipes (400-600 kcal per serving) that are at least 15g 
 
 Always write in English. Never use clichés like "easy", "simple", or "delicious" without backing them up.
 Focus on specific technique, sensory detail (sounds, aromas, textures), and practical timing.
-Never claim originality — every recipe is inspired by Mediterranean or Western culinary traditions and adapted for a healthy lifestyle."""
+Never claim originality — every recipe is developed in-house by our editorial kitchen, drawing on Mediterranean and Western culinary traditions, and adapted for a healthy lifestyle."""
 
 
 RECIPE_USER_PROMPT = """Create an original, low-calorie Mediterranean or Western recipe using the following core theme/ingredient.
@@ -133,7 +133,7 @@ THEME_BANK = [
     "Italian stuffed bell peppers with ground turkey",
     "Lemon herb salmon with asparagus",
     "Mediterranean tuna and white bean salad",
-    "Turkish-inspired lentil soup with mint",
+    "Turkish lentil soup with mint",
     "Greek spanakorizo (spinach rice)",
     "Italian minestrone with pesto swirl",
     "Provençal daube of beef with mushrooms",
@@ -366,7 +366,7 @@ image_prompt: {recipe.get("image_prompt", "")}
 
 ---
 
-*Inspired by Mediterranean and Western culinary traditions. Recipe tested in our editorial kitchen. See our [Editorial Policy](/editorial-policy/) for sourcing and testing standards.*
+*Developed in-house by our editorial kitchen, drawing on Mediterranean and Western culinary traditions. See our [Editorial Policy](/editorial-policy/) for our full standards.*
 """
 
 

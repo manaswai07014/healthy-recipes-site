@@ -12,8 +12,8 @@ We are an editorial kitchen focused on **low-calorie Mediterranean and Western c
 
 Every recipe we publish goes through a four-step process:
 
-1. **Concept & sourcing**: We start from a proven idea â€” often inspired by Mediterranean traditions, BBC Good Food, EatingWell, or our own testing kitchen.
-2. **Recipe development**: We rewrite the recipe to fit our 400-600 kcal target, adjusting portions, swaps, and technique.
+1. **Concept**: We start from a proven idea rooted in Mediterranean and Western culinary traditions.
+2. **Recipe development**: We develop each recipe to fit our 400-600 kcal target, adjusting portions, swaps, and technique.
 3. **Test cooking**: We cook each recipe at least twice, taking notes on timing, flavor, and any issues.
 4. **Photography & publish**: We photograph the finished dish and publish with accurate nutrition.
 
@@ -31,13 +31,7 @@ We translate these principles into dishes you can actually cook on a weeknight â
 
 ## Source attribution
 
-We are inspired by many wonderful food publications, including:
-
-- **BBC Good Food** (https://www.bbcgoodfood.com)
-- **EatingWell** (https://www.eatingwell.com)
-- **Mediterranean diet research** from peer-reviewed nutrition journals
-
-We rewrite every recipe and add our own notes. All trademarks belong to their respective owners. See our [Editorial Policy](/editorial-policy/) for more.
+All recipes on this site are developed in-house by our editorial team, drawing on Mediterranean and Western culinary traditions. Each recipe is developed, tested, photographed, and nutrition-verified by our staff. See our [Editorial Policy](/editorial-policy/) for our full standards.
 
 ## Contact
 

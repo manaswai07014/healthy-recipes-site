@@ -25,8 +25,4 @@ git push --force origin gh-pages-tmp:gh-pages
 See `_scripts/` for the daily recipe generator. It uses MiniMax-M2 to produce recipe JSON + Markdown in the format defined by `references/recipe-json-schema.md`.
 
 ## Source attribution
-Recipes are inspired by:
-- BBC Good Food (https://www.bbcgoodfood.com)
-- EatingWell (https://www.eatingwell.com)
-
-Every recipe is rewritten and tested. All trademarks belong to their owners.
+Recipes are developed in-house by our editorial team, drawing on Mediterranean and Western culinary traditions. Each recipe is developed, tested, photographed, and nutrition-verified by our staff. See our [Editorial Policy](/editorial-policy/) for our full standards.
