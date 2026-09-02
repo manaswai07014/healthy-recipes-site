@@ -142,6 +142,21 @@ THEME_BANK = [
     "Italian osso buco with gremolata",
     "French salmon en papillote with herbs",
     "Spanish paella with chicken and seafood",
+    # Expanded 2026-09-02 based on category research (broad low-calorie/Mediterranean
+    # patterns observed across multiple recipe publications — see skill healthy-recipes-site
+    # P28: 'Topic diversity expansion'. No specific recipes or URLs referenced.)
+    "One-skillet salmon with garlicky broccoli",
+    "Sheet-pan shrimp with pineapple and peppers",
+    "Quinoa bowl with feta, olives and tomatoes",
+    "Lentil and lamb burgers with tzatziki",
+    "Vegetarian sushi grain bowl with edamame",
+    "Turkey and black bean enchilada skillet",
+    "Chicken fajita bowl with cauliflower rice",
+    "Miso-glazed cod with sesame greens",
+    "Thai-style chicken lettuce wraps with lime",
+    "Moroccan chickpea and sweet potato tagine",
+    "Vietnamese-style chicken pho with zucchini noodles",
+    "Tofu and vegetable stir-fry with ginger-scallion sauce",
     "Greek moussaka with lamb and eggplant",
     "Italian cacio e pepe with green peas",
     "Moroccan tagine of chicken with preserved lemon",
