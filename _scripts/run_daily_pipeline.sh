@@ -1,6 +1,12 @@
 #!/bin/bash
 # Healthy Western Recipes — Daily Pipeline
 # Runs at 08:00 HKT (00:00 UTC) to generate one new recipe
+#
+# Updated 2026-09-02 by 惠惠 — P4 fix:
+# - REMOVED `git subtree split --prefix=. -b gh-pages-tmp` (CF Pages auto-builds from main; gh-pages not needed)
+# - REMOVED `git push --force origin gh-pages-tmp:gh-pages` (would trigger Hermes DANGEROUS_PATTERNS block)
+# - REMOVED `git branch -D gh-pages-tmp` (cleanup of removed branch)
+# Simplified: generate recipe → commit → push main → CF Pages auto-build → live
 
 set -euo pipefail
 
@@ -17,14 +23,14 @@ echo "Project: ${PROJECT_ROOT}" | tee -a "${LOG_FILE}"
 
 cd "${PROJECT_ROOT}"
 
-# Step 1/3: Generate new recipe via LLM
-echo "[1/3] Generating recipe..." | tee -a "${LOG_FILE}"
+# Step 1/2: Generate new recipe via LLM
+echo "[1/2] Generating recipe..." | tee -a "${LOG_FILE}"
 /home/hermes/apps/hermes-agent/venv/bin/python3 _scripts/generate_recipe.py \
     --count 1 \
     2>&1 | tee -a "${LOG_FILE}"
 
-# Step 2/3: Git commit + push to main
-echo "[2/3] Committing to git..." | tee -a "${LOG_FILE}"
+# Step 2/2: Git commit + push to main (CF Pages auto-builds from main)
+echo "[2/2] Committing to git..." | tee -a "${LOG_FILE}"
 cd "${PROJECT_ROOT}"
 
 # Add only new/changed recipes
@@ -43,27 +49,8 @@ LLM: ${RECIPE_LLM_MODEL:-MiniMax-M2}"
 
 git commit -m "${COMMIT_MSG}" 2>&1 | tee -a "${LOG_FILE}"
 
-# Push main (no force, regular push)
+# Push main — CF Pages watches main branch and auto-builds
+# IMPORTANT: do NOT use --force; do NOT use subtree split; CF Pages needs regular main push
 git push origin main 2>&1 | tee -a "${LOG_FILE}"
 
-# Step 3/3: Subtree split + force push to gh-pages
-echo "[3/3] Deploying to gh-pages..." | tee -a "${LOG_FILE}"
-git subtree split --prefix=. -b gh-pages-tmp 2>&1 | tee -a "${LOG_FILE}"
-
-# Compare hashes — skip force push if identical
-LOCAL=$(git rev-parse gh-pages-tmp)
-REMOTE=$(git ls-remote origin gh-pages 2>/dev/null | awk '{print $1}' || echo "")
-
-if [ "${LOCAL}" != "${REMOTE}" ]; then
-    echo "gh-pages differs — forcing push (will trigger approval)" | tee -a "${LOG_FILE}"
-    git push --force origin gh-pages-tmp:gh-pages 2>&1 | tee -a "${LOG_FILE}" || {
-        echo "Force push failed — likely awaiting approval" | tee -a "${LOG_FILE}"
-    }
-else
-    echo "gh-pages identical to local — skipping force push" | tee -a "${LOG_FILE}"
-fi
-
-# Cleanup local branch (may fail if branch protection; safe to leave)
-git branch -D gh-pages-tmp 2>/dev/null || true
-
-echo "=== Pipeline complete ===" | tee -a "${LOG_FILE}"
+echo "=== Pipeline complete — CF Pages will auto-build in ~60s ===" | tee -a "${LOG_FILE}"

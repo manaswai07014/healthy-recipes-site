@@ -55,6 +55,8 @@ defaults:
       layout: ingredient_page
       seo: false
 
+include:
+  - _redirects
 exclude:
   - _scripts
   - Gemfile
