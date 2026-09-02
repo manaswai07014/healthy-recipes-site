@@ -190,25 +190,49 @@
 @media (max-width: 768px) {
   .recipe-grid-layout { grid-template-columns: 1fr; gap: 2rem; }
 }
-/* P26 v5: object-fit: contain so image is 100% visible (no crop), black background fills container. */
-.recipe-header img.hero,
-.recipe-card img {
-  display: block !important;
+/* P26 v6: image-rendered-too-small fix. Use padding-bottom trick (intrinsic-free)
+   to FORCE container to be 16:9 regardless of <img> intrinsic dimensions.
+   This fixes Android native app / PWA / older WebKit browsers that ignore
+   CSS aspect-ratio when <img> has intrinsic dimensions.
+
+   Strategy:
+   - Wrap <img> in <div class="hero-wrap"> (recipe.html change)
+   - Apply padding-bottom: 56.25% (9/16) on .hero-wrap to lock aspect ratio
+   - Position <img> absolutely inside .hero-wrap to fill 100% x 100%
+   - No CSS aspect-ratio (skipped by some Android browsers) */
+.hero-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
+  border-radius: 8px;
+}
+.hero-wrap img.hero {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
   max-width: 100% !important;
-  max-height: none !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-  background-color: #000 !important;
+  max-height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
 }
 
-/* Mobile: image height already determined by aspect-ratio: 16/9 from width, no extra min-height needed */
-@media (max-width: 768px) {
-  .recipe-header img.hero,
-  .recipe-card img {
-    background-color: #000 !important;
+/* Old iOS Safari / Webkit fallback: same approach. */
+@supports not (aspect-ratio: 16 / 9) {
+  .hero-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
   }
 }
 
