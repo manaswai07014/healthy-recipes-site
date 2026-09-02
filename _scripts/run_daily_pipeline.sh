@@ -6,9 +6,18 @@
 # - REMOVED `git subtree split --prefix=. -b gh-pages-tmp` (CF Pages auto-builds from main; gh-pages not needed)
 # - REMOVED `git push --force origin gh-pages-tmp:gh-pages` (would trigger Hermes DANGEROUS_PATTERNS block)
 # - REMOVED `git branch -D gh-pages-tmp` (cleanup of removed branch)
+# - ADDED env loading from /home/hermes/.hermes/.env (cron does not inherit shell env)
 # Simplified: generate recipe → commit → push main → CF Pages auto-build → live
 
 set -euo pipefail
+
+# Load env (cron context has no shell env, so explicitly source from Hermes .env)
+# set -a exports every subsequently-defined variable; set +a stops it.
+if [ -f /home/hermes/.hermes/.env ]; then
+    set -a
+    source /home/hermes/.hermes/.env
+    set +a
+fi
 
 PROJECT_ROOT="/home/hermes/healthy-recipes-site"
 LOG_DIR="${HOME}/healthy-recipes-logs"
