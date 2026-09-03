@@ -12,7 +12,7 @@ diet_tags: &id001
 - High-Protein
 - Quick
 tags: *id001
-hero_image: /assets/recipes/2026-09-03-mediterranean-chicken-tray-bake-with-feta.jpg
+hero_image: /assets/recipes/mediterranean-chicken-tray-bake-with-feta.jpg
 prep_time: 15
 cook_time: 35
 total_time: 50
