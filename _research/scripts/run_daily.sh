@@ -44,7 +44,14 @@ echo "[2/3] Adapting via LLM..." | tee -a "${LOG_FILE}"
     --count 5 2>&1 | tee -a "${LOG_FILE}" || echo "  [WARN] adapt had errors" | tee -a "${LOG_FILE}"
 
 # Step 3/3: Ingest to DB + markdown export
-echo "[3/3] Ingesting to SQLite + markdown..." | tee -a "${LOG_FILE}"
+echo "[3/4] Ingesting to SQLite + markdown..." | tee -a "${LOG_FILE}"
 /home/hermes/apps/hermes-agent/venv/bin/python3 _research/scripts/ingest_to_db.py 2>&1 | tee -a "${LOG_FILE}" || echo "  [WARN] ingest had errors" | tee -a "${LOG_FILE}"
 
-echo "=== Pipeline complete — review wiki/bbc/ and wiki/eatingwell/ for new entries ===" | tee -a "${LOG_FILE}"
+# Step 4/4: Auto-publish validated recipes to live Jekyll site
+# (P26 invariant: hero image is generated inline via MiniMax API;
+#  P44 invariant: dedup check rejects collisions with existing _recipes/ titles;
+#  publishes up to 3 recipes per cron run to avoid quota spikes.)
+echo "[4/4] Publishing validated recipes to site..." | tee -a "${LOG_FILE}"
+/home/hermes/apps/hermes-agent/venv/bin/python3 _research/scripts/publish_to_site.py --limit 3 2>&1 | tee -a "${LOG_FILE}" || echo "  [WARN] publish had errors" | tee -a "${LOG_FILE}"
+
+echo "=== Pipeline complete — recipes published to https://healthy-recipes-site.pages.dev/ ===" | tee -a "${LOG_FILE}"
