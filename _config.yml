@@ -8,6 +8,13 @@ baseurl: ""
 lang: en
 timezone: Asia/Hong_Kong
 
+feed:
+  path: feed.xml
+  collections:
+    recipes:
+      path: feed.xml
+      output: true
+
 permalink: /:title/
 plugins:
   - jekyll-seo-tag
@@ -43,6 +50,9 @@ collections:
   cuisines:
     output: true
     permalink: /cuisines/:path/
+  categories:
+    output: true
+    permalink: /categories/:path/
 
 defaults:
   - scope:

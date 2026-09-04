@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://healthy-recipes.pages.dev/sitemap.xml
+Sitemap: https://healthy-recipes-site.pages.dev/sitemap.xml

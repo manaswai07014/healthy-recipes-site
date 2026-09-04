@@ -1,0 +1,38 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+description: Browse healthy recipes by category — Main, Soup, Salad, Side, Breakfast.
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li aria-current="page">Categories</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="categories-index">
+  <div class="container">
+    <header>
+      <h1>Browse Recipes by Category</h1>
+      <p class="lead">Pick the kind of dish you're cooking tonight. Each category stays under 600 kcal with at least 15g of protein per serving.</p>
+    </header>
+
+    {%- assign category_names = "Main,Soup,Salad,Side,Breakfast" | split: "," -%}
+    <ul class="category-grid">
+      {%- for cat in category_names -%}
+        {%- assign cslug = cat | downcase -%}
+        {%- assign count = site.recipes | where: 'category', cat | size -%}
+        <li class="category-card">
+          <a href="{{ '/categories/' | relative_url }}{{ cslug }}/">
+            <h2>{{ cat }}</h2>
+            <p class="count">{{ count }} recipe{% if count != 1 %}s{% endif %}</p>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</article>
