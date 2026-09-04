@@ -1,0 +1,49 @@
+---
+layout: default
+title: Quick Recipes
+permalink: /quick/
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/recipes/' | relative_url }}">Recipes</a></li>
+      <li aria-current="page">Quick (&lt; 30 min)</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="filter-page">
+  <div class="container">
+    <header>
+      <h1>Quick Recipes (&lt; 30 Minutes)</h1>
+      <p class="lead">Healthy weeknight dinners ready in 30 minutes or less — every recipe still hits the 400-600 kcal / 15g protein bar.</p>
+    </header>
+
+    {%- assign quick = site.recipes | where_exp: 'r', 'r.total_time <= 30' | sort: 'date' | reverse -%}
+    {%- if quick and quick.size > 0 -%}
+    <p class="result-count">{{ quick | size }} recipe{% if quick.size != 1 %}s{% endif %} matched.</p>
+    <ul class="recipe-grid">
+      {%- for r in quick -%}
+      <li class="recipe-card">
+        <a href="{{ r.url | relative_url }}">
+          {%- if r.hero_image -%}
+            <div class="hero-wrap"><img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" loading="lazy"></div>
+          {%- endif -%}
+          <h3>{{ r.title }}</h3>
+          {%- if r.subtitle -%}<p class="recipe-subtitle">{{ r.subtitle }}</p>{%- endif -%}
+          <div class="badges">
+            <span class="badge badge-cal">{{ r.calories }} kcal</span>
+            <span class="badge badge-pro">{{ r.protein }}g protein</span>
+            <span class="badge badge-time">{{ r.total_time }} min</span>
+          </div>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <p>No recipes yet — check back soon.</p>
+    {%- endif -%}
+  </div>
+</article>

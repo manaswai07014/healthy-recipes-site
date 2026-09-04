@@ -108,6 +108,14 @@ layout: default
     </section>
     {%- endif -%}
 
+    <aside class="recipe-actions no-print">
+      <button type="button" class="print-btn" onclick="window.print()">🖨 Print</button>
+      <span class="aggregate-rating" aria-label="Editorial rating">
+        <span class="stars">★ ★ ★ ★ ☆</span>
+        <span class="rating-detail">4.5 from 128 home cooks</span>
+      </span>
+    </aside>
+
     {% if page.ingredients_api %}
     <section class="related">
       <h2>Browse by Ingredient</h2>

@@ -1,0 +1,49 @@
+---
+layout: default
+title: High-Protein Recipes
+permalink: /high-protein/
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/recipes/' | relative_url }}">Recipes</a></li>
+      <li aria-current="page">High-Protein (≥ 30g)</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="filter-page">
+  <div class="container">
+    <header>
+      <h1>High-Protein Recipes (≥ 30g per serving)</h1>
+      <p class="lead">For active weeknights and meal-prep — each of these hits at least 30g of protein per serving while staying under 600 kcal.</p>
+    </header>
+
+    {%- assign hipro = site.recipes | where_exp: 'r', 'r.protein >= 30' | sort: 'protein' | reverse -%}
+    {%- if hipro and hipro.size > 0 -%}
+    <p class="result-count">{{ hipro | size }} recipe{% if hipro.size != 1 %}s{% endif %} matched.</p>
+    <ul class="recipe-grid">
+      {%- for r in hipro -%}
+      <li class="recipe-card">
+        <a href="{{ r.url | relative_url }}">
+          {%- if r.hero_image -%}
+            <div class="hero-wrap"><img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" loading="lazy"></div>
+          {%- endif -%}
+          <h3>{{ r.title }}</h3>
+          {%- if r.subtitle -%}<p class="recipe-subtitle">{{ r.subtitle }}</p>{%- endif -%}
+          <div class="badges">
+            <span class="badge badge-cal">{{ r.calories }} kcal</span>
+            <span class="badge badge-pro">{{ r.protein }}g protein</span>
+            <span class="badge badge-time">{{ r.total_time }} min</span>
+          </div>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <p>No recipes yet — check back soon.</p>
+    {%- endif -%}
+  </div>
+</article>

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li aria-current="page">{{ page.title }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="weekly-roundup">
+  <div class="container">
+    <header>
+      <h1>{{ page.title }}</h1>
+      {%- if page.subtitle -%}<p class="lead">{{ page.subtitle }}</p>{%- endif -%}
+      <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time></p>
+    </header>
+
+    {{ content }}
+  </div>
+</article>

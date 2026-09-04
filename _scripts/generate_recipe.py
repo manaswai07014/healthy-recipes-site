@@ -468,7 +468,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate a healthy recipe")
     parser.add_argument("--count", type=int, default=1, help="Number of recipes to generate")
     parser.add_argument("--dry-run", action="store_true", help="Print but don't write")
-    parser.add_argument("--theme", help="Override theme (for testing)")
+    parser.add_argument("--theme", action="append", default=[], help="Override theme (repeatable; must supply --count == number of --theme args)")
     args = parser.parse_args()
 
     print(f"=== Healthy Recipe Pipeline ===")
@@ -486,7 +486,13 @@ def main():
     skipped = 0
 
     for i in range(args.count):
-        theme = args.theme or pick_theme(recent_titles)
+        if args.theme and len(args.theme) == args.count:
+            theme = args.theme[i]
+        elif args.theme:
+            print(f"  ⚠ --theme count ({len(args.theme)}) != --count ({args.count}); falling back to pick_theme()", file=sys.stderr)
+            theme = pick_theme(recent_titles)
+        else:
+            theme = pick_theme(recent_titles)
         print(f"\n[{i+1}/{args.count}] Theme: {theme}")
 
         recipe = call_llm(theme)
