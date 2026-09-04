@@ -33,6 +33,8 @@ import urllib.error
 # ---------------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parents[1]
 RECIPES_DIR = ROOT / "_recipes"
+ASSETS_DIR = ROOT / "assets" / "recipes"
+ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR = Path.home() / "healthy-recipes-logs"
 LOG_DIR.mkdir(exist_ok=True)
 
@@ -42,6 +44,9 @@ LOG_DIR.mkdir(exist_ok=True)
 LLM_ENDPOINT = os.environ.get("MINIMAX_CN_BASE_URL", "https://api.minimaxi.com/anthropic")
 LLM_API_KEY = os.environ.get("MINIMAX_CN_API_KEY", "")
 LLM_MODEL = os.environ.get("RECIPE_LLM_MODEL", "MiniMax-M2")
+
+# MiniMax image gen endpoint (separate from LLM endpoint)
+IMAGE_GEN_URL = "https://api.minimaxi.com/v1/image_generation"
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -306,6 +311,77 @@ def call_llm(theme: str, max_retries: int = 2) -> Optional[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Hero image generation (P45 inline atomic step — 2026-09-04 惠惠)
+#
+# MUST be called immediately after render_recipe_markdown(), BEFORE
+# write_text(). If image gen raises, do NOT write the .md file → cron abort,
+# broken frontmatter never enters working tree.
+#
+# Uses MiniMax image-01 (https://api.minimaxi.com/v1/image_generation).
+# Output: 1280×720 JPEG (~300KB), 16:9 ratio (P28 invariant).
+# ---------------------------------------------------------------------------
+def generate_hero_image(slug: str, image_prompt: str) -> Path:
+    """Generate hero image and save to assets/recipes/{slug}.jpg.
+
+    Returns the saved Path. Raises on any failure (no silent fallback).
+    """
+    if not LLM_API_KEY:
+        raise RuntimeError(
+            "MINIMAX_CN_API_KEY not set; cannot generate hero image. "
+            "Source /home/hermes/.hermes/.env in cron wrapper."
+        )
+    if not image_prompt or len(image_prompt.strip()) < 10:
+        raise ValueError(f"image_prompt too short/empty: {image_prompt!r}")
+
+    payload = json.dumps({
+        "model": "image-01",
+        "prompt": image_prompt,
+        "aspect_ratio": "16:9",
+        "n": 1,
+        "response_format": "url",
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        IMAGE_GEN_URL,
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {LLM_API_KEY}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        body = json.loads(resp.read().decode("utf-8"))
+
+    if body.get("base_resp", {}).get("status_code") != 0:
+        raise RuntimeError(f"MiniMax image gen non-zero status: {body}")
+
+    image_urls = body.get("data", {}).get("image_urls") or []
+    if not image_urls:
+        raise RuntimeError(f"MiniMax image gen returned no URLs: {body}")
+
+    image_url = image_urls[0]
+    out_path = ASSETS_DIR / f"{slug}.jpg"
+
+    with urllib.request.urlopen(image_url, timeout=60) as img_resp:
+        out_path.write_bytes(img_resp.read())
+
+    # Sanity: file must be > 50KB and look like JPEG (JFIF magic bytes)
+    if out_path.stat().st_size < 50_000:
+        out_path.unlink(missing_ok=True)
+        raise RuntimeError(f"hero image too small ({out_path.stat().st_size} bytes), discarded")
+    with open(out_path, "rb") as f:
+        magic = f.read(3)
+    if magic != b"\xff\xd8\xff":
+        out_path.unlink(missing_ok=True)
+        raise RuntimeError(f"hero image not JPEG (magic={magic!r}), discarded")
+
+    print(f"  🖼  Hero image: {out_path} ({out_path.stat().st_size} bytes)")
+    return out_path
+
+
+# ---------------------------------------------------------------------------
 # Recipe → Markdown
 # ---------------------------------------------------------------------------
 def render_recipe_markdown(recipe: dict, slug: str) -> str:
@@ -433,6 +509,16 @@ def main():
             print(f"  DRY-RUN would write: {out_path}")
             print(f"  ({len(md)} chars)")
         else:
+            # P45 inline atomic image gen — MUST run BEFORE write_text.
+            # If this raises, .md is NOT written → cron abort → no broken
+            # frontmatter enters working tree. Image + markdown must land
+            # in the SAME commit.
+            try:
+                generate_hero_image(slug, recipe.get("image_prompt", ""))
+            except Exception as e:
+                print(f"  ❌ Hero image gen FAILED: {e}", file=sys.stderr)
+                raise  # propagate up; cron wrapper will see non-zero exit
+
             out_path.write_text(md, encoding="utf-8")
             print(f"  ✓ Wrote: {out_path}")
             generated += 1

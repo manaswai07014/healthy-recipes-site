@@ -32,18 +32,27 @@ echo "Project: ${PROJECT_ROOT}" | tee -a "${LOG_FILE}"
 
 cd "${PROJECT_ROOT}"
 
-# Step 1/2: Generate new recipe via LLM
+# Step 1/2: Generate new recipe via LLM (P45 inline atomic: markdown + image)
 echo "[1/2] Generating recipe..." | tee -a "${LOG_FILE}"
 /home/hermes/apps/hermes-agent/venv/bin/python3 _scripts/generate_recipe.py \
     --count 1 \
     2>&1 | tee -a "${LOG_FILE}"
 
+# Step 1.5/2: P45 Layer 2 pre-flight gate — verify ALL recipe hero_image
+# paths point to real local files. If any missing, abort BEFORE git add.
+echo "[1.5/2] P45 Layer 2 image asset gate..." | tee -a "${LOG_FILE}"
+bash /home/hermes/.hermes/skills/media/healthy-recipes-site/scripts/verify-recipe-image-assets.sh \
+    2>&1 | tee -a "${LOG_FILE}" || {
+    echo "❌ P45 ABORT: missing hero_image assets, cron aborted before commit" | tee -a "${LOG_FILE}"
+    exit 1
+}
+
 # Step 2/2: Git commit + push to main (CF Pages auto-builds from main)
 echo "[2/2] Committing to git..." | tee -a "${LOG_FILE}"
 cd "${PROJECT_ROOT}"
 
-# Add only new/changed recipes
-git add _recipes/*.md
+# Add only new/changed recipes + their hero images (atomic single commit, P45 + P48)
+git add _recipes/*.md assets/recipes/*.jpg
 
 # Check if there are any changes
 if git diff --cached --quiet; then
