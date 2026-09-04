@@ -81,9 +81,9 @@
       {%- endfor -%}
     ],
     "recipeInstructions": [
-      {%- assign ins_count = page.instructions | size -%}
+      {%- assign last_idx = page.instructions | size | minus: 1 -%}
       {%- for step in page.instructions -%}
-      {"@type": "HowToStep", "position": {{ forloop.index }}, "text": {{ step | jsonify }}, "url": "#step-{{ forloop.index }}"}}{%- if forloop.last == false -%},{%- endif -%}
+      {"@type": "HowToStep", "position": {{ forloop.index }}, "text": {{ step | jsonify }}, "url": "#step-{{ forloop.index }}"}}{% if forloop.index0 < last_idx %},{% endif %}
       {%- endfor -%}
     ],
     "aggregateRating": {
