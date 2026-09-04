@@ -78,6 +78,36 @@ layout: default
     </aside>
     {% endif %}
 
+    {%- assign related = empty -%}
+    {%- if page.cuisine -%}
+      {%- assign related = site.recipes | where: 'cuisine', page.cuisine | where_exp: 'r', 'r.url != page.url' -%}
+    {%- endif -%}
+    {%- if related and related.size > 0 -%}
+    <section class="related-recipes">
+      <h2>More {{ page.cuisine }} Recipes</h2>
+      <ul class="recipe-grid">
+        {%- for r in related | limit: 3 -%}
+        <li class="recipe-card">
+          <a href="{{ r.url | relative_url }}">
+            {%- if r.hero_image -%}
+            <div class="hero-wrap">
+              <img src="{{ r.hero_image | relative_url }}" alt="{{ r.title }}" loading="lazy">
+            </div>
+            {%- endif -%}
+            <h3>{{ r.title }}</h3>
+            {%- if r.subtitle -%}<p class="recipe-subtitle">{{ r.subtitle }}</p>{%- endif -%}
+            <div class="badges">
+              <span class="badge badge-cal">{{ r.calories }} kcal</span>
+              <span class="badge badge-pro">{{ r.protein }}g protein</span>
+              <span class="badge badge-time">{{ r.total_time }} min</span>
+            </div>
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+    {%- endif -%}
+
     {% if page.ingredients_api %}
     <section class="related">
       <h2>Browse by Ingredient</h2>

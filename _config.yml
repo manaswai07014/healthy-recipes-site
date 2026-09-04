@@ -40,6 +40,9 @@ collections:
   ingredients:
     output: true
     permalink: /ingredients/:path/
+  cuisines:
+    output: true
+    permalink: /cuisines/:path/
 
 defaults:
   - scope:

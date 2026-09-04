@@ -1,0 +1,41 @@
+---
+layout: default
+title: Cuisines
+permalink: /cuisines/
+description: Browse all healthy recipes by cuisine — Italian, Mediterranean, Greek, French, Spanish, and more.
+---
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li aria-current="page">Cuisines</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="cuisines-index">
+  <div class="container">
+    <header>
+      <h1>Browse Recipes by Cuisine</h1>
+      <p class="lead">Every recipe stays under 600 kcal per serving with at least 15g of protein — but the flavor profiles span eight cuisines. Pick one to see what fits your weeknight.</p>
+    </header>
+
+    {%- assign cuisines_data = site.cuisines -%}
+    {%- if cuisines_data and cuisines_data.size > 0 -%}
+    <ul class="cuisine-grid">
+      {%- assign cuisines_sorted = cuisines_data | sort: 'title' -%}
+      {%- for c in cuisines_sorted -%}
+      <li class="cuisine-card">
+        <a href="{{ c.url | relative_url }}">
+          <h2>{{ c.title }}</h2>
+          <p class="count">{%- assign cnt = site.recipes | where: 'cuisine', c.title | size -%}{{ cnt }} recipe{% if cnt != 1 %}s{% endif %}</p>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    {%- else -%}
+    <p>No cuisines indexed yet.</p>
+    {%- endif -%}
+  </div>
+</article>
