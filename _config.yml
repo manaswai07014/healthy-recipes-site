@@ -55,6 +55,15 @@ collections:
     permalink: /categories/:path/
 
 defaults:
+  # P62: All root pages (about, editorial-policy, ai-disclosure, etc.) MUST use default layout
+  # Without explicit `layout: default`, Jekyll renders raw markdown with NO <head> tags —
+  # 0 <title>, 0 meta description, 0 OG tags, 0 JSON-LD. Google won't index.
+  # (Discovered 2026-09-06: live /about/ HTML had 0 <title> tags despite frontmatter having title.)
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
   - scope:
       path: ""
       type: recipes
