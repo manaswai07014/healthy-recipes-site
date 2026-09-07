@@ -213,7 +213,9 @@
   padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
   height: 0;
   overflow: hidden;
-  background-color: #000;
+  /* P63: Use semantic --hero-bg token instead of legacy #000 (html-css-style-color-guide).
+     Maps to deep neutral in both light + dark themes for image fallback. */
+  background-color: var(--hero-bg, #1a1815);
   border-radius: 8px;
 }
 .hero-wrap img.hero {
