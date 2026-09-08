@@ -40,12 +40,22 @@ echo "[1/2] Generating recipe..." | tee -a "${LOG_FILE}"
 
 # Step 1.5/2: P45 Layer 2 pre-flight gate — verify ALL recipe hero_image
 # paths point to real local files. If any missing, abort BEFORE git add.
+# P68: Use project-local script (git tracked) instead of skill-dir script.
+# Falls back to skill-dir for backwards compatibility.
 echo "[1.5/2] P45 Layer 2 image asset gate..." | tee -a "${LOG_FILE}"
-bash /home/hermes/.hermes/skills/media/healthy-recipes-site/scripts/verify-recipe-image-assets.sh \
-    2>&1 | tee -a "${LOG_FILE}" || {
-    echo "❌ P45 ABORT: missing hero_image assets, cron aborted before commit" | tee -a "${LOG_FILE}"
-    exit 1
-}
+if [ -f "${PROJECT_ROOT}/_scripts/verify-recipe-image-assets.sh" ]; then
+    bash "${PROJECT_ROOT}/_scripts/verify-recipe-image-assets.sh" \
+        2>&1 | tee -a "${LOG_FILE}" || {
+        echo "❌ P45 ABORT: missing hero_image assets, cron aborted before commit" | tee -a "${LOG_FILE}"
+        exit 1
+    }
+else
+    bash /home/hermes/.hermes/skills/media/healthy-recipes-site/scripts/verify-recipe-image-assets.sh \
+        2>&1 | tee -a "${LOG_FILE}" || {
+        echo "❌ P45 ABORT: missing hero_image assets, cron aborted before commit" | tee -a "${LOG_FILE}"
+        exit 1
+    }
+fi
 
 # Step 2/2: Git commit + push to main (CF Pages auto-builds from main)
 echo "[2/2] Committing to git..." | tee -a "${LOG_FILE}"
