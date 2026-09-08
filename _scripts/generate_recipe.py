@@ -171,6 +171,19 @@ THEME_BANK = [
     "Italian pesto-crusted cod with green beans",
     "French soupe au pistou",
     "Spanish pulpo a la gallega (Galician octopus)",
+    # P70 (2026-09-08): Expanded theme bank with 9 NEW low-cal Mediterranean themes
+    # from EatingWell 22-recipe roundup. Each theme introduces a NEW protein we have
+    # not published yet (existing proteins: chicken x5, salmon x3, tofu, turkey, etc.).
+    # All themes comply with P26 hard rule: <30 min, <575 kcal, ≥15g protein.
+    "Stuffed pepper casserole with ground beef and smoked paprika",
+    "Greek-inspired lamb burgers with herb-feta yogurt sauce",
+    "Pistachio-crusted halibut with lemon and herbs",
+    "Prosciutto pizza with corn, arugula, and shaved parmesan",
+    "Baked mahi-mahi with garlic-herb butter and lemon slices",
+    "Scallops with lemon-basil sauce over zucchini noodles",
+    "Sheet-pan halibut with cherry tomatoes and olives",
+    "Low-carb ground turkey zucchini boats with smoked paprika",
+    "One-pot whole-wheat pasta with spinach and cherry tomatoes",
 ]
 
 
