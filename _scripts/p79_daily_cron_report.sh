@@ -19,8 +19,18 @@ set -uo pipefail
 
 export TZ=Asia/Hong_Kong
 
+# P81: Source .env so TELEGRAM_BOT_TOKEN and TELEGRAM_HOME_CHANNEL are loaded.
+# Without this, cron context (which has no .env inherited from shell) falls
+# back to the hardcoded defaults below — and 8726708023 is the BOT's own ID,
+# causing Telegram API 403 "bot can't send to bot".
+if [ -f /home/hermes/.hermes/.env ]; then
+    set -a
+    source /home/hermes/.hermes/.env
+    set +a
+fi
+
 TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-$(grep TELEGRAM_BOT_TOKEN /home/hermes/.hermes/.env | cut -d= -f2)}"
-TELEGRAM_HOME_CHANNEL="${TELEGRAM_HOME_CHANNEL:-8726708023}"
+TELEGRAM_HOME_CHANNEL="${TELEGRAM_HOME_CHANNEL:-6394565017}"
 PROJECT_ROOT="/home/hermes/healthy-recipes-site"
 CAR_PROJECT="/home/hermes/car-evolution-project"
 LOG_DIR="/home/hermes/healthy-recipes-logs"
@@ -148,6 +158,15 @@ if [ -n "$TELEGRAM_BOT_TOKEN" ]; then
     curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
         -d "chat_id=${TELEGRAM_HOME_CHANNEL}" \
         -d "text=${MESSAGE}" \
-        --max-time 15 > /dev/null 2>&1
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Report sent (${#MESSAGE} chars)" >> "${LOG_DIR}/daily-report.log"
+        --max-time 15 > /tmp/p79-telegram-response.json 2>&1
+    
+    # P80: Verify Telegram API returned ok=true. Without this check, P79
+    # silently "succeeds" even when API returns 403/400 (e.g. wrong chat_id).
+    if grep -q '"ok":true' /tmp/p79-telegram-response.json 2>/dev/null; then
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Report sent (${#MESSAGE} chars)" >> "${LOG_DIR}/daily-report.log"
+    else
+        ERROR=$(grep -oE '"description":"[^"]+"' /tmp/p79-telegram-response.json 2>/dev/null | head -1)
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Report FAILED: ${ERROR:-unknown}" >> "${LOG_DIR}/daily-report.log"
+    fi
+    rm -f /tmp/p79-telegram-response.json
 fi

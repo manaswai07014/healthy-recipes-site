@@ -17,7 +17,7 @@ set -uo pipefail
 PROJECT_ROOT="/home/hermes/healthy-recipes-site"
 LOG_DIR="/home/hermes/healthy-recipes-logs"
 TELEGRAM_BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-$(grep TELEGRAM_BOT_TOKEN /home/hermes/.hermes/.env | cut -d= -f2)}"
-TELEGRAM_HOME_CHANNEL="${TELEGRAM_HOME_CHANNEL:-8726708023}"
+TELEGRAM_HOME_CHANNEL="${TELEGRAM_HOME_CHANNEL:-6394565017}"
 
 # P73 timezone: HKT
 export TZ=Asia/Hong_Kong
