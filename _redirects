@@ -1,8 +1,39 @@
-# Cloudflare Pages redirects — Netlify format
-# Generated 2026-09-02 by 惠惠 (P2 SEO: flat URL → date-hierarchy URL)
+# _redirects — Cloudflare Pages (Netlify format)
+# Generated 2026-09-12 by 惠惠 (W82: waimind.com migration)
+#
+# Rules applied in order:
+# 1. Old flat recipe URLs → new date-hierarchy URLs (preserve SEO)
+# 2. Everything else on healthy-recipes-site.pages.dev → waimind.com/:path
+#
+# Old subdomain (healthy-recipes-site.pages.dev) will 301 redirect to waimind.com
+# Once Google reindexes (2-4 weeks), can remove old subdomain access.
 
 /2026-08-27-one-pot-parmesan-chicken-white-beans/   /2026/08/27/one-pot-parmesan-chicken-white-beans/   301
-/2026-08-28-italian-chicken-soup-lemon-caper/        /2026/08/28/italian-chicken-soup-lemon-caper/        301
-/2026-08-29-garlic-chicken-broccoli-stir-fry/        /2026/08/29/garlic-chicken-broccoli-stir-fry/        301
-/2026-08-30-lemon-herb-roasted-chicken-breast/       /2026/08/30/lemon-herb-roasted-chicken-breast/       301
-/2026-08-31-lemon-dill-white-fish-soup/              /2026/08/31/lemon-dill-white-fish-soup/              301
+/2026-08-28-italian-chicken-soup-lemon-caper/   /2026/08/28/italian-chicken-soup-lemon-caper/   301
+/2026-08-29-garlic-chicken-broccoli-stir-fry/   /2026/08/29/garlic-chicken-broccoli-stir-fry/   301
+/2026-08-30-lemon-herb-roasted-chicken-breast/   /2026/08/30/lemon-herb-roasted-chicken-breast/   301
+/2026-08-31-lemon-dill-white-fish-soup/   /2026/08/31/lemon-dill-white-fish-soup/   301
+/2026-09-02-one-skillet-salmon-with-garlicky-broccoli/   /2026/09/02/one-skillet-salmon-with-garlicky-broccoli/   301
+/2026-09-03-burrata-with-slow-simmered-tomato-sauce/   /2026/09/03/burrata-with-slow-simmered-tomato-sauce/   301
+/2026-09-03-grilled-halloumi-horiatiki-salad-with-chickpeas/   /2026/09/03/grilled-halloumi-horiatiki-salad-with-chickpeas/   301
+/2026-09-03-lemon-herb-baked-salmon-over-orzo/   /2026/09/03/lemon-herb-baked-salmon-over-orzo/   301
+/2026-09-03-mediterranean-chicken-tray-bake-with-feta/   /2026/09/03/mediterranean-chicken-tray-bake-with-feta/   301
+/2026-09-04-linguine-with-white-wine-seafood/   /2026/09/04/linguine-with-white-wine-seafood/   301
+/2026-09-04-mediterranean-berry-protein-bowl-with-honey-toasted-granola/   /2026/09/04/mediterranean-berry-protein-bowl-with-honey-toasted-granola/   301
+/2026-09-04-mediterranean-chickpea-and-cucumber-salad-with-lemon-tahini-dressing/   /2026/09/04/mediterranean-chickpea-and-cucumber-salad-with-lemon-tahini-dressing/   301
+/2026-09-04-sheet-pan-miso-glazed-tofu-with-sesame-broccoli/   /2026/09/04/sheet-pan-miso-glazed-tofu-with-sesame-broccoli/   301
+/2026-09-04-spanish-style-roasted-cauliflower-with-smoked-paprika-and-almond-romesco/   /2026/09/04/spanish-style-roasted-cauliflower-with-smoked-paprika-and-almond-romesco/   301
+/2026-09-05-italian-turkey-stuffed-bell-peppers/   /2026/09/05/italian-turkey-stuffed-bell-peppers/   301
+/2026-09-06-mediterranean-fisherman-s-soup/   /2026/09/06/mediterranean-fisherman-s-soup/   301
+/2026-09-06-mediterranean-spinach-rice-bowl-with-herbed-chicken/   /2026/09/06/mediterranean-spinach-rice-bowl-with-herbed-chicken/   301
+/2026-09-07-mediterranean-chicken-spanakorizo/   /2026/09/07/mediterranean-chicken-spanakorizo/   301
+/2026-09-08-lighter-greek-avgolemono-soup/   /2026/09/08/lighter-greek-avgolemono-soup/   301
+/2026-09-08-pistachio-crusted-halibut-with-lemon-and-fresh-herbs/   /2026/09/08/pistachio-crusted-halibut-with-lemon-and-fresh-herbs/   301
+/2026-09-09-vegetarian-sushi-grain-bowl-with-edamame/   /2026/09/09/vegetarian-sushi-grain-bowl-with-edamame/   301
+/2026-09-11-golden-chickpea-herbed-couscous-bowls/   /2026/09/11/golden-chickpea-herbed-couscous-bowls/   301
+/2026-09-11-mediterranean-garlic-shrimp-bowl-with-cauliflower-rice/   /2026/09/11/mediterranean-garlic-shrimp-bowl-with-cauliflower-rice/   301
+/2026-09-11-tuscan-white-bean-and-kale-soup-ribollita/   /2026/09/11/tuscan-white-bean-and-kale-soup-ribollita/   301
+/2026-09-12-mediterranean-shrimp-pasta-with-white-wine/   /2026/09/12/mediterranean-shrimp-pasta-with-white-wine/   301
+
+# Cross-domain redirect: healthy-recipes-site.pages.dev → waimind.com
+/:path   https://waimind.com/:path   301

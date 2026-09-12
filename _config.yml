@@ -3,8 +3,20 @@ description: >-
   Low-calorie Mediterranean and Western recipes - every serving 400-600 kcal,
   with at least 15g protein. Developed, tested, and nutrition-verified by
   our editorial kitchen.
-url: "https://healthy-recipes-site.pages.dev"
+url: "https://waimind.com"
 baseurl: ""
+# W82 (2026-09-12): Migration to waimind.com custom domain.
+# - Primary domain: waimind.com (老闆 custom domain)
+# - Old subdomain: healthy-recipes-site.pages.dev (301 redirect to waimind.com)
+# - Cross-domain redirect handled via _redirects file (Netlify format)
+#
+# 老闆 needs to do (CF Dashboard):
+# 1. Pages > healthy-recipes-site > Custom domains
+# 2. Add: waimind.com
+# 3. Add: www.waimind.com
+# 4. CF auto-generates Universal SSL
+#
+# DNS (waimind.com is on Cloudflare Registrar, so auto-configured)
 lang: en
 timezone: Asia/Hong_Kong
 
