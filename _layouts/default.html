@@ -175,6 +175,14 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}"></noscript>
+
+  <!-- Cloudflare Web Analytics (W83 Tier 1 fix). 老闆 needs to set cf_analytics_token in _config.yml.
+       Default no-op if token missing. CF Web Analytics is privacy-friendly (no cookies, GDPR compliant).
+       See W83-CF-ANALYTICS-SETUP.md for setup. -->
+  {% if site.cf_analytics_token and site.cf_analytics_token != "" %}
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+          data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
+  {% endif %}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>

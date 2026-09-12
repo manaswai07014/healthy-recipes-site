@@ -1,4 +1,32 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://healthy-recipes-site.pages.dev/sitemap.xml
+# Tier 1 Fix 1: Update sitemap reference from old domain to waimind.com
+Sitemap: https://waimind.com/sitemap.xml
+
+# Tier 1 Fix 1: Allow AI crawlers for GEO (Generative Engine Optimization)
+# - GPTBot (ChatGPT)
+# - ClaudeBot (Claude / Anthropic)
+# - PerplexityBot
+# - Google-Extended (Gemini / Vertex AI)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block common scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
