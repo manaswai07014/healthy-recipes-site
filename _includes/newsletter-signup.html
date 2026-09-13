@@ -1,0 +1,18 @@
+{%- comment -%}
+W84: Buttondown newsletter signup form.
+Targets email list building — most engaged traffic source (5-10x click rate vs SEO).
+Setup: replace buttondown_username placeholder with real Buttondown username.
+{%- endcomment -%}
+{%- assign bd_user = "waimind" -%}
+<aside class="newsletter-signup no-print" aria-label="Newsletter signup">
+  <div class="ns-card">
+    <div class="ns-icon" aria-hidden="true">📬</div>
+    <h3 class="ns-title">Free 7-Day Mediterranean Meal Plan</h3>
+    <p class="ns-desc">Get one short email each week with 3 new low-calorie recipes, a 7-day meal plan, and chef tips. Join 100+ home cooks.</p>
+    <form action="https://buttondown.email/{{ bd_user }}" method="post" target="_blank" class="ns-form">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" class="ns-input">
+      <button type="submit" class="ns-btn">Subscribe</button>
+    </form>
+    <p class="ns-footer">🔒 We never share your email. Unsubscribe anytime.</p>
+  </div>
+</aside>

@@ -1,0 +1,20 @@
+{%- comment -%}
+W84: Pinterest Save button (Pin It).
+Targets Pinterest referral traffic — #1 traffic source for recipe sites.
+Generates correct pin URL with image + description.
+{%- endcomment -%}
+{%- if page.hero_image and page.title -%}
+<div class="pinterest-save no-print">
+  <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url | url_encode }}&media={{ site.url }}{{ page.hero_image | url_encode }}&description={{ page.title | append: ' — ' | append: page.calories | append: ' kcal, ' | append: page.protein | append: 'g protein' | url_encode }}"
+     data-pin-do="buttonPin"
+     data-pin-config="above"
+     target="_blank"
+     rel="noopener"
+     aria-label="Save {{ page.title | escape }} to Pinterest">
+    <span class="pin-icon" aria-hidden="true">📌</span>
+    <span class="pin-text">Save to Pinterest</span>
+  </a>
+  {%- comment -%} Pinterest official script — loads asynchronously, no perf impact {%- endcomment -%}
+  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</div>
+{%- endif -%}

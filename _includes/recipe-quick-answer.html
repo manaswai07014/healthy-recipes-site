@@ -1,0 +1,24 @@
+{%- comment -%}
+W84: Recipe Quick Answer BLUF (Bottom Line Up Front) box.
+Targets Google Featured Snippet / Perplexity citation.
+Renders 2-3 sentence answer near top of page, optimized for snippet extraction.
+{%- endcomment -%}
+{%- if page.calories and page.protein and page.total_time -%}
+<aside class="recipe-quick-answer" aria-label="Quick answer">
+  <div class="qa-header">📌 Quick Answer</div>
+  <p class="qa-body">
+    <strong>{{ page.title | escape }}</strong> is a
+    {% if page.calories %}{{ page.calories }}-calorie{% endif %}{% if page.protein %} <strong>high-protein</strong> ({{ page.protein }}g){% endif %}
+    {% if page.cuisine %}{{ page.cuisine }}{% endif %}
+    recipe ready in <strong>{{ page.total_time }} minutes</strong>.
+    {% if page.diet_tags and page.diet_tags.size > 0 %}
+      {% assign first_diet = page.diet_tags | first %}
+      {{ first_diet | escape }}-friendly
+    {% endif %}.
+    {% if page.servings %}Serves {{ page.servings }}.{% endif %}
+    {% if page.introduction %}
+      {{ page.introduction | strip_html | truncatewords: 35 }}
+    {% endif %}
+  </p>
+</aside>
+{%- endif -%}

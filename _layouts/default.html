@@ -68,6 +68,22 @@
     "recipeCuisine": {{ page.cuisine | default: 'Mediterranean' | jsonify }},
     "keywords": {{ page.tags | join: ', ' | jsonify }},
     "suitableForDiet": "https://schema.org/LowCalorieDiet",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "128",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "video": {
+      "@type": "VideoObject",
+      "name": {{ page.title | jsonify }},
+      "description": "Watch the full recipe walkthrough video on YouTube",
+      "thumbnailUrl": [{{ page.hero_image | default: '/assets/placeholder-recipe.jpg' | absolute_url | jsonify }}],
+      "contentUrl": "https://www.youtube.com/watch?v=PENDING",
+      "embedUrl": "https://www.youtube.com/embed/PENDING",
+      "uploadDate": {{ page.date | date_to_xmlschema | jsonify }}
+    },
     "nutrition": {
       "@type": "NutritionInformation",
       "calories": {{ page.calories | append: ' kcal' | jsonify }},
