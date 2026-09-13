@@ -84,11 +84,11 @@ layout: default
     {%- if page.cuisine -%}
       {%- assign related = site.recipes | where: 'cuisine', page.cuisine | where_exp: 'r', 'r.url != page.url' -%}
     {%- endif -%}
-    {%- if related and related.size > 0 -%}
+    {%- if related.size > 0 -%}
     <section class="related-recipes">
       <h2>More {{ page.cuisine }} Recipes</h2>
       <ul class="recipe-grid">
-        {%- for r in related | limit: 3 -%}
+        {%- for r in related limit: 3 -%}
         <li class="recipe-card">
           <a href="{{ r.url | relative_url }}">
             {%- if r.hero_image -%}
