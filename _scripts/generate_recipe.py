@@ -43,6 +43,31 @@ LOG_DIR.mkdir(exist_ok=True)
 # ---------------------------------------------------------------------------
 LLM_ENDPOINT = os.environ.get("MINIMAX_CN_BASE_URL", "https://api.minimaxi.com/anthropic")
 LLM_API_KEY = os.environ.get("MINIMAX_CN_API_KEY", "")
+
+# W83: Auto-source /home/hermes/.hermes/.env if key still missing.
+# Direct python invocations don't inherit shell env vars, but the .env file
+# always has the canonical keys. This avoids silent "regex mode" fallbacks.
+if not LLM_API_KEY:
+    env_path = Path("/home/hermes/.hermes/.env")
+    if env_path.exists():
+        try:
+            for line in env_path.read_text().splitlines():
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "=" in line:
+                    k, v = line.split("=", 1)
+                    k = k.strip()
+                    v = v.strip().strip('"').strip("'")
+                    # Don't override what's already set, but DO load missing keys
+                    if k == "MINIMAX_CN_API_KEY" and not os.environ.get(k):
+                        os.environ[k] = v
+                        LLM_API_KEY = v
+                    elif k == "MINIMAX_CN_BASE_URL" and not os.environ.get(k):
+                        os.environ[k] = v
+                        LLM_ENDPOINT = v
+        except Exception as e:
+            print(f"[WARN] Failed to source .env: {e}", file=sys.stderr)
 LLM_MODEL = os.environ.get("RECIPE_LLM_MODEL", "MiniMax-M2")
 
 # MiniMax image gen endpoint (separate from LLM endpoint)
@@ -84,9 +109,10 @@ CONSTRAINTS (these are non-negotiable):
 
 OUTPUT FORMAT (strict JSON, no markdown, no commentary):
 {{
-  "seo_title": "Recipe name (under 30 characters, include one keyword)",
-  "meta_description": "Description with core keyword (80-120 chars)",
-  "recipe_name": "Full recipe name",
+  "seo_title": "Recipe name (50-70 chars, include 1-2 search-intent keywords e.g. 'Easy 30-Minute Mediterranean Cod')",
+  "meta_description": "Description with long-tail keyword phrases (80-120 chars, answer question format)",
+  "keywords": "5-8 long-tail search phrases (comma-separated) e.g. 'easy mediterranean cod recipe, low calorie cod dinner, baked cod with tomatoes'",
+  "recipe_name": "Full recipe name (descriptive with modifier)",
   "cuisine": "Italian | Mediterranean | French | Spanish | Greek | European | American",
   "category": "Main | Soup | Salad | Side",
   "diet_tags": ["Low-Calorie", "High-Protein", "Quick", "Mediterranean", ...],
@@ -184,6 +210,26 @@ THEME_BANK = [
     "Sheet-pan halibut with cherry tomatoes and olives",
     "Low-carb ground turkey zucchini boats with smoked paprika",
     "One-pot whole-wheat pasta with spinach and cherry tomatoes",
+    # W83 (2026-09-13): New themes targeting underused proteins (cod, tuna,
+    # scallops, lentil, mussels, clams, sardines, mackerel, swordfish, trout,
+    # sea bass). All <30 min, 400-575 kcal, ≥15g protein. Sources researched:
+    # Mediterranean baked cod 332-485 kcal/32g, tuna salad 275 kcal/29g,
+    # lemon-garlic seared scallops 285 kcal/42g.
+    "Mediterranean baked cod with tomatoes capers and olives",
+    "Lemon-herb seared scallops over zucchini noodles",
+    "Greek yogurt Mediterranean tuna salad with cucumber and olives",
+    "Turkish red lentil soup with mint and lemon",
+    "Mussels marinara over whole-wheat linguine",
+    "Sardine and white bean salad with lemon vinaigrette",
+    "Pan-seared mackerel with fennel and orange salad",
+    "Swordfish piccata with lemon-caper sauce",
+    "Whole-wheat pasta with clams and white wine",
+    "Trout al cartoccio with herbs and cherry tomatoes",
+    "Roasted sea bass with fennel capers and lemon",
+    "Three-bean Mediterranean salad with tuna",
+    "Lemon-cod foil packets with spinach and pine nuts",
+    "White bean and sardine toast with lemon and parsley",
+    "Sicilian swordfish rolls with pine nuts and raisins",
 ]
 
 

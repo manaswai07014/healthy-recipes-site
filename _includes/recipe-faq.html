@@ -1,0 +1,100 @@
+{%- comment -%}
+W88: Recipe FAQ section + FAQPage JSON-LD schema.
+Targets Google "People Also Ask" + AI Overview citation.
+Each FAQ auto-derives from recipe content + adds recipe-specific questions.
+{%- endcomment -%}
+{%- assign slug = page.title | slugify -%}
+{%- assign faqs = "" | split: "" -%}
+
+{%- comment -%}Auto-FAQ 1: Storage (most common PAA) {%- endcomment -%}
+{%- assign storage_q = "How long does " | append: page.title | append: " keep in the fridge?" -%}
+{%- if page.cuisine == "Italian" -%}
+{%- assign storage_a = "Store leftover " | append: page.title | append: " in an airtight container in the fridge for 3-4 days. For longer storage, freeze individual portions for up to 3 months." -%}
+{%- elsif page.cuisine == "Mediterranean" -%}
+{%- assign storage_a = "Store leftover " | append: page.title | append: " in an airtight container in the fridge for 3-4 days. Reheat gently on the stovetop with a splash of water to preserve moisture." -%}
+{%- else -%}
+{%- assign storage_a = "Store leftover " | append: page.title | append: " in an airtight container in the fridge for 3-4 days." -%}
+{%- endif -%}
+{%- assign faqs = faqs | push: '{ "q": "' | append: storage_q | append: '", "a": "' | append: storage_a | append: '" }' | split: "" | first | split: "" -%}
+
+{%- comment -%}Auto-FAQ 2: Freezer-friendly {%- endcomment -%}
+{%- assign freezer_q = "Can I freeze " | append: page.title | append: "?" -%}
+{%- assign freezer_a = "Yes — " | append: page.title | append: " freezes well for up to 3 months. Cool completely, store in freezer-safe containers, and thaw overnight in the fridge before reheating." -%}
+
+{%- comment -%}Auto-FAQ 3: Serving / pairing {%- endcomment -%}
+{%- assign serve_q = "What should I serve with " | append: page.title | append: "?" -%}
+{%- if page.category == "Main" -%}
+{%- assign serve_a = "Pair " | append: page.title | append: " with a simple green salad and whole-grain bread for a complete Mediterranean meal. A glass of chilled white wine complements seafood versions." -%}
+{%- else -%}
+{%- assign serve_a = page.title | append: " works beautifully as a starter or side. Pair with crusty bread and a light main dish for a Mediterranean spread." -%}
+{%- endif -%}
+
+{%- comment -%}Auto-FAQ 4: Substitution (most popular for ingredient-flexibility) {%- endcomment -%}
+{%- assign sub_q = "Can I substitute " | append: page.protein | append: "g protein in " | append: page.title | append: "?" -%}
+{%- if page.diet_tags and page.diet_tags contains "Vegetarian" -%}
+{%- assign sub_a = "For a vegetarian version of " | append: page.title | append: ", substitute the protein with chickpeas, white beans, or firm tofu. Each adds 8-15g protein per serving." -%}
+{%- else -%}
+{%- assign sub_a = page.title | append: " is flexible — substitute the protein with similar options (chicken for turkey, salmon for cod). For vegetarian, use 1 cup chickpeas or white beans per serving." -%}
+{%- endif -%}
+
+<aside class="recipe-faq" aria-label="Frequently asked questions">
+  <h2>📋 Frequently Asked Questions</h2>
+  <details>
+    <summary>{{ storage_q }}</summary>
+    <p>{{ storage_a }}</p>
+  </details>
+  <details>
+    <summary>{{ freezer_q }}</summary>
+    <p>{{ freezer_a }}</p>
+  </details>
+  <details>
+    <summary>{{ serve_q }}</summary>
+    <p>{{ serve_a }}</p>
+  </details>
+  <details>
+    <summary>{{ sub_q }}</summary>
+    <p>{{ sub_a }}</p>
+  </details>
+</aside>
+
+{%- comment -%}FAQPage JSON-LD schema for AI Overview citation {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": {{ storage_q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ storage_a | jsonify }}
+      }
+    },
+    {
+      "@type": "Question",
+      "name": {{ freezer_q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ freezer_a | jsonify }}
+      }
+    },
+    {
+      "@type": "Question",
+      "name": {{ serve_q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ serve_a | jsonify }}
+      }
+    },
+    {
+      "@type": "Question",
+      "name": {{ sub_q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ sub_a | jsonify }}
+      }
+    }
+  ]
+}
+</script>

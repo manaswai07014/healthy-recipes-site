@@ -498,3 +498,67 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: #a8a298;
   margin: 0;
 }
+
+/* W88: Recipe FAQ accordion (People Also Ask + AI Overview citation) */
+.recipe-faq {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: #fafaf7;
+  border-radius: 8px;
+}
+.recipe-faq h2 {
+  font-size: 1.375rem;
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+.recipe-faq details {
+  background: #fff;
+  border: 1px solid #e8e2d6;
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  margin: 0.5rem 0;
+  transition: border-color 0.2s;
+}
+.recipe-faq details:hover {
+  border-color: #c84a23;
+}
+.recipe-faq details[open] {
+  border-color: #c84a23;
+  background: #fffaf5;
+}
+.recipe-faq summary {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #1a1a1a;
+  padding-right: 1.5rem;
+  position: relative;
+  list-style: none;
+}
+.recipe-faq summary::-webkit-details-marker { display: none; }
+.recipe-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  color: #c84a23;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.recipe-faq details[open] summary::after {
+  content: '−';
+}
+.recipe-faq details p {
+  margin: 0.625rem 0 0;
+  color: #3a3a3a;
+  line-height: 1.55;
+  font-size: 0.9375rem;
+}
+@media (prefers-color-scheme: dark) {
+  .recipe-faq { background: #1a1815; }
+  .recipe-faq details { background: #252220; border-color: #3a3530; }
+  .recipe-faq details[open] { background: #2a2520; border-color: #c84a23; }
+  .recipe-faq h2 { color: #f0ece4; }
+  .recipe-faq summary { color: #f0ece4; }
+  .recipe-faq details p { color: #d0cdc7; }
+}
