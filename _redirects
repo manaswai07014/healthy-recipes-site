@@ -35,5 +35,9 @@
 /2026-09-11-tuscan-white-bean-and-kale-soup-ribollita/   /2026/09/11/tuscan-white-bean-and-kale-soup-ribollita/   301
 /2026-09-12-mediterranean-shrimp-pasta-with-white-wine/   /2026/09/12/mediterranean-shrimp-pasta-with-white-wine/   301
 
-# Cross-domain redirect: healthy-recipes-site.pages.dev → waimind.com
-/:path   https://waimind.com/:path   301
+# Cross-domain redirect healthy-recipes-site.pages.dev → waimind.com
+# is handled at the ACCOUNT level via Cloudflare Bulk Redirects
+# (list w82_pages_dev_redirect, W82). CF Pages _redirects is zone-bound:
+# a splat rule here also matches waimind.com itself, causing a 301
+# self-loop that broke robots.txt / sitemap.xml / llms.txt / GSC file
+# (discovered 2026-09-16, W91). Never re-add a cross-domain splat here.
