@@ -79,6 +79,23 @@ git commit -m "${COMMIT_MSG}" 2>&1 | tee -a "${LOG_FILE}"
 
 # Push main — CF Pages watches main branch and auto-builds
 # IMPORTANT: do NOT use --force; do NOT use subtree split; CF Pages needs regular main push
-git push origin main 2>&1 | tee -a "${LOG_FILE}"
+# W95: rebase + retry — 03:00 pipeline can race with P73 backfill push; the loser
+# of the ref lock must rebase onto the winner's commit and retry instead of dying.
+git pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}"
+PUSH_OK=0
+for attempt in 1 2 3; do
+    if git push origin main 2>&1 | tee -a "${LOG_FILE}"; then
+        PUSH_OK=1
+        echo "[W95] push success (attempt ${attempt})" | tee -a "${LOG_FILE}"
+        break
+    fi
+    echo "[W95] push failed (attempt ${attempt}), sleeping 30s then rebase+retry..." | tee -a "${LOG_FILE}"
+    sleep 30
+    git pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}"
+done
+if [ "${PUSH_OK}" -ne 1 ]; then
+    echo "❌ [W95] push failed after 3 attempts — local commit intact, manual push needed" | tee -a "${LOG_FILE}"
+    exit 1
+fi
 
 echo "=== Pipeline complete — CF Pages will auto-build in ~60s ===" | tee -a "${LOG_FILE}"
