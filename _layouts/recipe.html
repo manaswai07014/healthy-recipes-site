@@ -80,6 +80,17 @@ layout: default
     </aside>
     {% endif %}
 
+    {%- if page.keywords and page.keywords.size > 0 -%}
+    <section class="recipe-keywords" aria-label="Recipe keywords">
+      <h2 class="visually-hidden">Tags & Keywords</h2>
+      <ul class="keyword-list">
+        {%- for kw in page.keywords -%}
+        <li class="keyword-tag">{{ kw }}</li>
+        {%- endfor -%}
+      </ul>
+    </section>
+    {%- endif -%}
+
     {%- assign related = empty -%}
     {%- if page.cuisine -%}
       {%- assign related = site.recipes | where: 'cuisine', page.cuisine | where_exp: 'r', 'r.url != page.url' -%}
