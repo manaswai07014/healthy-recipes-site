@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Gluten-Free, Mediterranean, Quick, Pescatarian]
 tags: [italian, main, low-calorie, high-protein, gluten-free, mediterranean, quick, pescatarian]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "scallops"
+  - "quick 27-minute dinner"
+  - "easy 27-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/lemon-herb-seared-scallops-over-zucchini-noodles.jpg
 prep_time: 15
 cook_time: 12

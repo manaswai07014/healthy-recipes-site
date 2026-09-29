@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free, Keto-Friendly]
 tags: [italian, main, low-calorie, high-protein, quick, mediterranean, gluten-free, keto-friendly]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "scallops"
+  - "quick 25-minute dinner"
+  - "easy 25-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/lemon-herb-seared-scallops-over-zucchini-noodles-with-white-wine-butter.jpg
 prep_time: 10
 cook_time: 15

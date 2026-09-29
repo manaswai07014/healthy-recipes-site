@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein]
 tags: [Low-Calorie, High-Protein]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "main course"
+  - "main dish"
+  - "easy italian dinner recipe"
 hero_image: /assets/recipes/burrata-burst-tomato-pasta.jpg
 prep_time: 10
 cook_time: 25

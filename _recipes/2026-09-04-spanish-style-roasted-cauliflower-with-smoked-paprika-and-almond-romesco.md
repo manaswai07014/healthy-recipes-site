@@ -7,6 +7,19 @@ category: Side
 cuisine: Spanish
 diet_tags: [Vegan, Low-Calorie, High-Protein, Mediterranean, Gluten-Free, Quick]
 tags: [spanish, side, vegan, low-calorie, high-protein, mediterranean, gluten-free, quick]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "vegan"
+  - "plant-based"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/spanish-style-roasted-cauliflower-with-smoked-paprika-and-almond-romesco.jpg
 prep_time: 15
 cook_time: 35

@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free, Keto-Friendly]
 tags: [mediterranean, main, low-calorie, high-protein, quick, mediterranean, gluten-free, keto-friendly]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "cod"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/lemon-cod-foil-packets-with-spinach-pine-nuts-white-wine.jpg
 prep_time: 15
 cook_time: 20

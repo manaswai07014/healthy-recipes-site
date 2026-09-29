@@ -7,6 +7,19 @@ category: Soup
 cuisine: European
 diet_tags: [Low-Calorie, High-Protein]
 tags: [fish, soup, mediterranean, weeknight, low-calorie, high-protein]
+keywords:
+  - "healthy european recipes"
+  - "low calorie european dinner"
+  - "european"
+  - "continental"
+  - "fish"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "soup course"
+  - "soup dish"
+  - "easy european dinner recipe"
 hero_image: /assets/recipes/fish-soup.jpg
 prep_time: 20
 cook_time: 30

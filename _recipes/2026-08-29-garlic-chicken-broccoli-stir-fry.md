@@ -7,6 +7,19 @@ category: Main
 cuisine: Asian
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [chicken, stir-fry, weeknight, quick, high-protein]
+keywords:
+  - "healthy asian recipes"
+  - "low calorie asian dinner"
+  - "asian"
+  - "asian-inspired"
+  - "chicken-breast"
+  - "quick 20-minute dinner"
+  - "easy 20-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/garlic-chicken-broccoli.jpg
 prep_time: 10
 cook_time: 10

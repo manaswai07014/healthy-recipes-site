@@ -7,6 +7,19 @@ category: Soup
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Vegetarian, Quick, Mediterranean, Gluten-Free]
 tags: [mediterranean, soup, low-calorie, high-protein, vegetarian, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "vegetarian"
+  - "meatless"
 hero_image: /assets/recipes/turkish-red-lentil-soup-with-mint-oil-finish.jpg
 prep_time: 10
 cook_time: 20

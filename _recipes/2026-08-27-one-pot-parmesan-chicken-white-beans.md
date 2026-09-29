@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [High-Protein, One-Pot, Mediterranean]
 tags: [chicken, italian, one-pot, weeknight, high-protein, beans]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "chicken-breast"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "one-pot"
+  - "one-pot-meal"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/parmesan-chicken-bean.jpg
 prep_time: 5
 cook_time: 25

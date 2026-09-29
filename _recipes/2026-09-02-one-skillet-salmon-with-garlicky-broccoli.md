@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [salmon, broccoli, one-skillet, weeknight, high-protein]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "salmon"
+  - "quick 20-minute dinner"
+  - "easy 20-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/salmon-broccoli.jpg
 prep_time: 5
 cook_time: 15

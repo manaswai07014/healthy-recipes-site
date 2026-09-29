@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Gluten-Free]
 tags: [chicken, mediterranean, weeknight, high-protein, sheet-pan]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chicken-breast"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "roasted"
+  - "main course"
 hero_image: /assets/recipes/lemon-herb-chicken.jpg
 prep_time: 10
 cook_time: 30

@@ -7,6 +7,19 @@ category: Main
 cuisine: Spanish
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free, Keto-Friendly]
 tags: [spanish, main, low-calorie, high-protein, quick, mediterranean, gluten-free, keto-friendly]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "shrimp"
+  - "quick 25-minute dinner"
+  - "easy 25-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/mediterranean-garlic-shrimp-bowl-with-cauliflower-rice.jpg
 prep_time: 10
 cook_time: 15

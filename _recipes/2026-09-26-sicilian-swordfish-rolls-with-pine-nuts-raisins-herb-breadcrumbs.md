@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, Gluten-Free-Option]
 tags: [italian, main, low-calorie, high-protein, mediterranean, quick, gluten-free-option]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "swordfish"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/sicilian-swordfish-rolls-with-pine-nuts-raisins-herb-breadcrumbs.jpg
 prep_time: 20
 cook_time: 20

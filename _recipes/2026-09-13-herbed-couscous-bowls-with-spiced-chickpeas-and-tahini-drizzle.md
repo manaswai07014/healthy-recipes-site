@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [Low-Calorie, High-Protein, Quick]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chickpeas"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/herbed-couscous-bowls-with-spiced-chickpeas-and-tahini-drizzle.jpg
 prep_time: 15
 cook_time: 25

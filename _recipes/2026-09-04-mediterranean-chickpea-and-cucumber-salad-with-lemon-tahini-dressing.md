@@ -7,6 +7,19 @@ category: Salad
 cuisine: Mediterranean
 diet_tags: [Vegan, High-Fiber, Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free]
 tags: [mediterranean, salad, vegan, high-fiber, low-calorie, high-protein, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "quick 20-minute dinner"
+  - "easy 20-minute recipe"
+  - "vegan"
+  - "plant-based"
+  - "high-fiber"
+  - "fiber-rich"
+  - "low-calorie"
+  - "low-calorie-recipes"
 hero_image: /assets/recipes/mediterranean-chickpea-and-cucumber-salad-with-lemon-tahini-dressing.jpg
 prep_time: 20
 cook_time: 0

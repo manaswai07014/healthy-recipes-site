@@ -12,6 +12,16 @@ diet_tags: &id001
 - High-Protein
 - Quick
 tags: *id001
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chicken-breast"
+  - "main course"
+  - "main dish"
+  - "easy mediterranean dinner recipe"
+  - "healthy mediterranean main"
 hero_image: /assets/recipes/mediterranean-chicken-tray-bake-with-feta.jpg
 prep_time: 15
 cook_time: 35

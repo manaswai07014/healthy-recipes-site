@@ -7,6 +7,19 @@ category: Soup
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean]
 tags: [chicken, soup, italian, mediterranean, lemon]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "chicken-breast"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/chicken-leek-soup.jpg
 prep_time: 10
 cook_time: 20

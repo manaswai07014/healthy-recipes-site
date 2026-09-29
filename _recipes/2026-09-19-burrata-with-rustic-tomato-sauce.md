@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [Low-Calorie, High-Protein, Quick]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/burrata-with-rustic-tomato-sauce.jpg
 prep_time: 10
 cook_time: 20

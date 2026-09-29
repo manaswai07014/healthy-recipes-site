@@ -7,6 +7,19 @@ category: Main
 cuisine: Greek
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Vegetarian, Gluten-Free]
 tags: [greek, main, low-calorie, high-protein, quick, mediterranean, vegetarian, gluten-free]
+keywords:
+  - "healthy greek recipes"
+  - "low calorie greek dinner"
+  - "greek"
+  - "greek-recipes"
+  - "chickpeas"
+  - "quick 27-minute dinner"
+  - "easy 27-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/grilled-halloumi-horiatiki-salad-with-chickpeas.jpg
 prep_time: 15
 cook_time: 12

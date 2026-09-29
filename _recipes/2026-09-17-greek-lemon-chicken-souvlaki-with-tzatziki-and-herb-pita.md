@@ -7,6 +7,19 @@ category: Main
 cuisine: Greek
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free-Option]
 tags: [greek, main, low-calorie, high-protein, quick, mediterranean, gluten-free-option]
+keywords:
+  - "healthy greek recipes"
+  - "low calorie greek dinner"
+  - "greek"
+  - "greek-recipes"
+  - "chicken-breast"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/greek-lemon-chicken-souvlaki-with-tzatziki-and-herb-pita.jpg
 prep_time: 15
 cook_time: 15

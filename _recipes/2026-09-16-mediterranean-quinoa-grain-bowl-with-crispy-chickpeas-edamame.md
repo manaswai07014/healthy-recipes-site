@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick, Vegetarian, Meal-Prep]
 tags: [mediterranean, main, low-calorie, high-protein, quick, vegetarian, meal-prep]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chickpeas"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/mediterranean-quinoa-grain-bowl-with-crispy-chickpeas-edamame.jpg
 prep_time: 15
 cook_time: 25

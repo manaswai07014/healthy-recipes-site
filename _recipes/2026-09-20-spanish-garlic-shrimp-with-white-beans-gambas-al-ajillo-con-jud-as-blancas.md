@@ -7,6 +7,19 @@ category: Main
 cuisine: Spanish
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, Pescatarian, Gluten-Free]
 tags: [spanish, main, low-calorie, high-protein, mediterranean, quick, pescatarian, gluten-free]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "shrimp"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/spanish-garlic-shrimp-with-white-beans-gambas-al-ajillo-con-jud-as-blancas.jpg
 prep_time: 10
 cook_time: 20

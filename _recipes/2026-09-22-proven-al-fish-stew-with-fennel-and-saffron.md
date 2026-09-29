@@ -7,6 +7,19 @@ category: Main
 cuisine: French
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, Gluten-Free, Dairy-Free]
 tags: [french, main, low-calorie, high-protein, mediterranean, quick, gluten-free, dairy-free]
+keywords:
+  - "healthy french recipes"
+  - "low calorie french dinner"
+  - "french"
+  - "french-recipes"
+  - "fish"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/proven-al-fish-stew-with-fennel-and-saffron.jpg
 prep_time: 15
 cook_time: 25

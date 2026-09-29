@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick]
 tags: [Low-Calorie, High-Protein, Quick]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "main course"
 hero_image: /assets/recipes/spiced-chickpea-and-couscous-bowl-with-lemon-tahini.jpg
 prep_time: 10
 cook_time: 25

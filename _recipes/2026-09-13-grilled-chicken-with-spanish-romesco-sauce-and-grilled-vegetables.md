@@ -7,6 +7,19 @@ category: Main
 cuisine: Spanish
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Gluten-Free, Quick]
 tags: [spanish, main, low-calorie, high-protein, mediterranean, gluten-free, quick]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "chicken-breast"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/grilled-chicken-with-spanish-romesco-sauce-and-grilled-vegetables.jpg
 prep_time: 15
 cook_time: 30

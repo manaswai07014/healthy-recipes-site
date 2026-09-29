@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, One-Pot, Balanced]
 tags: [italian, main, low-calorie, high-protein, quick, mediterranean, one-pot, balanced]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "chicken-breast"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/one-pot-whole-wheat-pasta-with-spinach-cherry-tomatoes-lemon-herb-chicken.jpg
 prep_time: 10
 cook_time: 20

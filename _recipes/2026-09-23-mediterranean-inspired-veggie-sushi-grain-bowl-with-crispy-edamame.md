@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Vegetarian, Quick, Mediterranean, Meal-Prep]
 tags: [mediterranean, main, low-calorie, high-protein, vegetarian, quick, mediterranean, meal-prep]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "40-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "vegetarian"
+  - "meatless"
+  - "quick-dinner"
 hero_image: /assets/recipes/mediterranean-inspired-veggie-sushi-grain-bowl-with-crispy-edamame.jpg
 prep_time: 15
 cook_time: 25

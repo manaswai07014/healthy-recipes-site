@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free]
 tags: [italian, main, low-calorie, high-protein, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/lighter-osso-buco-with-zesty-gremolata.jpg
 prep_time: 15
 cook_time: 30

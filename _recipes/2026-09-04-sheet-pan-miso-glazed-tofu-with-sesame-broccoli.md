@@ -7,6 +7,19 @@ category: Main
 cuisine: Asian
 diet_tags: [Vegan, High-Protein, Low-Calorie, Quick, Dairy-Free]
 tags: [asian, main, vegan, high-protein, low-calorie, quick, dairy-free]
+keywords:
+  - "healthy asian recipes"
+  - "low calorie asian dinner"
+  - "asian"
+  - "asian-inspired"
+  - "tofu"
+  - "40-minute weeknight dinner"
+  - "vegan"
+  - "plant-based"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "low-calorie"
+  - "low-calorie-recipes"
 hero_image: /assets/recipes/sheet-pan-miso-glazed-tofu-with-sesame-broccoli.jpg
 prep_time: 15
 cook_time: 25

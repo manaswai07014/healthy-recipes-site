@@ -7,6 +7,19 @@ category: Soup
 cuisine: Greek
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Gluten-Free-Option, Quick]
 tags: [greek, soup, low-calorie, high-protein, mediterranean, gluten-free-option, quick]
+keywords:
+  - "healthy greek recipes"
+  - "low calorie greek dinner"
+  - "greek"
+  - "greek-recipes"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
+  - "quick-dinner"
 hero_image: /assets/recipes/lighter-greek-avgolemono-soup.jpg
 prep_time: 15
 cook_time: 30

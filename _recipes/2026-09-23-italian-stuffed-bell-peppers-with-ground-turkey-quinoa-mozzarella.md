@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, Gluten-Free]
 tags: [italian, main, low-calorie, high-protein, mediterranean, quick, gluten-free]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "turkey"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
+  - "quick-dinner"
 hero_image: /assets/recipes/italian-stuffed-bell-peppers-with-ground-turkey-quinoa-mozzarella.jpg
 prep_time: 15
 cook_time: 35

@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Pescatarian]
 tags: [italian, main, low-calorie, high-protein, quick, mediterranean, pescatarian]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/linguine-with-white-wine-seafood-sauce.jpg
 prep_time: 15
 cook_time: 20

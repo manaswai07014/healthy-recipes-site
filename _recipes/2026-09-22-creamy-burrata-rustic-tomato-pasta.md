@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, Quick]
 tags: [Low-Calorie, Quick]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "main course"
+  - "main dish"
+  - "easy italian dinner recipe"
 hero_image: /assets/recipes/creamy-burrata-rustic-tomato-pasta.jpg
 prep_time: 10
 cook_time: 25
