@@ -1,5 +1,5 @@
 ---
-title: Spanish Albondigas: Turkey Meatballs in Smoky Tomato Sauce
+title: "Spanish Albondigas: Turkey Meatballs in Smoky Tomato Sauce"
 subtitle: How to make authentic Spanish turkey meatballs in rich tomato sauce with smoked paprika. A healthy 3
 description: How to make authentic Spanish turkey meatballs in rich tomato sauce with smoked paprika. A healthy 30-minute dinner under 450 calories.
 date: 2026-10-11

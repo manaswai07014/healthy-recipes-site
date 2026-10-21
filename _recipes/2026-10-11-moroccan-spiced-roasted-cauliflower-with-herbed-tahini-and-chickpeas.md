@@ -1,7 +1,7 @@
 ---
 title: Moroccan-Spiced Roasted Cauliflower with Herbed Tahini and Chickpeas
-subtitle: How to make Moroccan-spiced roasted cauliflower with creamy tahini sauce: a 45-minute high-protein v
-description: How to make Moroccan-spiced roasted cauliflower with creamy tahini sauce: a 45-minute high-protein vegetarian dinner
+subtitle: "How to make Moroccan-spiced roasted cauliflower with creamy tahini sauce: a 45-minute high-protein v"
+description: "How to make Moroccan-spiced roasted cauliflower with creamy tahini sauce: a 45-minute high-protein vegetarian dinner"
 date: 2026-10-11
 category: Main
 cuisine: Mediterranean
