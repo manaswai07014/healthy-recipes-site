@@ -9,3 +9,12 @@ _research/logs/
 _research/scripts/__pycache__/
 _research/data/recipes.db
 _research/data/recipes.db-*
+_config.yml.backup-20260912
+
+# W96 (2026-10-21): research wiki scraped-source dirs stay OUT of the public repo.
+# Audit trail lives in SQLite; these transient files repeatedly dirtied the
+# worktree, which broke the 03:00 daily pipeline's `git pull --rebase` and
+# silently stranded 38 commits (2026-10-01 → 2026-10-20).
+_research/wiki/bbc/
+_research/wiki/eatingwell/
+_research/wiki/acouplecooks/

@@ -55,3 +55,18 @@ echo "[4/4] Publishing validated recipes to site..." | tee -a "${LOG_FILE}"
 /home/hermes/apps/hermes-agent/venv/bin/python3 _research/scripts/publish_to_site.py --limit 3 2>&1 | tee -a "${LOG_FILE}" || echo "  [WARN] publish had errors" | tee -a "${LOG_FILE}"
 
 echo "=== Pipeline complete — recipes published to https://healthy-recipes-site.pages.dev/ ===" | tee -a "${LOG_FILE}"
+
+# Step 5/5 (W96, 2026-10-21): worktree hygiene.
+# This pipeline used to leave modified _research/ scripts + log.md uncommitted,
+# which poisoned the 03:00 daily recipe pipeline: its `git pull --rebase` aborted
+# under `set -e`, so the push never ran and the live site froze for 20 days.
+# Commit our own artifacts here so the worktree is clean for the next cron.
+echo "[5/5] Committing research artifacts (W96 worktree hygiene)..." | tee -a "${LOG_FILE}"
+git add _research/scripts/ _research/wiki/ .gitignore 2>/dev/null || true
+if git diff --cached --quiet; then
+    echo "  no research changes to commit" | tee -a "${LOG_FILE}"
+else
+    git commit -m "[research] $(date +%Y-%m-%d) — daily research wiki update" 2>&1 | tee -a "${LOG_FILE}" || true
+    git -c rebase.autoStash=true pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}" || true
+    git push origin main 2>&1 | tee -a "${LOG_FILE}" || echo "  [WARN] research push failed (non-fatal)" | tee -a "${LOG_FILE}"
+fi

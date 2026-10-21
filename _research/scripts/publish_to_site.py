@@ -58,8 +58,30 @@ def slugify(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:80]
 
 def keywords(title: str) -> set[str]:
-    """Extract words ≥4 chars from title for fuzzy dedup."""
-    return set(w.lower() for w in re.findall(r"[A-Za-z]{4,}", title))
+    """Extract meaningful words ≥4 chars from title for fuzzy dedup.
+    Stopwords removed: common cooking words, ingredients that appear in
+    many variants of same source recipe, and cooking methods.
+    Goal: avoid false collisions between unrelated recipes.
+    """
+    STOPWORDS = {
+        # cooking methods
+        "with", "and", "the", "for", "style", "baked", "roasted",
+        "grilled", "skillet", "sheet", "pan", "one", "loaded",
+        "creamy", "crispy", "fresh", "classic", "traditional",
+        "weeknight", "based", "served", "dressed", "using",
+        # too-common ingredients (appear in many Mediterranean recipes)
+        "lemon", "tahini", "tomato", "tomatoes", "pasta", "chickpea",
+        "chickpeas", "couscous", "garlic", "olive", "oil", "salt",
+        "pepper", "onion", "cheese", "beans", "rice", "herbs",
+        "parsley", "basil", "oregano", "thyme", "wine",
+        # categories
+        "bowl", "bowls", "sauce", "dressing", "drizzle", "marinara",
+        "recipe", "recipes", "healthy", "easy", "best", "simple",
+        "burst", "rustic", "silky", "tangy", "crushed",
+        "cherry", "marzano", "white", "sour", "soup",
+    }
+    words = set(w.lower() for w in re.findall(r"[A-Za-z]{4,}", title))
+    return words - STOPWORDS
 
 def yaml_list(items: list[str], indent: str = "  ") -> str:
     return "\n".join(f"{indent}- \"{i}\"" for i in items)
@@ -97,18 +119,24 @@ def get_published_titles() -> list[str]:
     return titles
 
 def check_dedup(slug: str, title: str, published_titles: list[str]) -> tuple[bool, str]:
-    """Return (ok, reason). ok=True means safe to publish."""
+    """Return (ok, reason). ok=True means safe to publish.
+    W83: Improved dedup with stopwords removal + 3+ meaningful words required.
+    Previously: ≥2 4-char words overlap (caused false positives like
+    "Burrata White Bean Pasta" colliding with "Shrimp Pasta with White Wine"
+    because both share {with, white, pasta}).
+    """
     # 1. Slug filename collision
     jekyll_filename = f"{TODAY}-{slug}.md"
     if (RECIPES_DIR / jekyll_filename).exists():
         return False, f"slug collision: {jekyll_filename} already exists"
 
-    # 2. Keyword overlap with published titles (≥2 words)
+    # 2. Keyword overlap with published titles (≥3 meaningful words after stopwords removed)
     pk = keywords(title)
     for pt in published_titles:
         tk = keywords(pt)
         overlap = pk & tk
-        if len(overlap) >= 2:
+        # W83: require ≥3 (was ≥2) to flag collision, stopwords already removed
+        if len(overlap) >= 3:
             return False, f"keyword overlap with published \"{pt}\": {overlap}"
     return True, "ok"
 

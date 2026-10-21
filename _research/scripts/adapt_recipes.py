@@ -191,11 +191,12 @@ def main():
     p.add_argument("--dry-run", action="store_true", help="Skip LLM call, use mock")
     args = p.parse_args()
 
-    # Find today's raw files
+    # Find today's raw files (all sources, not just bbc/eatingwell)
     raw_files = []
-    for source_dir in (RAW / "bbc", RAW / "eatingwell"):
-        if source_dir.exists():
-            raw_files.extend(sorted(source_dir.glob(f"{TODAY}-*.json")))
+    if RAW.exists():
+        for source_dir in sorted(RAW.iterdir()):
+            if source_dir.is_dir():
+                raw_files.extend(sorted(source_dir.glob(f"{TODAY}-*.json")))
 
     if not raw_files:
         print(f"[WARN] No raw files for {TODAY}. Run fetch_recipes.py first.", file=sys.stderr)

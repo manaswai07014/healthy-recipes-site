@@ -81,9 +81,19 @@ git commit -m "${COMMIT_MSG}" 2>&1 | tee -a "${LOG_FILE}"
 # IMPORTANT: do NOT use --force; do NOT use subtree split; CF Pages needs regular main push
 # W95: rebase + retry — 03:00 pipeline can race with P73 backfill push; the loser
 # of the ref lock must rebase onto the winner's commit and retry instead of dying.
-git pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}"
+#
+# W96 CRITICAL FIX (2026-10-21): this `git pull --rebase` ran OUTSIDE an `if`,
+# so with `set -euo pipefail` any failure aborted the script BEFORE the push
+# block below ever executed. The research pipeline (04:00) repeatedly left
+# unstaged files in the worktree, so this pull failed every single day with
+# "cannot pull with rebase: You have unstaged changes" — silently stranding
+# 38 local commits and freezing the live site on 2026-09-30 for 20 days.
+# Fix: autoStash the worktree changes + tolerate pull failure (`|| true`) so
+# the push block ALWAYS runs.
+git -c rebase.autoStash=true pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}" || true
 PUSH_OK=0
 for attempt in 1 2 3; do
+    # pipefail is set, so this pipeline's status reflects `git push`, not `tee`.
     if git push origin main 2>&1 | tee -a "${LOG_FILE}"; then
         PUSH_OK=1
         echo "[W95] push success (attempt ${attempt})" | tee -a "${LOG_FILE}"
@@ -91,11 +101,20 @@ for attempt in 1 2 3; do
     fi
     echo "[W95] push failed (attempt ${attempt}), sleeping 30s then rebase+retry..." | tee -a "${LOG_FILE}"
     sleep 30
-    git pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}"
+    git -c rebase.autoStash=true pull --rebase origin main 2>&1 | tee -a "${LOG_FILE}" || true
 done
 if [ "${PUSH_OK}" -ne 1 ]; then
     echo "❌ [W95] push failed after 3 attempts — local commit intact, manual push needed" | tee -a "${LOG_FILE}"
     exit 1
 fi
+
+# W96: never trust push stdout — verify remote actually received the commit (P59).
+REMOTE_SHA=$(git ls-remote origin main 2>/dev/null | cut -f1)
+LOCAL_SHA=$(git rev-parse HEAD)
+if [ "${REMOTE_SHA}" != "${LOCAL_SHA}" ]; then
+    echo "❌ [W96] push reported OK but remote (${REMOTE_SHA}) != local (${LOCAL_SHA}) — investigate" | tee -a "${LOG_FILE}"
+    exit 1
+fi
+echo "✅ [W96] remote verified at ${LOCAL_SHA:0:7}" | tee -a "${LOG_FILE}"
 
 echo "=== Pipeline complete — CF Pages will auto-build in ~60s ===" | tee -a "${LOG_FILE}"
