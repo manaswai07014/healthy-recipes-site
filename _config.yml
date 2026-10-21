@@ -5,6 +5,13 @@ description: >-
   our editorial kitchen.
 url: "https://waimind.com"
 baseurl: ""
+# W97 (2026-10-21): Cloudflare Web Analytics beacon token.
+# Note: CF zone-level auto-inject does NOT apply to Pages static output — a
+# redeploy after enabling it still produced 0 beacon occurrences on live HTML.
+# So the snippet is injected through _layouts/default.html instead.
+# This is a PUBLIC beacon token (designed to be embedded in page HTML), not a
+# secret credential. Rollback: delete this line and redeploy.
+cf_analytics_token: "319ada12616548d5b05a3431b83b5944"
 # W82 (2026-09-12): Migration to waimind.com custom domain.
 # - Primary domain: waimind.com (老闆 custom domain)
 # - Old subdomain: healthy-recipes-site.pages.dev (301 redirect to waimind.com)
