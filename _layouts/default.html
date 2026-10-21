@@ -89,16 +89,9 @@
     "recipeInstructions": [
       {%- assign last_idx = page.instructions | size | minus: 1 -%}
       {%- for step in page.instructions -%}
-      {"@type": "HowToStep", "position": {{ forloop.index }}, "text": {{ step | jsonify }}, "url": "#step-{{ forloop.index }}"}}{% if forloop.index0 < last_idx %},{% endif %}
+      {"@type": "HowToStep", "position": {{ forloop.index }}, "text": {{ step | jsonify }}, "url": "#step-{{ forloop.index }}"}{% if forloop.index0 < last_idx %},{% endif %}
       {%- endfor -%}
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "ratingCount": "128",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    ]
   }
   </script>
   {% endif %}
