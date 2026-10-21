@@ -184,11 +184,22 @@
 
   <!-- Cloudflare Web Analytics (W83 Tier 1 fix). 老闆 needs to set cf_analytics_token in _config.yml.
        Default no-op if token missing. CF Web Analytics is privacy-friendly (no cookies, GDPR compliant).
-       See W83-CF-ANALYTICS-SETUP.md for setup. -->
+       See W83-CF-ANALYTICS-SETUP.md for setup.
+       NOTE: no Subresource-Integrity on the beacon — this is Cloudflare's own
+       official snippet (developers.cloudflare.com/web-analytics); they do not
+       publish an SRI hash for beacon.min.js, and pinning one would break the
+       beacon whenever CF rotates the script. The CSP already restricts
+       script-src to *.cloudflareinsights.com. -->
   {% if site.cf_analytics_token and site.cf_analytics_token != "" %}
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-          data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
+          data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'>
+  </script>
   {% endif %}
+
+  <!-- W97 (2026-10-21): let Google show full snippets + large images.
+       Matters for Google Discover and for AI surfaces that need the full
+       recipe text to cite. No snippet limit, largest image preview. -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>

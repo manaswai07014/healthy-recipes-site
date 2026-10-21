@@ -7,6 +7,19 @@ category: Main
 cuisine: French
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free]
 tags: [french, main, low-calorie, high-protein, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy french recipes"
+  - "low calorie french dinner"
+  - "french"
+  - "french-recipes"
+  - "beef"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/quick-proven-al-beef-daube-with-mushrooms.jpg
 prep_time: 10
 cook_time: 25

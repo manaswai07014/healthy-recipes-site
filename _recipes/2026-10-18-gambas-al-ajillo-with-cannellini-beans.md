@@ -7,6 +7,19 @@ category: Main
 cuisine: Spanish
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Gluten-Free, Quick]
 tags: [spanish, main, low-calorie, high-protein, mediterranean, gluten-free, quick]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/gambas-al-ajillo-with-cannellini-beans.jpg
 prep_time: 10
 cook_time: 20

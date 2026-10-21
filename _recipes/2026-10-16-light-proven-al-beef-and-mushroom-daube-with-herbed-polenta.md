@@ -7,6 +7,19 @@ category: Main
 cuisine: French
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free]
 tags: [french, main, low-calorie, high-protein, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy french recipes"
+  - "low calorie french dinner"
+  - "french"
+  - "french-recipes"
+  - "beef"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/light-proven-al-beef-and-mushroom-daube-with-herbed-polenta.jpg
 prep_time: 15
 cook_time: 35

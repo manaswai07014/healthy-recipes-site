@@ -7,6 +7,19 @@ category: Main
 cuisine: Spanish
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, Gluten-Free-Option]
 tags: [spanish, main, low-calorie, high-protein, mediterranean, quick, gluten-free-option]
+keywords:
+  - "healthy spanish recipes"
+  - "low calorie spanish dinner"
+  - "spanish"
+  - "spanish-recipes"
+  - "turkey"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/spanish-albondigas-turkey-meatballs-in-smoky-tomato-sauce.jpg
 prep_time: 15
 cook_time: 30

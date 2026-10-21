@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Vegetarian, Quick, Meal-Prep, Gluten-Free]
 tags: [mediterranean, main, low-calorie, high-protein, vegetarian, quick, meal-prep, gluten-free]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "tofu"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "vegetarian"
+  - "meatless"
 hero_image: /assets/recipes/mediterranean-inspired-veggie-sushi-bowl-with-marinated-tofu-and-edamame.jpg
 prep_time: 15
 cook_time: 20

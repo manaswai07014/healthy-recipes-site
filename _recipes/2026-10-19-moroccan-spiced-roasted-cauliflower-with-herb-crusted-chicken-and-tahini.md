@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free]
 tags: [mediterranean, main, low-calorie, high-protein, quick, mediterranean, gluten-free]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chicken-breast"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/moroccan-spiced-roasted-cauliflower-with-herb-crusted-chicken-and-tahini.jpg
 prep_time: 10
 cook_time: 35

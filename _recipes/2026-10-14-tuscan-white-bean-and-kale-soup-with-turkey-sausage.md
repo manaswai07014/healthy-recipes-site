@@ -7,6 +7,19 @@ category: Soup
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Quick, One-Pot]
 tags: [italian, soup, low-calorie, high-protein, mediterranean, quick, one-pot]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "turkey"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
 hero_image: /assets/recipes/tuscan-white-bean-and-kale-soup-with-turkey-sausage.jpg
 prep_time: 15
 cook_time: 30

@@ -7,6 +7,19 @@ category: Main
 cuisine: Greek
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean]
 tags: [greek, main, low-calorie, high-protein, quick, mediterranean]
+keywords:
+  - "healthy greek recipes"
+  - "low calorie greek dinner"
+  - "greek"
+  - "greek-recipes"
+  - "lamb"
+  - "quick 30-minute dinner"
+  - "easy 30-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
 hero_image: /assets/recipes/greek-inspired-lamb-burgers-with-herb-feta-yogurt-sauce.jpg
 prep_time: 15
 cook_time: 15

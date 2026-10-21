@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Gluten-Free, One-Pan]
 tags: [italian, main, low-calorie, high-protein, quick, mediterranean, gluten-free, one-pan]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "turkey"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "mediterranean-diet"
 hero_image: /assets/recipes/herb-crusted-turkey-stuffed-bell-peppers-with-tomato-basil-sauce.jpg
 prep_time: 15
 cook_time: 35

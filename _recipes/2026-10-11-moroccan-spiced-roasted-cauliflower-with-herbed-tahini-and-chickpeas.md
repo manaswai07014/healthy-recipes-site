@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Vegetarian, Mediterranean, Quick]
 tags: [mediterranean, main, low-calorie, high-protein, vegetarian, mediterranean, quick]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "chickpeas"
+  - "45-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "vegetarian"
+  - "meatless"
 hero_image: /assets/recipes/moroccan-spiced-roasted-cauliflower-with-herbed-tahini-and-chickpeas.jpg
 prep_time: 15
 cook_time: 30

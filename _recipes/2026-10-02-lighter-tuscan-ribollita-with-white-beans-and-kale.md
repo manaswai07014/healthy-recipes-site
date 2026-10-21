@@ -7,6 +7,19 @@ category: Soup
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Hearty, One-Pot]
 tags: [italian, soup, low-calorie, high-protein, mediterranean, hearty, one-pot]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "white-beans"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
+  - "one-pot"
 hero_image: /assets/recipes/lighter-tuscan-ribollita-with-white-beans-and-kale.jpg
 prep_time: 15
 cook_time: 35

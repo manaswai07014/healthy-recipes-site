@@ -7,6 +7,19 @@ category: Main
 cuisine: Thai
 diet_tags: [Low-Calorie, High-Protein, Quick, Gluten-Free, Dairy-Free]
 tags: [thai, main, low-calorie, high-protein, quick, gluten-free, dairy-free]
+keywords:
+  - "healthy thai recipes"
+  - "low calorie thai dinner"
+  - "chicken-breast"
+  - "quick 25-minute dinner"
+  - "easy 25-minute recipe"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
+  - "main course"
 hero_image: /assets/recipes/thai-style-chicken-lettuce-wraps-with-lime-and-fresh-herbs.jpg
 prep_time: 15
 cook_time: 10

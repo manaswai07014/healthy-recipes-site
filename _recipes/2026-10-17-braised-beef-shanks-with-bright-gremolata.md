@@ -7,6 +7,19 @@ category: Main
 cuisine: Italian
 diet_tags: [Low-Calorie, High-Protein, Mediterranean, Gluten-Free, Dairy-Free]
 tags: [italian, main, low-calorie, high-protein, mediterranean, gluten-free, dairy-free]
+keywords:
+  - "healthy italian recipes"
+  - "low calorie italian dinner"
+  - "italian"
+  - "italian-recipes"
+  - "beef"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "mediterranean-diet"
+  - "heart-healthy"
+  - "braised"
 hero_image: /assets/recipes/braised-beef-shanks-with-bright-gremolata.jpg
 prep_time: 15
 cook_time: 40

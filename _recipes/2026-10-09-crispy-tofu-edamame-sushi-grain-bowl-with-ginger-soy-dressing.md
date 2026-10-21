@@ -7,6 +7,19 @@ category: Main
 cuisine: Mediterranean
 diet_tags: [Low-Calorie, High-Protein, Quick, Mediterranean, Vegan, Plant-Based]
 tags: [mediterranean, main, low-calorie, high-protein, quick, mediterranean, vegan, plant-based]
+keywords:
+  - "healthy mediterranean recipes"
+  - "low calorie mediterranean dinner"
+  - "mediterranean"
+  - "mediterranean-diet"
+  - "tofu"
+  - "35-minute weeknight dinner"
+  - "low-calorie"
+  - "low-calorie-recipes"
+  - "high-protein"
+  - "high-protein-recipes"
+  - "quick-dinner"
+  - "weeknight-dinner"
 hero_image: /assets/recipes/crispy-tofu-edamame-sushi-grain-bowl-with-ginger-soy-dressing.jpg
 prep_time: 15
 cook_time: 20
