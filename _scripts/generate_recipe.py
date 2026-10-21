@@ -443,6 +443,20 @@ def generate_hero_image(slug: str, image_prompt: str) -> Path:
 # ---------------------------------------------------------------------------
 # Recipe → Markdown
 # ---------------------------------------------------------------------------
+def yaml_quote(value) -> str:
+    """Safely quote a scalar for YAML frontmatter.
+
+    W96 (2026-10-21): these values were interpolated raw, so any LLM-generated
+    title / meta_description containing ': ' produced invalid YAML. Jekyll then
+    failed to load the document, its permalink fell back to the build date, no
+    page was generated, and the live site served a homepage soft-404 while
+    sitemap.xml still listed the URL (2 recipes lost, 2026-10-11).
+    """
+    s = str(value).replace("\\", "\\\\").replace('"', '\\"')
+    s = s.replace("\n", " ").replace("\r", " ").strip()
+    return f'"{s}"'
+
+
 def render_recipe_markdown(recipe: dict, slug: str) -> str:
     """Convert validated recipe JSON to Jekyll _recipes/<date>-<slug>.md."""
     today = datetime.now().strftime("%Y-%m-%d")
@@ -457,9 +471,9 @@ def render_recipe_markdown(recipe: dict, slug: str) -> str:
     tags_yaml = "[" + ", ".join(tags) + "]"
 
     return f"""---
-title: {recipe["recipe_name"]}
-subtitle: {recipe.get("meta_description", "")[:100]}
-description: {recipe["meta_description"]}
+title: {yaml_quote(recipe["recipe_name"])}
+subtitle: {yaml_quote(recipe.get("meta_description", "")[:100])}
+description: {yaml_quote(recipe["meta_description"])}
 date: {today}
 category: {recipe["category"]}
 cuisine: {recipe["cuisine"]}
