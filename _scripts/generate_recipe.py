@@ -379,64 +379,141 @@ def call_llm(theme: str, max_retries: int = 2) -> Optional[dict]:
 # Uses MiniMax image-01 (https://api.minimaxi.com/v1/image_generation).
 # Output: 1280×720 JPEG (~300KB), 16:9 ratio (P28 invariant).
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# W96 (2026-10-21): Cloudflare Workers AI fallback for hero images.
+#
+# MiniMax CN hit HTTP 402 insufficient_balance_error and the pipeline started
+# failing. CF Workers AI serves FLUX.1 [schnell] on the free plan
+# (10,000 neurons/day ≈ 230 images — the daily pipeline needs 2), and this
+# account already has credentials in /home/hermes/.cfenv.
+# CF returns 1024x1024; we centre-crop to the site's 16:9 invariant (P28).
+# ---------------------------------------------------------------------------
+CF_ACCOUNT_ID = os.environ.get("CF_ACCOUNT_ID", "b3e5ac003d206366f1a64379801164e2")
+CF_IMAGE_MODEL = "@cf/black-forest-labs/flux-1-schnell"
+CFENV_PATH = Path("/home/hermes/.cfenv")
+
+
+def _load_cf_token() -> str:
+    """CF API token from the environment, else /home/hermes/.cfenv."""
+    tok = os.environ.get("CF_API_TOKEN", "")
+    if tok:
+        return tok
+    if CFENV_PATH.exists():
+        for line in CFENV_PATH.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("CF_API_TOKEN="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return ""
+
+
+def _centre_crop_16x9(path: Path) -> None:
+    """Centre-crop an image to 16:9 in place (CF returns 1:1)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return  # site CSS uses object-fit:cover, so this is cosmetic only
+    with Image.open(path) as im:
+        w, h = im.size
+        target_h = int(w * 9 / 16)
+        if h > target_h:
+            top = (h - target_h) // 2
+            im = im.crop((0, top, w, top + target_h))
+        im.convert("RGB").save(path, "JPEG", quality=88)
+
+
+def _generate_hero_image_cf(image_prompt: str, out_path: Path) -> None:
+    """Generate via Cloudflare Workers AI FLUX.1-schnell; writes out_path or raises."""
+    import base64
+    token = _load_cf_token()
+    if not token:
+        raise RuntimeError("CF_API_TOKEN unavailable (env or /home/hermes/.cfenv)")
+    url = (f"https://api.cloudflare.com/client/v4/accounts/"
+           f"{CF_ACCOUNT_ID}/ai/run/{CF_IMAGE_MODEL}")
+    payload = json.dumps({"prompt": image_prompt[:2048], "steps": 4}).encode("utf-8")
+    req = urllib.request.Request(
+        url, data=payload,
+        headers={"Authorization": f"Bearer {token}",
+                 "Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        body = json.loads(resp.read().decode("utf-8"))
+    if not body.get("success"):
+        raise RuntimeError(f"CF Workers AI error: {body.get('errors')}")
+    b64 = (body.get("result") or {}).get("image")
+    if not b64:
+        raise RuntimeError("CF Workers AI returned no image data")
+    out_path.write_bytes(base64.b64decode(b64))
+    _centre_crop_16x9(out_path)
+    print(f"  🖼  Hero image (CF Workers AI FLUX): {out_path} ({out_path.stat().st_size} bytes)")
+
+
 def generate_hero_image(slug: str, image_prompt: str) -> Path:
     """Generate hero image and save to assets/recipes/{slug}.jpg.
 
-    Returns the saved Path. Raises on any failure (no silent fallback).
+    Provider order: MiniMax image-01 → Cloudflare Workers AI FLUX.1-schnell.
+    Returns the saved Path. Raises on any failure (no silent fallback, P45).
     """
-    if not LLM_API_KEY:
-        raise RuntimeError(
-            "MINIMAX_CN_API_KEY not set; cannot generate hero image. "
-            "Source /home/hermes/.hermes/.env in cron wrapper."
-        )
     if not image_prompt or len(image_prompt.strip()) < 10:
         raise ValueError(f"image_prompt too short/empty: {image_prompt!r}")
 
-    payload = json.dumps({
-        "model": "image-01",
-        "prompt": image_prompt,
-        "aspect_ratio": "16:9",
-        "n": 1,
-        "response_format": "url",
-    }).encode("utf-8")
-
-    req = urllib.request.Request(
-        IMAGE_GEN_URL,
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {LLM_API_KEY}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        body = json.loads(resp.read().decode("utf-8"))
-
-    if body.get("base_resp", {}).get("status_code") != 0:
-        raise RuntimeError(f"MiniMax image gen non-zero status: {body}")
-
-    image_urls = body.get("data", {}).get("image_urls") or []
-    if not image_urls:
-        raise RuntimeError(f"MiniMax image gen returned no URLs: {body}")
-
-    image_url = image_urls[0]
     out_path = ASSETS_DIR / f"{slug}.jpg"
+    errors = []
 
-    with urllib.request.urlopen(image_url, timeout=60) as img_resp:
-        out_path.write_bytes(img_resp.read())
+    # --- Attempt 1: MiniMax image-01 ---
+    if LLM_API_KEY:
+        try:
+            payload = json.dumps({
+                "model": "image-01",
+                "prompt": image_prompt,
+                "aspect_ratio": "16:9",
+                "n": 1,
+                "response_format": "url",
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                IMAGE_GEN_URL,
+                data=payload,
+                headers={
+                    "Authorization": f"Bearer {LLM_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                body = json.loads(resp.read().decode("utf-8"))
+            if body.get("base_resp", {}).get("status_code") != 0:
+                raise RuntimeError(f"MiniMax non-zero status: {body.get('base_resp')}")
+            image_urls = body.get("data", {}).get("image_urls") or []
+            if not image_urls:
+                raise RuntimeError("MiniMax returned no image URLs")
+            with urllib.request.urlopen(image_urls[0], timeout=60) as img_resp:
+                out_path.write_bytes(img_resp.read())
+            print(f"  🖼  Hero image (MiniMax): {out_path} ({out_path.stat().st_size} bytes)")
+        except Exception as exc:  # noqa: BLE001 — fall through to CF
+            errors.append(f"MiniMax: {exc}")
+    else:
+        errors.append("MiniMax: MINIMAX_CN_API_KEY not set")
 
-    # Sanity: file must be > 50KB and look like JPEG (JFIF magic bytes)
+    # --- Attempt 2: Cloudflare Workers AI (fallback) ---
+    if not out_path.exists() or out_path.stat().st_size < 50_000:
+        try:
+            _generate_hero_image_cf(image_prompt, out_path)
+        except Exception as exc:  # noqa: BLE001
+            errors.append(f"CF Workers AI: {exc}")
+
+    # --- Shared sanity gate (P45: fail fast, never commit a broken asset) ---
+    if not out_path.exists():
+        raise RuntimeError("hero image generation failed — " + " | ".join(errors))
     if out_path.stat().st_size < 50_000:
+        size = out_path.stat().st_size
         out_path.unlink(missing_ok=True)
-        raise RuntimeError(f"hero image too small ({out_path.stat().st_size} bytes), discarded")
-    with open(out_path, "rb") as f:
-        magic = f.read(3)
+        raise RuntimeError(f"hero image too small ({size} bytes) — " + " | ".join(errors))
+    with open(out_path, "rb") as fh:
+        magic = fh.read(3)
     if magic != b"\xff\xd8\xff":
         out_path.unlink(missing_ok=True)
-        raise RuntimeError(f"hero image not JPEG (magic={magic!r}), discarded")
+        raise RuntimeError(f"hero image not JPEG (magic={magic!r}) — " + " | ".join(errors))
 
-    print(f"  🖼  Hero image: {out_path} ({out_path.stat().st_size} bytes)")
     return out_path
 
 
