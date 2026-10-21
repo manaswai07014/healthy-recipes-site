@@ -276,8 +276,10 @@ def git_commit_push(dry_run: bool) -> bool:
     return True
 
 def generate_image(image_prompt: str, slug: str, dry_run: bool) -> Path | None:
-    """Generate hero image via MiniMax direct API call.
-    Uses scripts/generate_hero_image.py logic inline to avoid subprocess overhead.
+    """Generate the hero image (MiniMax → Cloudflare Workers AI fallback, W96).
+
+    Falls back to CF Workers AI FLUX when MiniMax returns HTTP 402
+    insufficient_balance_error. Returns the image Path, or None on failure.
     """
     image_path = ASSETS_RECIPES / f"{slug}.jpg"
     if image_path.exists():
@@ -287,53 +289,15 @@ def generate_image(image_prompt: str, slug: str, dry_run: bool) -> Path | None:
         print(f"  [DRY] would generate image: {slug}.jpg from prompt: {image_prompt[:60]}...")
         return None
 
-    # Inline call to MiniMax image gen API
-    import urllib.request, urllib.error
-    api_key = None
-    env_file = Path("/home/hermes/.hermes/.env")
-    prefix = "MINIMAX_CN_API_KEY="
-    if env_file.exists():
-        for line in env_file.read_text().splitlines():
-            if line.startswith(prefix):
-                api_key = line[len(prefix):].strip()
-                break
-    if not api_key:
-        print(f"  [ERROR] MINIMAX_CN_API_KEY not found in env")
-        return None
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import image_gen  # noqa: PLC0415
 
-    payload = {
-        "model": "image-01",
-        "prompt": image_prompt,
-        "aspect_ratio": "16:9",
-        "n": 1,
-    }
-    req = urllib.request.Request(
-        "https://api.minimaxi.com/v1/image_generation",
-        data=json.dumps(payload).encode(),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode())
-        image_urls = data.get("data", {}).get("image_urls", [])
-        if not image_urls:
-            print(f"  [ERROR] no image_urls in response")
-            return None
-        with urllib.request.urlopen(image_urls[0], timeout=60) as img_resp:
-            image_bytes = img_resp.read()
-        image_path.write_bytes(image_bytes)
-        print(f"  [OK] generated {image_path.name} ({len(image_bytes)//1024} KB)")
+    ok, detail = image_gen.generate(image_prompt, image_path)
+    if ok:
+        print(f"  [OK] generated {image_path.name} ({image_path.stat().st_size // 1024} KB) via {detail}")
         return image_path
-    except urllib.error.HTTPError as e:
-        body = e.read().decode()[:200]
-        print(f"  [ERROR] MiniMax HTTP {e.code}: {body}")
-        return None
-    except Exception as e:
-        print(f"  [ERROR] MiniMax: {e}")
-        return None
+    print(f"  [ERROR] image generation failed: {detail}")
+    return None
 
 def main():
     p = argparse.ArgumentParser()

@@ -25,60 +25,22 @@ DB_PATH = RESEARCH / "data" / "recipes.db"
 ASSETS_RECIPES = Path("/home/hermes/healthy-recipes-site/assets/recipes")
 IMAGE_ENDPOINT = "https://api.minimaxi.com/v1/image_generation"
 
-def load_api_key() -> str:
-    env_file = Path("/home/hermes/.hermes/.env")
-    for line in env_file.read_text().splitlines():
-        if line.startswith("MINIMAX_CN_API_KEY="):
-            return line.split("=", 1)[1].strip()
-    raise RuntimeError("MINIMAX_CN_API_KEY not found in /home/hermes/.hermes/.env")
+# W96 (2026-10-21): MiniMax-only logic replaced by the shared image_gen helper,
+# which falls back to Cloudflare Workers AI FLUX when MiniMax returns
+# HTTP 402 insufficient_balance_error.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import image_gen  # noqa: E402
+
 
 def generate(prompt: str, output_path: Path) -> bool:
-    """Call MiniMax image gen API, download URL, save as JPG. Return True on success."""
-    api_key = load_api_key()
-    payload = {
-        "model": "image-01",
-        "prompt": prompt,
-        "aspect_ratio": "16:9",
-        "n": 1,
-    }
-    req = urllib.request.Request(
-        IMAGE_ENDPOINT,
-        data=json.dumps(payload).encode(),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        }
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            data = json.loads(resp.read().decode())
-    except urllib.error.HTTPError as e:
-        body = e.read().decode()[:300]
-        print(f"  [ERROR] MiniMax API HTTP {e.code}: {body}", file=sys.stderr)
-        return False
-    except Exception as e:
-        print(f"  [ERROR] MiniMax API: {e}", file=sys.stderr)
-        return False
-
-    image_urls = data.get("data", {}).get("image_urls", [])
-    if not image_urls:
-        print(f"  [ERROR] no image_urls in response: {json.dumps(data)[:300]}", file=sys.stderr)
-        return False
-
-    image_url = image_urls[0]
-    # Download (signed URL expires in ~24h, download immediately)
-    try:
-        with urllib.request.urlopen(image_url, timeout=60) as img_resp:
-            image_bytes = img_resp.read()
-    except Exception as e:
-        print(f"  [ERROR] failed to download image: {e}", file=sys.stderr)
-        return False
-
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_bytes(image_bytes)
-    size_kb = len(image_bytes) // 1024
-    print(f"  [OK] saved {output_path.name} ({size_kb} KB)")
-    return True
+    """Generate a hero image (MiniMax → CF Workers AI fallback). True on success."""
+    ok, detail = image_gen.generate(prompt, output_path)
+    if ok:
+        size_kb = output_path.stat().st_size // 1024
+        print(f"  [OK] saved {output_path.name} ({size_kb} KB) via {detail}")
+        return True
+    print(f"  [ERROR] image generation failed: {detail}", file=sys.stderr)
+    return False
 
 def main():
     p = argparse.ArgumentParser()
