@@ -68,7 +68,30 @@ if not LLM_API_KEY:
                         LLM_ENDPOINT = v
         except Exception as e:
             print(f"[WARN] Failed to source .env: {e}", file=sys.stderr)
-LLM_MODEL = os.environ.get("RECIPE_LLM_MODEL", "MiniMax-M2")
+# W97 (2026-10-21): MiniMax-M2 was retired (HTTP 404 "no longer available") AND
+# the MiniMax CN balance ran out (HTTP 402 on every other model). Default to the
+# current model, and add an NVIDIA NIM text fallback (free tier, key already in
+# .env) so the daily pipeline cannot be zeroed out by either failure again.
+LLM_MODEL = os.environ.get("RECIPE_LLM_MODEL", "MiniMax-M3.1-Flash")
+
+# NVIDIA NIM fallback (OpenAI-compatible chat completions)
+NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY", "")
+NVIDIA_ENDPOINT = os.environ.get(
+    "NVIDIA_BASE_URL", "https://integrate.api.nvidia.com/v1/chat/completions")
+NVIDIA_MODEL = os.environ.get("RECIPE_NVIDIA_MODEL", "deepseek-ai/deepseek-v4.1-flash")
+
+if not NVIDIA_API_KEY:
+    _nv_env = Path("/home/hermes/.hermes/.env")
+    if _nv_env.exists():
+        try:
+            for _line in _nv_env.read_text().splitlines():
+                _line = _line.strip()
+                if _line.startswith("NVIDIA_API_KEY="):
+                    NVIDIA_API_KEY = _line.split("=", 1)[1].strip().strip('"').strip("'")
+                    os.environ["NVIDIA_API_KEY"] = NVIDIA_API_KEY
+                    break
+        except Exception as e:  # noqa: BLE001
+            print(f"[WARN] Failed to source NVIDIA_API_KEY: {e}", file=sys.stderr)
 
 # MiniMax image gen endpoint (separate from LLM endpoint)
 IMAGE_GEN_URL = "https://api.minimaxi.com/v1/image_generation"
@@ -296,8 +319,8 @@ def load_recent_titles(days: int = MAX_DAYS_BACK) -> list[str]:
 # ---------------------------------------------------------------------------
 # LLM call
 # ---------------------------------------------------------------------------
-def call_llm(theme: str, max_retries: int = 2) -> Optional[dict]:
-    """Call MiniMax-M2 to generate recipe JSON. Returns dict or None on failure."""
+def _call_llm_minimax(theme: str, max_retries: int = 2) -> Optional[dict]:
+    """Call MiniMax via the Anthropic-compatible /v1/messages endpoint."""
     if not LLM_API_KEY:
         print("[LLM] MINIMAX_CN_API_KEY not set — falling back to regex mode", file=sys.stderr)
         return None
@@ -367,6 +390,107 @@ def call_llm(theme: str, max_retries: int = 2) -> Optional[dict]:
             time.sleep(5)
 
     return None
+
+
+def _validate_recipe(recipe: dict) -> dict:
+    """Shared validation for any provider's output. Raises ValueError."""
+    required = ["recipe_name", "seo_title", "meta_description",
+                "ingredients_api_format", "ingredients_display",
+                "instructions", "nutrition_per_serving"]
+    for k in required:
+        if k not in recipe:
+            raise ValueError(f"missing required field: {k}")
+    nutrition = recipe.get("nutrition_per_serving", {}) or {}
+    cal = nutrition.get("calories", 0)
+    try:
+        cal = float(cal)
+    except (TypeError, ValueError):
+        raise ValueError(f"calories not numeric: {cal!r}")
+    if not (MIN_CALORIES <= cal <= MAX_CALORIES):
+        raise ValueError(f"calories {cal} out of range [{MIN_CALORIES}, {MAX_CALORIES}]")
+    pro = nutrition.get("protein_g", 0)
+    try:
+        pro = float(pro)
+    except (TypeError, ValueError):
+        raise ValueError(f"protein not numeric: {pro!r}")
+    if pro < MIN_PROTEIN:
+        raise ValueError(f"protein {pro}g below minimum {MIN_PROTEIN}g")
+    return recipe
+
+
+def _extract_json(text: str) -> dict:
+    """Strip markdown fences and parse the first JSON object."""
+    text = re.sub(r"^```(?:json)?\s*", "", (text or "").strip())
+    text = re.sub(r"\s*```$", "", text.strip())
+    return json.loads(text)
+
+
+def _call_llm_nvidia(theme: str, max_retries: int = 2) -> Optional[dict]:
+    """W97: NVIDIA NIM fallback (OpenAI-compatible chat completions)."""
+    if not NVIDIA_API_KEY:
+        print("[LLM-NVIDIA] NVIDIA_API_KEY not set — cannot use fallback", file=sys.stderr)
+        return None
+
+    prompt = RECIPE_USER_PROMPT.format(theme=theme)
+    payload = {
+        "model": NVIDIA_MODEL,
+        # 4096 was not enough: deepseek-v4.1-flash also emits reasoning_content,
+        # so the visible JSON got truncated mid-string ("Unterminated string").
+        "max_tokens": 8192,
+        "temperature": 0.6,
+        "messages": [
+            {"role": "system", "content": RECIPE_SYSTEM_PROMPT},
+            {"role": "user", "content": prompt},
+        ],
+    }
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            req = urllib.request.Request(
+                NVIDIA_ENDPOINT,
+                data=json.dumps(payload).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {NVIDIA_API_KEY}",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=420) as resp:
+                body = resp.read().decode("utf-8")
+            data = json.loads(body)
+            choices = data.get("choices") or []
+            if not choices:
+                raise ValueError(f"no choices in response: {json.dumps(data)[:200]}")
+            text = choices[0].get("message", {}).get("content", "")
+            recipe = _extract_json(text)
+            return _validate_recipe(recipe)
+        except urllib.error.HTTPError as e:
+            print(f"[LLM-NVIDIA] HTTP {e.code} attempt {attempt}: {e.read().decode()[:200]}",
+                  file=sys.stderr)
+            time.sleep(60 if e.code == 429 else 5)
+        except (json.JSONDecodeError, ValueError) as e:
+            print(f"[LLM-NVIDIA] parse/validation error attempt {attempt}: {e}", file=sys.stderr)
+            time.sleep(2)
+        except Exception as e:  # noqa: BLE001
+            print(f"[LLM-NVIDIA] error attempt {attempt}: {e}", file=sys.stderr)
+            time.sleep(5)
+
+    return None
+
+
+def call_llm(theme: str, max_retries: int = 2) -> Optional[dict]:
+    """Generate recipe JSON. MiniMax first, then NVIDIA NIM (W97: free fallback).
+
+    Returns dict or None. Never raises — the caller treats None as "skip run".
+    """
+    recipe = _call_llm_minimax(theme, max_retries)
+    if recipe:
+        return recipe
+    print("[LLM] MiniMax unavailable — trying NVIDIA NIM fallback", file=sys.stderr)
+    recipe = _call_llm_nvidia(theme, max_retries)
+    if recipe:
+        print(f"[LLM] NVIDIA fallback succeeded ({NVIDIA_MODEL})", file=sys.stderr)
+    return recipe
 
 
 # ---------------------------------------------------------------------------
