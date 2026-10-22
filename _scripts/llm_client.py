@@ -110,26 +110,53 @@ def _post_json(url: str, payload: dict, headers: dict, timeout: int) -> tuple[in
 
 def call_nvidia(messages: list[dict], max_tokens: int = 8192, temperature: float = 0.6,
                 timeout: int = 420) -> str | None:
-    """OpenAI-compatible chat completion via NVIDIA NIM."""
+    """OpenAI-compatible chat completion via NVIDIA NIM.
+
+    W97 (2026-10-23): `deepseek-ai/deepseek-v4.1-flash` is a *reasoning* model.
+    It emits a `reasoning_content` trace that is charged against `max_tokens`
+    before the answer starts, so a modest budget (3000) produced HTTP 200 with
+    **empty `content`** — a silent failure that made every caller fall back to
+    its regex/glossary path. Two changes fix it:
+
+      * `max_tokens` default 8192 (room for trace + answer), and
+      * `chat_template_kwargs={"thinking": False}` — measured 2s vs 15s and
+        zero reasoning tokens, i.e. ~30x faster than the thinking default.
+
+    The thinking-off payload is tried first; if the server rejects it (non-DeepSeek
+    models, API change), the plain payload is retried before giving up.
+    """
     c = _creds()
     if not c["nv_key"]:
         print("[llm_client] NVIDIA key not found", file=sys.stderr)
         return None
-    status, body = _post_json(
-        f"{c['nv_base']}/chat/completions",
-        {"model": c["nv_model"], "max_tokens": max_tokens,
-         "temperature": temperature, "messages": messages},
-        {"Authorization": f"Bearer {c['nv_key']}"}, timeout,
-    )
-    if status != 200:
-        print(f"[llm_client] NVIDIA HTTP {status}: {body[:200]}", file=sys.stderr)
-        return None
-    try:
-        data = json.loads(body)
-        return (data.get("choices") or [{}])[0].get("message", {}).get("content") or None
-    except Exception as exc:  # noqa: BLE001
-        print(f"[llm_client] NVIDIA parse failed: {exc}", file=sys.stderr)
-        return None
+
+    base = {"model": c["nv_model"], "max_tokens": max_tokens,
+            "temperature": temperature, "messages": messages}
+    payloads = [
+        {**base, "chat_template_kwargs": {"thinking": False}},
+        base,
+    ]
+    for idx, payload in enumerate(payloads):
+        status, body = _post_json(
+            f"{c['nv_base']}/chat/completions", payload,
+            {"Authorization": f"Bearer {c['nv_key']}"}, timeout,
+        )
+        if status != 200:
+            print(f"[llm_client] NVIDIA HTTP {status} "
+                  f"({'thinking-off' if idx == 0 else 'plain'}): {body[:200]}", file=sys.stderr)
+            continue
+        try:
+            data = json.loads(body)
+            msg = (data.get("choices") or [{}])[0].get("message", {})
+            text = (msg.get("content") or "").strip()
+            if text:
+                return text
+            print("[llm_client] NVIDIA empty content "
+                  f"({'thinking-off' if idx == 0 else 'plain'}; "
+                  f"reasoning={len(msg.get('reasoning_content') or '')}c)", file=sys.stderr)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[llm_client] NVIDIA parse failed: {exc}", file=sys.stderr)
+    return None
 
 
 def call_minimax(messages: list[dict], max_tokens: int = 8192,
