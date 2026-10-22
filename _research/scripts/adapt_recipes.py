@@ -28,10 +28,16 @@ RAW = ROOT / "raw"
 ADAPTED = ROOT / "adapted"
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
-# ---------- LLM config (Hermes MiniMax CN) ----------
-LLM_ENDPOINT = os.environ.get("MINIMAX_CN_BASE_URL", "https://api.minimaxi.com/anthropic")
-LLM_API_KEY = os.environ.get("MINIMAX_CN_API_KEY", "")
-LLM_MODEL = os.environ.get("RECIPE_LLM_MODEL", "MiniMax-M2.7")
+# ---------- LLM config ----------
+# W97 (2026-10-22): NVIDIA NIM primary via the shared llm_client (老闆 directive:
+# every cron pipeline uses the NVIDIA API). MiniMax CN stays as the fallback —
+# its balance is exhausted (HTTP 402) and MiniMax-M2 was retired (HTTP 404).
+sys.path.insert(0, "/home/hermes/.hermes/lib")
+try:
+    from llm_client import call_llm_text
+except Exception as _e:  # noqa: BLE001
+    call_llm_text = None  # type: ignore[assignment]
+    print(f"[WARN] llm_client unavailable: {_e}", file=sys.stderr)
 
 # ---------- Editorial standards ----------
 MIN_CALORIES = 400
@@ -125,8 +131,8 @@ def call_llm(raw: dict, dry_run: bool = False) -> dict | None:
             "image_prompt": "[DRY RUN] image prompt",
         }
 
-    if not LLM_API_KEY:
-        print("[ERROR] MINIMAX_CN_API_KEY not set", file=sys.stderr)
+    if call_llm_text is None:
+        print("[ERROR] llm_client unavailable — cannot adapt", file=sys.stderr)
         return None
 
     user_prompt = ADAPT_USER_TEMPLATE.format(
@@ -138,30 +144,19 @@ def call_llm(raw: dict, dry_run: bool = False) -> dict | None:
         nutrition=raw["extracted"]["nutrition"],
     )
 
-    import urllib.request, json as jsonlib
-    payload = {
-        "model": LLM_MODEL,
-        "max_tokens": 4096,
-        "system": ADAPT_SYSTEM_PROMPT,
-        "messages": [{"role": "user", "content": user_prompt}],
-    }
-    req = urllib.request.Request(
-        LLM_ENDPOINT.rstrip("/") + "/v1/messages",
-        data=jsonlib.dumps(payload).encode("utf-8"),
-        headers={
-            "Content-Type": "application/json",
-            "x-api-key": LLM_API_KEY,
-            "anthropic-version": "2023-06-01",
-        },
-        method="POST",
-    )
+    import json as jsonlib
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            body = jsonlib.loads(resp.read().decode("utf-8"))
-        text = ""
-        for block in body.get("content", []):
-            if block.get("type") == "text":
-                text += block.get("text", "")
+        # NVIDIA primary (via shared llm_client). max_tokens 8192 because the
+        # reasoning model emits reasoning_content and truncates the JSON at 4096.
+        text = call_llm_text(
+            system=ADAPT_SYSTEM_PROMPT,
+            user=user_prompt,
+            max_tokens=8192,
+            timeout=420,
+        )
+        if not text:
+            print("[ERROR] LLM returned no text", file=sys.stderr)
+            return None
         text = re.sub(r"^```(?:json)?\s*", "", text.strip())
         text = re.sub(r"\s*```$", "", text.strip())
         return jsonlib.loads(text)
@@ -226,7 +221,7 @@ def main():
             "source_url": raw["source_url"],
             "fetched_at": raw["fetch_timestamp"],
             "adapted_at": datetime.now().isoformat(),
-            "llm_model": LLM_MODEL,
+            "llm_model": "nvidia/deepseek-ai/deepseek-v4.1-flash (via llm_client)",
             "validation": {"passed": ok, "errors": errors},
             "recipe": adapted,
         }
