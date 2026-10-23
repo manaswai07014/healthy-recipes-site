@@ -31,18 +31,18 @@ carbs: 18
 fat: 22
 fiber: 3
 ingredients_api:
-  - "150 g cod fillet (鳕鱼柳)"
-  - "2 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "100 g canned diced tomatoes (罐装切丁番茄)"
+  - "150 g cod fillet (鱈魚柳)"
+  - "2 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "100 g canned diced tomatoes (罐裝切丁番茄)"
   - "15 g capers (刺山柑)"
-  - "25 g kalamata olives, halved (卡拉马塔黑橄榄，对半切)"
+  - "25 g kalamata olives, halved (卡拉馬塔黑橄欖，對半切)"
   - "3 cloves garlic, minced (蒜，切碎)"
-  - "60 ml dry white wine (干白葡萄酒)"
-  - "1 tsp dried oregano (干牛至)"
-  - "1/2 lemon, juiced (柠檬，取汁)"
-  - "2 g salt (盐)"
+  - "60 ml dry white wine (乾白葡萄酒)"
+  - "1 tsp dried oregano (幹牛至)"
+  - "1/2 lemon, juiced (檸檬，取汁)"
+  - "2 g salt (鹽)"
   - "1 g black pepper (黑胡椒)"
-  - "30 g crusty bread, for serving (硬面包，配餐)"
+  - "30 g crusty bread, for serving (硬麪包，配餐)"
 ingredients_display:
   - "2 cod fillets (150g each)"
   - "2 tbsp extra virgin olive oil"

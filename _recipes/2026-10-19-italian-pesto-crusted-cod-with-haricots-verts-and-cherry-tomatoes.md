@@ -31,18 +31,18 @@ carbs: 12
 fat: 24
 fiber: 4
 ingredients_api:
-  - "700 g cod fillets, wild-caught (鳕鱼柳)"
-  - "300 g French haricots verts (法国四季豆)"
+  - "700 g cod fillets, wild-caught (鱈魚柳)"
+  - "300 g French haricots verts (法國四季豆)"
   - "200 g cherry tomatoes, halved (小番茄)"
-  - "60 g fresh basil leaves (新鲜罗勒叶)"
+  - "60 g fresh basil leaves (新鮮羅勒葉)"
   - "20 g pine nuts (松子)"
-  - "30 g Parmigiano-Reggiano, finely grated (帕玛森奶酪)"
-  - "45 ml extra virgin olive oil (特级初榨橄榄油)"
+  - "30 g Parmigiano-Reggiano, finely grated (帕瑪森奶酪)"
+  - "45 ml extra virgin olive oil (特級初榨橄欖油)"
   - "3 cloves garlic, minced (蒜末)"
-  - "1 tsp lemon zest (柠檬皮屑)"
-  - "1/2 tsp flaky sea salt (海盐)"
+  - "1 tsp lemon zest (檸檬皮屑)"
+  - "1/2 tsp flaky sea salt (海鹽)"
   - "1/4 tsp freshly ground black pepper (黑胡椒)"
-  - "1 tbsp olive oil cooking spray (橄榄油喷雾)"
+  - "1 tbsp olive oil cooking spray (橄欖油噴霧)"
 ingredients_display:
   - "700g wild-caught cod fillets"
   - "300g French haricots verts (thin green beans)"

@@ -31,16 +31,16 @@ carbs: 38
 fat: 22
 fiber: 9
 ingredients_api:
-  - "400 g raw large shrimp, peeled and deveined (大明虾)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "400 g raw large shrimp, peeled and deveined (大明蝦)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "1 can cannellini beans, drained and rinsed (白芸豆)"
-  - "2 red bell peppers, sliced (红甜椒)"
+  - "2 red bell peppers, sliced (紅甜椒)"
   - "8 cloves garlic, thinly sliced (大蒜)"
-  - "1 tsp smoked paprika (烟熏辣椒粉)"
-  - "1/2 tsp red chili flakes (红辣椒片)"
-  - "1 lemon, juiced and zested (柠檬)"
-  - "30 g fresh parsley, chopped (新鲜欧芹)"
-  - "1/2 tsp sea salt (海盐)"
+  - "1 tsp smoked paprika (煙燻辣椒粉)"
+  - "1/2 tsp red chili flakes (紅辣椒片)"
+  - "1 lemon, juiced and zested (檸檬)"
+  - "30 g fresh parsley, chopped (新鮮歐芹)"
+  - "1/2 tsp sea salt (海鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "400g large raw shrimp, peeled and deveined"

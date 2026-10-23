@@ -31,19 +31,19 @@ carbs: 18
 fat: 25
 fiber: 5
 ingredients_api:
-  - "400 g chicken breast, sliced (鸡胸肉)"
-  - "400 g fresh spinach (新鲜菠菜)"
+  - "400 g chicken breast, sliced (雞胸肉)"
+  - "400 g fresh spinach (新鮮菠菜)"
   - "300 g cauliflower rice (花椰菜米)"
   - "120 g feta cheese, crumbled (羊奶酪)"
-  - "200 ml low-sodium chicken broth (低钠鸡汤)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "1 medium lemon, juiced and zested (柠檬)"
+  - "200 ml low-sodium chicken broth (低鈉雞湯)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "1 medium lemon, juiced and zested (檸檬)"
   - "4 cloves garlic, minced (大蒜)"
-  - "1 medium yellow onion, diced (黄洋葱)"
-  - "1 tsp dried oregano (干牛至)"
+  - "1 medium yellow onion, diced (黃洋蔥)"
+  - "1 tsp dried oregano (幹牛至)"
   - "1/2 tsp ground cumin (孜然粉)"
-  - "1/4 cup fresh dill, chopped (新鲜莳萝)"
-  - "1/4 tsp sea salt (海盐)"
+  - "1/4 cup fresh dill, chopped (新鮮蒔蘿)"
+  - "1/4 tsp sea salt (海鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "400g chicken breast, sliced thin"

@@ -31,19 +31,19 @@ carbs: 52
 fat: 18
 fiber: 12
 ingredients_api:
-  - "400 g canned chickpeas, drained and rinsed (鹰嘴豆)"
-  - "2 medium cucumbers, diced into 1cm cubes (黄瓜)"
+  - "400 g canned chickpeas, drained and rinsed (鷹嘴豆)"
+  - "2 medium cucumbers, diced into 1cm cubes (黃瓜)"
   - "150 g cherry tomatoes, halved (小番茄)"
-  - "80 g red onion, thinly sliced (红洋葱)"
-  - "30 g fresh parsley, roughly chopped (新鲜欧芹)"
-  - "15 g fresh mint leaves (新鲜薄荷)"
-  - "30 g tahini (芝麻酱)"
-  - "1 large lemon, juiced (柠檬)"
+  - "80 g red onion, thinly sliced (紅洋蔥)"
+  - "30 g fresh parsley, roughly chopped (新鮮歐芹)"
+  - "15 g fresh mint leaves (新鮮薄荷)"
+  - "30 g tahini (芝麻醬)"
+  - "1 large lemon, juiced (檸檬)"
   - "2 cloves garlic, minced (大蒜)"
   - "3 tbsp cold water (冷水)"
-  - "1/2 tsp sea salt (海盐)"
+  - "1/2 tsp sea salt (海鹽)"
   - "1/4 tsp freshly ground black pepper (黑胡椒)"
-  - "1/4 tsp smoked paprika, for garnish (烟熏辣椒粉)"
+  - "1/4 tsp smoked paprika, for garnish (煙燻辣椒粉)"
 ingredients_display:
   - "400g canned chickpeas, drained and rinsed"
   - "2 medium cucumbers, diced into 1cm cubes"

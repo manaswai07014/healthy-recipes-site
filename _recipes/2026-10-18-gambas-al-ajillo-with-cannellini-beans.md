@@ -31,16 +31,16 @@ carbs: 38
 fat: 22
 fiber: 8
 ingredients_api:
-  - "300g large raw shrimp, peeled and deveined (大虾，去皮去线)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "1 whole head garlic, cloves separated and thinly sliced (大蒜，整头)"
-  - "200g cherry tomatoes, halved (小番茄，对半切)"
-  - "400g can cannellini beans, drained and rinsed (白芸豆罐头，沥干)"
-  - "60ml dry white wine (干白葡萄酒)"
-  - "1/2 tsp red pepper flakes (红辣椒碎)"
-  - "1/4 tsp sea salt (海盐)"
-  - "2 tbsp fresh flat-leaf parsley, chopped (欧芹碎)"
-  - "1 lemon, zest and juice (柠檬)"
+  - "300g large raw shrimp, peeled and deveined (大蝦，去皮去線)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "1 whole head garlic, cloves separated and thinly sliced (大蒜，整頭)"
+  - "200g cherry tomatoes, halved (小番茄，對半切)"
+  - "400g can cannellini beans, drained and rinsed (白芸豆罐頭，瀝乾)"
+  - "60ml dry white wine (乾白葡萄酒)"
+  - "1/2 tsp red pepper flakes (紅辣椒碎)"
+  - "1/4 tsp sea salt (海鹽)"
+  - "2 tbsp fresh flat-leaf parsley, chopped (歐芹碎)"
+  - "1 lemon, zest and juice (檸檬)"
 ingredients_display:
   - "300g large raw shrimp, peeled and deveined"
   - "3 tbsp extra virgin olive oil"

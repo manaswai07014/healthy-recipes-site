@@ -31,15 +31,15 @@ carbs: 68
 fat: 14
 fiber: 9
 ingredients_api:
-  - "350 g whole-wheat linguine (全麦意面)"
-  - "750 g fresh mussels, cleaned (新鲜青口贝)"
-  - "1.5 cups canned San Marzano crushed tomatoes (圣马尔zano碎番茄)"
-  - "2 tbsp extra-virgin olive oil (特级初榨橄榄油)"
+  - "350 g whole-wheat linguine (全麥意麪)"
+  - "750 g fresh mussels, cleaned (新鮮青口貝)"
+  - "1.5 cups canned San Marzano crushed tomatoes (聖馬爾zano碎番茄)"
+  - "2 tbsp extra-virgin olive oil (特級初榨橄欖油)"
   - "4 cloves garlic, minced (蒜瓣)"
-  - "0.5 cup dry white wine (干白葡萄酒)"
-  - "0.25 cup fresh Italian parsley, chopped (新鲜欧芹)"
-  - "0.5 tsp red pepper flakes (红辣椒片)"
-  - "0.5 tsp sea salt (海盐)"
+  - "0.5 cup dry white wine (乾白葡萄酒)"
+  - "0.25 cup fresh Italian parsley, chopped (新鮮歐芹)"
+  - "0.5 tsp red pepper flakes (紅辣椒片)"
+  - "0.5 tsp sea salt (海鹽)"
   - "0.25 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "350g whole-wheat linguine"

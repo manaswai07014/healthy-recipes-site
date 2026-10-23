@@ -31,18 +31,18 @@ carbs: 28
 fat: 26
 fiber: 3
 ingredients_api:
-  - "150g swordfish fillet, skinned and cut into 2 thick cutlets (剑鱼片)"
+  - "150g swordfish fillet, skinned and cut into 2 thick cutlets (劍魚片)"
   - "20g pine nuts (松子)"
-  - "25g golden raisins (金葡萄干)"
-  - "30g fresh breadcrumbs (新鲜面包屑)"
-  - "15ml extra virgin olive oil (特级初榨橄榄油)"
+  - "25g golden raisins (金葡萄乾)"
+  - "30g fresh breadcrumbs (新鮮麪包屑)"
+  - "15ml extra virgin olive oil (特級初榨橄欖油)"
   - "2g garlic, minced (蒜末)"
-  - "8g fresh parsley, chopped (新鲜欧芹)"
-  - "30g onion, finely diced (洋葱)"
+  - "8g fresh parsley, chopped (新鮮歐芹)"
+  - "30g onion, finely diced (洋蔥)"
   - "5g capers, drained (酸豆)"
-  - "1 lemon, zested and juiced (柠檬)"
-  - "1g dried oregano (干牛至)"
-  - "1.5g sea salt (海盐)"
+  - "1 lemon, zested and juiced (檸檬)"
+  - "1g dried oregano (幹牛至)"
+  - "1.5g sea salt (海鹽)"
   - "0.5g black pepper (黑胡椒)"
 ingredients_display:
   - "150g swordfish fillet, sliced into 2 thick cutlets"

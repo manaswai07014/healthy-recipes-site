@@ -31,14 +31,14 @@ carbs: 52
 fat: 18
 fiber: 9
 ingredients_api:
-  - "240 g brown sushi rice (寿司米)"
+  - "240 g brown sushi rice (壽司米)"
   - "180 g frozen shelled edamame (毛豆)"
   - "250 g extra-firm tofu (硬豆腐)"
   - "1 medium avocado (牛油果)"
-  - "1 medium cucumber (黄瓜)"
+  - "1 medium cucumber (黃瓜)"
   - "2 sheets nori seaweed (海苔片)"
-  - "30 g pickled ginger (渍姜)"
-  - "20 ml low-sodium soy sauce (酱油)"
+  - "30 g pickled ginger (漬姜)"
+  - "20 ml low-sodium soy sauce (醬油)"
   - "15 ml rice vinegar (米醋)"
   - "10 ml sesame oil (芝麻油)"
   - "15 g white sesame seeds (白芝麻)"

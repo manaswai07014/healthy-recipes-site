@@ -31,20 +31,20 @@ carbs: 22
 fat: 28
 fiber: 6
 ingredients_api:
-  - "600 g chicken breast, boneless skinless (鸡胸肉)"
+  - "600 g chicken breast, boneless skinless (雞胸肉)"
   - "1 large cauliflower, cut into florets (花椰菜)"
-  - "3 tbsp olive oil (橄榄油)"
-  - "2 tsp smoked paprika (烟熏辣椒粉)"
+  - "3 tbsp olive oil (橄欖油)"
+  - "2 tsp smoked paprika (煙燻辣椒粉)"
   - "1 tsp ground cumin (孜然粉)"
   - "1 tsp ground coriander (香菜籽粉)"
   - "1/2 tsp ground cinnamon (肉桂粉)"
   - "1/4 tsp ground ginger (姜粉)"
   - "3 cloves garlic, minced (蒜)"
-  - "3 tbsp tahini (芝麻酱)"
-  - "1 lemon, juiced (柠檬)"
-  - "30 ml warm water (温水)"
-  - "1/4 tsp salt (盐)"
-  - "2 tbsp fresh parsley, chopped (欧芹)"
+  - "3 tbsp tahini (芝麻醬)"
+  - "1 lemon, juiced (檸檬)"
+  - "30 ml warm water (溫水)"
+  - "1/4 tsp salt (鹽)"
+  - "2 tbsp fresh parsley, chopped (歐芹)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "600g chicken breast, sliced 2cm thick"

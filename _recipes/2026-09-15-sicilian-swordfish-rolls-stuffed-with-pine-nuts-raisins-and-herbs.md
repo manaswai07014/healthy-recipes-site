@@ -31,16 +31,16 @@ carbs: 38
 fat: 22
 fiber: 2
 ingredients_api:
-  - "400 g swordfish steak, center cut (剑鱼排)"
-  - "60 g fresh breadcrumbs (面包屑)"
+  - "400 g swordfish steak, center cut (劍魚排)"
+  - "60 g fresh breadcrumbs (麪包屑)"
   - "35 g pine nuts (松子)"
-  - "45 g golden raisins (葡萄干)"
+  - "45 g golden raisins (葡萄乾)"
   - "1 clove garlic, minced (大蒜)"
-  - "15 g fresh parsley, chopped (欧芹)"
-  - "8 g fresh basil, chopped (罗勒)"
-  - "35 ml extra virgin olive oil (特级初榨橄榄油)"
+  - "15 g fresh parsley, chopped (歐芹)"
+  - "8 g fresh basil, chopped (羅勒)"
+  - "35 ml extra virgin olive oil (特級初榨橄欖油)"
   - "100 ml dry white wine (白葡萄酒)"
-  - "3 g fine sea salt (海盐)"
+  - "3 g fine sea salt (海鹽)"
   - "1.5 g black pepper (黑胡椒)"
 ingredients_display:
   - "400g center-cut swordfish steak"

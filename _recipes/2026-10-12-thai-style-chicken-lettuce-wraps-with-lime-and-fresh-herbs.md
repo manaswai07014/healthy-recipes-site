@@ -31,18 +31,18 @@ carbs: 18
 fat: 22
 fiber: 3
 ingredients_api:
-  - "300 g ground chicken breast (鸡胸肉)"
+  - "300 g ground chicken breast (雞胸肉)"
   - "1 head butter lettuce (奶油生菜)"
-  - "2 limes, juiced (青柠)"
-  - "3 tbsp fish sauce (鱼露)"
+  - "2 limes, juiced (青檸)"
+  - "3 tbsp fish sauce (魚露)"
   - "1 tbsp sesame oil (芝麻油)"
   - "2 cloves garlic, minced (大蒜)"
-  - "1 thumb ginger, grated (生姜)"
-  - "1 shallot, thinly sliced (红葱头)"
-  - "1 fresh red chili, sliced (红辣椒)"
+  - "1 thumb ginger, grated (生薑)"
+  - "1 shallot, thinly sliced (紅蔥頭)"
+  - "1 fresh red chili, sliced (紅辣椒)"
   - "2 tbsp rice vinegar (米醋)"
   - "1 tsp coconut sugar (椰糖)"
-  - "15 g fresh mint leaves (薄荷叶)"
+  - "15 g fresh mint leaves (薄荷葉)"
   - "15 g fresh cilantro leaves (香菜)"
   - "1 tbsp vegetable oil (植物油)"
 ingredients_display:

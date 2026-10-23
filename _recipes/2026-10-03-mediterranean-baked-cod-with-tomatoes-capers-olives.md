@@ -31,16 +31,16 @@ carbs: 12
 fat: 28
 fiber: 3
 ingredients_api:
-  - "150 g cod fillets, skin-on (三文鱼片)"
+  - "150 g cod fillets, skin-on (三文魚片)"
   - "200 g cherry tomatoes, halved (小番茄)"
   - "30 g capers, drained (刺山柑)"
-  - "60 g Kalamata olives, halved (卡拉马塔橄榄)"
-  - "50 ml extra virgin olive oil (特级初榨橄榄油)"
+  - "60 g Kalamata olives, halved (卡拉馬塔橄欖)"
+  - "50 ml extra virgin olive oil (特級初榨橄欖油)"
   - "4 cloves garlic, thinly sliced (大蒜)"
-  - "60 ml dry white wine (干白葡萄酒)"
-  - "1 lemon, zested and juiced (柠檬)"
-  - "4 sprigs fresh oregano (新鲜牛至)"
-  - "1 g flaky sea salt (海盐)"
+  - "60 ml dry white wine (乾白葡萄酒)"
+  - "1 lemon, zested and juiced (檸檬)"
+  - "4 sprigs fresh oregano (新鮮牛至)"
+  - "1 g flaky sea salt (海鹽)"
   - "0.5 g black pepper, freshly ground (黑胡椒)"
 ingredients_display:
   - "150g cod fillets, skin-on"
@@ -59,7 +59,7 @@ instructions:
   - "Step 3: Flip cod carefully with spatula (skin should release cleanly). Arrange cherry tomatoes cut-side up around fillets, scatter garlic slices and capers between pieces. Distribute olive halves among tomatoes."
   - "Step 4: Pour white wine around the pan edges (not directly over fish—it will splatter). Scatter oregano sprigs over vegetables. Transfer skillet to preheated oven."
   - "Step 5: Bake 12-14 minutes until cod flesh flakes easily when pressed and internal temperature reaches 63°C (145°F) on instant-read thermometer inserted thickest part."
-  - "Step 6: Remove from oven. Squeeze lemon juice over everything, then zest lemon directly onto sauce. The residual heat will轻度 wilt oregano. The tomatoes should be burst and jammy, sauce should be emerald-green from olive oil and herb mingling."
+  - "Step 6: Remove from oven. Squeeze lemon juice over everything, then zest lemon directly onto sauce. The residual heat will輕度 wilt oregano. The tomatoes should be burst and jammy, sauce should be emerald-green from olive oil and herb mingling."
 introduction: |
   Aromatic cod fillets baked in a skillet with briny capers, meaty olives, and burst cherry tomatoes finished with fresh oregano and bright lemon zest
 chef_tips: |
@@ -93,7 +93,7 @@ Aromatic cod fillets baked in a skillet with briny capers, meaty olives, and bur
 3. Step 3: Flip cod carefully with spatula (skin should release cleanly). Arrange cherry tomatoes cut-side up around fillets, scatter garlic slices and capers between pieces. Distribute olive halves among tomatoes.
 4. Step 4: Pour white wine around the pan edges (not directly over fish—it will splatter). Scatter oregano sprigs over vegetables. Transfer skillet to preheated oven.
 5. Step 5: Bake 12-14 minutes until cod flesh flakes easily when pressed and internal temperature reaches 63°C (145°F) on instant-read thermometer inserted thickest part.
-6. Step 6: Remove from oven. Squeeze lemon juice over everything, then zest lemon directly onto sauce. The residual heat will轻度 wilt oregano. The tomatoes should be burst and jammy, sauce should be emerald-green from olive oil and herb mingling.
+6. Step 6: Remove from oven. Squeeze lemon juice over everything, then zest lemon directly onto sauce. The residual heat will輕度 wilt oregano. The tomatoes should be burst and jammy, sauce should be emerald-green from olive oil and herb mingling.
 
 ## Nutrition (per serving)
 

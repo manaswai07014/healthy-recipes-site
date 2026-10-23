@@ -31,14 +31,14 @@ carbs: 18
 fat: 26
 fiber: 3
 ingredients_api:
-  - "400 g large raw shrimp, peeled and deveined (大虾仁)"
-  - "4 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "400 g large raw shrimp, peeled and deveined (大蝦仁)"
+  - "4 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "6 cloves garlic, thinly sliced (大蒜，切薄片)"
-  - "2 dried cayenne chilies (红辣椒干)"
-  - "200 g cherry tomatoes, halved (小番茄，对半切)"
-  - "30 g fresh parsley, chopped (新鲜欧芹，切碎)"
-  - "80 g crusty whole wheat bread (全麦硬面包)"
-  - "1 pinch flaky sea salt (海盐片)"
+  - "2 dried cayenne chilies (紅辣椒幹)"
+  - "200 g cherry tomatoes, halved (小番茄，對半切)"
+  - "30 g fresh parsley, chopped (新鮮歐芹，切碎)"
+  - "80 g crusty whole wheat bread (全麥硬麪包)"
+  - "1 pinch flaky sea salt (海鹽片)"
 ingredients_display:
   - "400g large raw shrimp, peeled and deveined"
   - "4 tbsp extra virgin olive oil"

@@ -31,21 +31,21 @@ carbs: 38
 fat: 26
 fiber: 9
 ingredients_api:
-  - "150 g chicken breast (鸡胸肉)"
+  - "150 g chicken breast (雞胸肉)"
   - "600 g cauliflower florets (花椰菜朵)"
-  - "240 g canned chickpeas drained (鹰嘴豆)"
-  - "3 tbsp olive oil (橄榄油)"
+  - "240 g canned chickpeas drained (鷹嘴豆)"
+  - "3 tbsp olive oil (橄欖油)"
   - "1 tsp ground cumin (孜然粉)"
   - "1 tsp ground coriander (香菜籽粉)"
   - "1 tsp sweet paprika (甜辣椒粉)"
   - "0.5 tsp ground cinnamon (肉桂粉)"
   - "0.5 tsp ground ginger (姜粉)"
   - "2 cloves garlic minced (大蒜)"
-  - "30 g tahini (芝麻酱)"
-  - "2 tbsp lemon juice (柠檬汁)"
+  - "30 g tahini (芝麻醬)"
+  - "2 tbsp lemon juice (檸檬汁)"
   - "3 tbsp water (水)"
-  - "30 g fresh parsley chopped (新鲜欧芹)"
-  - "0.5 tsp sea salt (海盐)"
+  - "30 g fresh parsley chopped (新鮮歐芹)"
+  - "0.5 tsp sea salt (海鹽)"
   - "0.25 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "150g chicken breast, trimmed"

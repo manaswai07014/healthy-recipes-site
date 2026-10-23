@@ -31,15 +31,15 @@ carbs: 12
 fat: 33
 fiber: 4
 ingredients_api:
-  - "170 g cod fillet (鳕鱼柳)"
+  - "170 g cod fillet (鱈魚柳)"
   - "200 g baby spinach (嫩菠菜)"
   - "40 g pine nuts (松子)"
-  - "45 ml extra virgin olive oil (特级初榨橄榄油)"
+  - "45 ml extra virgin olive oil (特級初榨橄欖油)"
   - "3 cloves garlic, minced (蒜瓣，切碎)"
-  - "1 lemon, zest and juice (柠檬)"
-  - "60 ml dry white wine (干白葡萄酒)"
-  - "4 g fresh dill, chopped (新鲜莳萝)"
-  - "2 g sea salt (海盐)"
+  - "1 lemon, zest and juice (檸檬)"
+  - "60 ml dry white wine (乾白葡萄酒)"
+  - "4 g fresh dill, chopped (新鮮蒔蘿)"
+  - "2 g sea salt (海鹽)"
   - "1 g black pepper (黑胡椒)"
 ingredients_display:
   - "2 cod fillets (170g each)"

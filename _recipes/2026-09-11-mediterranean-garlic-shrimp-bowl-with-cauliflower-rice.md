@@ -31,16 +31,16 @@ carbs: 18
 fat: 42
 fiber: 4
 ingredients_api:
-  - "250 g raw tiger prawns (老虎虾)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "250 g raw tiger prawns (老虎蝦)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "1 head garlic, thinly sliced (大蒜，切薄片)"
-  - "1 tsp smoked paprika (烟熏辣椒粉)"
-  - "0.5 tsp dried chili flakes (干辣椒碎)"
+  - "1 tsp smoked paprika (煙燻辣椒粉)"
+  - "0.5 tsp dried chili flakes (幹辣椒碎)"
   - "1 cup cauliflower rice (花椰菜米)"
-  - "150 g cherry tomatoes, halved (小番茄，对半切)"
-  - "2 tbsp fresh parsley, chopped (新鲜欧芹，切碎)"
-  - "1 lemon, juiced (柠檬，榨汁)"
-  - "0.5 tsp sea salt (海盐)"
+  - "150 g cherry tomatoes, halved (小番茄，對半切)"
+  - "2 tbsp fresh parsley, chopped (新鮮歐芹，切碎)"
+  - "1 lemon, juiced (檸檬，榨汁)"
+  - "0.5 tsp sea salt (海鹽)"
   - "0.25 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "250g raw tiger prawns"

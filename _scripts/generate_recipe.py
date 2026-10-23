@@ -145,8 +145,8 @@ OUTPUT FORMAT (strict JSON, no markdown, no commentary):
   "servings": <int>,
   "introduction": "150-char intro with sensory detail and technique note",
   "ingredients_api_format": [
-    "<qty> <unit> <english name> (<chinese name>)",
-    "<qty> <unit> <english name> (<chinese name>)",
+    "<qty> <unit> <english name> (<TRADITIONAL Chinese name — 繁體中文, never Simplified>)",
+    "<qty> <unit> <english name> (<TRADITIONAL Chinese name — 繁體中文, never Simplified>)",
     ...
   ],
   "ingredients_display": [

@@ -31,18 +31,18 @@ carbs: 18
 fat: 22
 fiber: 5
 ingredients_api:
-  - "450 g skinless cod fillet (鳕鱼片)"
+  - "450 g skinless cod fillet (鱈魚片)"
   - "2 medium fennel bulbs, fronds reserved (茴香球)"
   - "400 g canned diced tomatoes (切丁番茄罐)"
-  - "500 ml low-sodium fish stock (鱼高汤)"
-  - "150 ml dry white wine (干白葡萄酒)"
-  - "4 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "3 medium shallots, finely diced (红葱头)"
+  - "500 ml low-sodium fish stock (魚高湯)"
+  - "150 ml dry white wine (乾白葡萄酒)"
+  - "4 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "3 medium shallots, finely diced (紅蔥頭)"
   - "4 cloves garlic, minced (大蒜)"
-  - "1/4 tsp saffron threads (藏红花)"
-  - "1/2 tsp fine sea salt (海盐)"
+  - "1/4 tsp saffron threads (藏紅花)"
+  - "1/2 tsp fine sea salt (海鹽)"
   - "1/4 tsp freshly ground black pepper (黑胡椒)"
-  - "1 tsp fresh thyme leaves (鲜百里香)"
+  - "1 tsp fresh thyme leaves (鮮百里香)"
 ingredients_display:
   - "450g skinless cod fillet, cut into 3-inch pieces"
   - "2 medium fennel bulbs, sliced thin, fronds reserved for garnish"

@@ -31,17 +31,17 @@ carbs: 58
 fat: 18
 fiber: 12
 ingredients_api:
-  - "200 g red lentils (红扁豆)"
-  - "1 medium onion, diced (洋葱)"
-  - "2 medium carrots, diced (胡萝卜)"
+  - "200 g red lentils (紅扁豆)"
+  - "1 medium onion, diced (洋蔥)"
+  - "2 medium carrots, diced (胡蘿蔔)"
   - "3 cloves garlic, minced (大蒜)"
-  - "900 ml low-sodium vegetable broth (蔬菜高汤)"
-  - "60 ml extra virgin olive oil (特级初榨橄榄油)"
+  - "900 ml low-sodium vegetable broth (蔬菜高湯)"
+  - "60 ml extra virgin olive oil (特級初榨橄欖油)"
   - "1 tsp ground cumin (孜然粉)"
-  - "1/2 tsp turmeric (姜黄)"
-  - "1 tbsp dried mint (干薄荷)"
-  - "1 lemon, juiced and zested (柠檬)"
-  - "1/2 tsp sea salt (海盐)"
+  - "1/2 tsp turmeric (薑黃)"
+  - "1 tbsp dried mint (幹薄荷)"
+  - "1 lemon, juiced and zested (檸檬)"
+  - "1/2 tsp sea salt (海鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "200g red lentils, rinsed and drained"

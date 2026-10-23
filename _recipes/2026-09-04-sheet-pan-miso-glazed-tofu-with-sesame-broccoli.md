@@ -32,16 +32,16 @@ fat: 28
 fiber: 9
 ingredients_api:
   - "400 g extra-firm tofu (豆腐)"
-  - "400 g broccoli florets (西兰花)"
+  - "400 g broccoli florets (西蘭花)"
   - "3 tbsp white miso paste (白味噌)"
   - "2 tbsp mirin (味醂)"
   - "1 tbsp rice vinegar (米醋)"
   - "1 tbsp sesame oil (芝麻油)"
   - "2 tbsp vegetable oil (植物油)"
-  - "1 tbsp fresh ginger, grated (生姜)"
+  - "1 tbsp fresh ginger, grated (生薑)"
   - "2 cloves garlic, minced (大蒜)"
   - "2 tbsp sesame seeds (芝麻)"
-  - "1 green onion, sliced (葱)"
+  - "1 green onion, sliced (蔥)"
 ingredients_display:
   - "400g extra-firm tofu, pressed and cubed"
   - "400g broccoli florets"

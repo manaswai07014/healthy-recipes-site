@@ -31,17 +31,17 @@ carbs: 35
 fat: 22
 fiber: 8
 ingredients_api:
-  - "350g raw jumbo shrimp, peeled and deveined (大虾)"
+  - "350g raw jumbo shrimp, peeled and deveined (大蝦)"
   - "1 can (400g) cannellini beans, drained and rinsed (白芸豆)"
-  - "100g curly kale, stems removed, roughly chopped (羽衣甘蓝)"
+  - "100g curly kale, stems removed, roughly chopped (羽衣甘藍)"
   - "6 cloves garlic, thinly sliced (大蒜)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "60ml dry white wine (干白葡萄酒)"
-  - "1 tsp smoked paprika (烟熏红椒粉)"
-  - "1/2 tsp red chili flakes (红辣椒片)"
-  - "1 lemon, juiced and zested (柠檬)"
-  - "1/4 tsp sea salt (海盐)"
-  - "Freshly ground black pepper (现磨黑胡椒)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "60ml dry white wine (乾白葡萄酒)"
+  - "1 tsp smoked paprika (煙燻紅椒粉)"
+  - "1/2 tsp red chili flakes (紅辣椒片)"
+  - "1 lemon, juiced and zested (檸檬)"
+  - "1/4 tsp sea salt (海鹽)"
+  - "Freshly ground black pepper (現磨黑胡椒)"
 ingredients_display:
   - "350g jumbo shrimp, peeled and deveined"
   - "1 can cannellini beans, drained and rinsed"

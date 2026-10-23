@@ -31,13 +31,13 @@ carbs: 38
 fat: 28
 fiber: 9
 ingredients_api:
-  - "200 g cauliflower rice (菜花米饭)"
+  - "200 g cauliflower rice (菜花米飯)"
   - "180 g shelled edamame (毛豆)"
   - "150 g firm tofu (硬豆腐)"
-  - "150 g cucumber, diced (黄瓜)"
+  - "150 g cucumber, diced (黃瓜)"
   - "1 medium avocado, sliced (牛油果)"
-  - "30 g pickled ginger (腌制姜)"
-  - "2 tbsp low-sodium soy sauce (低钠酱油)"
+  - "30 g pickled ginger (醃製姜)"
+  - "2 tbsp low-sodium soy sauce (低鈉醬油)"
   - "1 tbsp rice vinegar (米醋)"
   - "1 tsp sesame oil (芝麻油)"
   - "1 tsp sesame seeds (芝麻)"

@@ -32,15 +32,15 @@ fat: 15
 fiber: 6
 ingredients_api:
   - "4 whole large bell peppers (甜椒)"
-  - "500g ground turkey 93% lean (火鸡绞肉)"
+  - "500g ground turkey 93% lean (火雞絞肉)"
   - "150g cooked arborio rice (意大利米)"
-  - "200ml tomato sauce (番茄酱)"
-  - "1 medium onion (洋葱)"
+  - "200ml tomato sauce (番茄醬)"
+  - "1 medium onion (洋蔥)"
   - "3 cloves garlic (大蒜)"
-  - "60g mozzarella cheese, shredded (马苏里拉奶酪)"
-  - "2 tbsp olive oil (橄榄油)"
+  - "60g mozzarella cheese, shredded (馬蘇裏拉奶酪)"
+  - "2 tbsp olive oil (橄欖油)"
   - "1 tsp dried Italian herbs (意大利混合香料)"
-  - "1/2 tsp salt (食盐)"
+  - "1/2 tsp salt (食鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "4 large bell peppers, tops removed and seeded"

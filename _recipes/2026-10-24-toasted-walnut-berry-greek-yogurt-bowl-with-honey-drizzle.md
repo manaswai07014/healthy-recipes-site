@@ -18,13 +18,13 @@ carbs: 39
 fat: 20
 fiber: 4
 ingredients_api:
-  - "2 cups nonfat Greek yogurt (脱脂希腊酸奶)"
+  - "2 cups nonfat Greek yogurt (脫脂希臘酸奶)"
   - "1/2 cup walnuts (核桃)"
-  - "1 cup mixed berries (混合浆果)"
+  - "1 cup mixed berries (混合漿果)"
   - "2 tbsp honey (蜂蜜)"
   - "1 tsp vanilla extract (香草精)"
   - "1/2 tsp ground cinnamon (肉桂粉)"
-  - "1 tsp lemon zest (柠檬皮屑)"
+  - "1 tsp lemon zest (檸檬皮屑)"
 ingredients_display:
   - "2 cups (480g) plain nonfat Greek yogurt"
   - "1/2 cup (60g) walnut halves"

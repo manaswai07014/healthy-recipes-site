@@ -31,17 +31,17 @@ carbs: 12
 fat: 28
 fiber: 3
 ingredients_api:
-  - "350 g large sea scallops (扇贝)"
-  - "600 g zucchini (西葫芦)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "350 g large sea scallops (扇貝)"
+  - "600 g zucchini (西葫蘆)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "3 cloves garlic, minced (大蒜)"
-  - "1 lemon, zested and juiced (柠檬)"
-  - "60 ml dry white wine (干白葡萄酒)"
-  - "2 tbsp unsalted butter (无盐黄油)"
-  - "2 tbsp fresh parsley, chopped (新鲜欧芹)"
-  - "1 tsp fresh thyme leaves (新鲜百里香)"
-  - "1/4 tsp red pepper flakes (红辣椒片)"
-  - "1/2 tsp sea salt (海盐)"
+  - "1 lemon, zested and juiced (檸檬)"
+  - "60 ml dry white wine (乾白葡萄酒)"
+  - "2 tbsp unsalted butter (無鹽黃油)"
+  - "2 tbsp fresh parsley, chopped (新鮮歐芹)"
+  - "1 tsp fresh thyme leaves (新鮮百里香)"
+  - "1/4 tsp red pepper flakes (紅辣椒片)"
+  - "1/2 tsp sea salt (海鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "350g large sea scallops, patted completely dry"

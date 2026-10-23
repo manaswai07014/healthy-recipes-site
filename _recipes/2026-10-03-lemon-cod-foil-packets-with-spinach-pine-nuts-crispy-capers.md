@@ -31,18 +31,18 @@ carbs: 12
 fat: 30
 fiber: 4
 ingredients_api:
-  - "300 g cod fillets, skinless (鳕鱼片)"
-  - "250 g fresh baby spinach (新鲜菠菜)"
+  - "300 g cod fillets, skinless (鱈魚片)"
+  - "250 g fresh baby spinach (新鮮菠菜)"
   - "40 g pine nuts (松子)"
-  - "30 ml extra virgin olive oil (特级初榨橄榄油)"
-  - "2 whole lemons (柠檬)"
+  - "30 ml extra virgin olive oil (特級初榨橄欖油)"
+  - "2 whole lemons (檸檬)"
   - "4 cloves garlic, minced (蒜瓣)"
-  - "1 small shallot, thinly sliced (红葱头)"
+  - "1 small shallot, thinly sliced (紅蔥頭)"
   - "2 tbsp capers, drained (酸豆)"
-  - "1 tsp fresh thyme leaves (新鲜百里香)"
-  - "1/2 tsp flaky sea salt (海盐)"
+  - "1 tsp fresh thyme leaves (新鮮百里香)"
+  - "1/2 tsp flaky sea salt (海鹽)"
   - "1/4 tsp freshly cracked black pepper (黑胡椒)"
-  - "2 pieces parchment paper or heavy-duty foil (烘焙纸/铝箔)"
+  - "2 pieces parchment paper or heavy-duty foil (烘焙紙/鋁箔)"
 ingredients_display:
   - "300g skinless cod fillets"
   - "250g fresh baby spinach"

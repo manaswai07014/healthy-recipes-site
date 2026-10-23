@@ -31,15 +31,15 @@ carbs: 48
 fat: 16
 fiber: 6
 ingredients_api:
-  - "150 g nonfat Greek yogurt (脱脂希腊酸奶)"
+  - "150 g nonfat Greek yogurt (脫脂希臘酸奶)"
   - "80 g mixed berries (混合莓果)"
-  - "50 g old-fashioned oats (传统燕麦片)"
+  - "50 g old-fashioned oats (傳統燕麥片)"
   - "20 g sliced almonds (杏仁片)"
   - "15 g honey (蜂蜜)"
-  - "10 g chia seeds (奇亚籽)"
-  - "5 ml extra virgin olive oil (特级初榨橄榄油"
+  - "10 g chia seeds (奇亞籽)"
+  - "5 ml extra virgin olive oil (特級初榨橄欖油"
   - "2 g vanilla extract (香草精)"
-  - "1 g lemon zest (柠檬皮屑)"
+  - "1 g lemon zest (檸檬皮屑)"
 ingredients_display:
   - "150g nonfat Greek yogurt per bowl"
   - "80g mixed berries (blueberries, raspberries, blackberries)"

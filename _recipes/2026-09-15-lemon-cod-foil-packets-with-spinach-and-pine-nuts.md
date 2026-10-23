@@ -31,14 +31,14 @@ carbs: 8
 fat: 26
 fiber: 3
 ingredients_api:
-  - "600 g cod fillets, wild-caught (新鲜的野生鳕鱼片)"
-  - "200 g baby spinach leaves (新鲜菠菜叶)"
+  - "600 g cod fillets, wild-caught (新鮮的野生鱈魚片)"
+  - "200 g baby spinach leaves (新鮮菠菜葉)"
   - "50 g pine nuts (松子)"
   - "3 cloves garlic, minced (蒜末)"
-  - "1 whole lemon, zested and juiced (柠檬)"
-  - "60 ml extra virgin olive油 (特级初榨橄榄油)"
-  - "10 g fresh dill, chopped (新鲜莳萝)"
-  - "1 tsp sea salt (海盐)"
+  - "1 whole lemon, zested and juiced (檸檬)"
+  - "60 ml extra virgin olive油 (特級初榨橄欖油)"
+  - "10 g fresh dill, chopped (新鮮蒔蘿)"
+  - "1 tsp sea salt (海鹽)"
   - "0.5 tsp black pepper, freshly ground (黑胡椒)"
 ingredients_display:
   - "4 wild-caught cod fillets (150g each)"

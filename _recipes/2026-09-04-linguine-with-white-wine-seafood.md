@@ -31,18 +31,18 @@ carbs: 62
 fat: 14
 fiber: 4
 ingredients_api:
-  - "400 g linguine (意大利细面)"
-  - "300 g mixed seafood (海鲜混合装) - shrimp, mussels, clams"
-  - "4 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "400 g linguine (意大利細面)"
+  - "300 g mixed seafood (海鮮混合裝) - shrimp, mussels, clams"
+  - "4 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "4 cloves garlic, minced (大蒜)"
-  - "1 large shallot, finely diced (红葱头)"
+  - "1 large shallot, finely diced (紅蔥頭)"
   - "250 g cherry tomatoes, halved (小番茄)"
-  - "1 medium zucchini, diced (西葫芦)"
-  - "1 cup dry white wine (干白葡萄酒)"
-  - "1/4 cup fresh parsley, chopped (欧芹)"
-  - "1/2 tsp red pepper flakes (红椒碎)"
-  - "1 lemon, juiced (柠檬)"
-  - "1/2 tsp sea salt (海盐)"
+  - "1 medium zucchini, diced (西葫蘆)"
+  - "1 cup dry white wine (乾白葡萄酒)"
+  - "1/4 cup fresh parsley, chopped (歐芹)"
+  - "1/2 tsp red pepper flakes (紅椒碎)"
+  - "1 lemon, juiced (檸檬)"
+  - "1/2 tsp sea salt (海鹽)"
   - "1/4 tsp black pepper (黑胡椒)"
 ingredients_display:
   - "400g linguine"

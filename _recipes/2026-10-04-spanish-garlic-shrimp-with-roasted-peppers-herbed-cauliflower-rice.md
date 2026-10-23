@@ -31,18 +31,18 @@ carbs: 18
 fat: 28
 fiber: 5
 ingredients_api:
-  - "150 g raw shrimp, peeled and deveined (虾仁)"
-  - "1 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "150 g raw shrimp, peeled and deveined (蝦仁)"
+  - "1 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "6 cloves garlic, thinly sliced (大蒜)"
-  - "1/2 tsp red chili flakes (红辣椒片)"
+  - "1/2 tsp red chili flakes (紅辣椒片)"
   - "100 g cherry tomatoes, halved (小番茄)"
-  - "1 small red bell pepper, sliced (红甜椒)"
-  - "1 small yellow bell pepper, sliced (黄甜椒)"
-  - "60 ml dry white wine (干白葡萄酒)"
-  - "150 g cauliflower rice (花椰菜米饭)"
-  - "1 tbsp fresh parsley, chopped (新鲜欧芹)"
-  - "1/4 tsp smoked paprika (烟熏辣椒粉)"
-  - "1/4 tsp sea salt (海盐)"
+  - "1 small red bell pepper, sliced (紅甜椒)"
+  - "1 small yellow bell pepper, sliced (黃甜椒)"
+  - "60 ml dry white wine (乾白葡萄酒)"
+  - "150 g cauliflower rice (花椰菜米飯)"
+  - "1 tbsp fresh parsley, chopped (新鮮歐芹)"
+  - "1/4 tsp smoked paprika (煙燻辣椒粉)"
+  - "1/4 tsp sea salt (海鹽)"
   - "1 pinch black pepper (黑胡椒)"
 ingredients_display:
   - "150g raw shrimp, peeled and deveined"

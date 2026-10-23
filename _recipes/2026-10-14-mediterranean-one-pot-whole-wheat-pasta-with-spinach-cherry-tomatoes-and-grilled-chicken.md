@@ -31,18 +31,18 @@ carbs: 52
 fat: 18
 fiber: 8
 ingredients_api:
-  - "280 g whole wheat pasta (全麦意面)"
-  - "250 g chicken breast, sliced 1cm thick (鸡胸肉)"
+  - "280 g whole wheat pasta (全麥意麪)"
+  - "250 g chicken breast, sliced 1cm thick (雞胸肉)"
   - "300 g cherry tomatoes, halved (小番茄)"
   - "200 g baby spinach (菠菜)"
-  - "3 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "3 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "4 cloves garlic, minced (蒜末)"
-  - "1/2 tsp red pepper flakes (红椒碎)"
-  - "500 ml low-sodium chicken broth (低钠鸡汤)"
-  - "60 g Parmigiano-Reggiano, finely grated (帕玛森奶酪)"
-  - "1 tsp dried oregano (干牛至)"
-  - "1/2 tsp sea salt (海盐)"
-  - "Freshly ground black pepper (现磨黑胡椒)"
+  - "1/2 tsp red pepper flakes (紅椒碎)"
+  - "500 ml low-sodium chicken broth (低鈉雞湯)"
+  - "60 g Parmigiano-Reggiano, finely grated (帕瑪森奶酪)"
+  - "1 tsp dried oregano (幹牛至)"
+  - "1/2 tsp sea salt (海鹽)"
+  - "Freshly ground black pepper (現磨黑胡椒)"
 ingredients_display:
   - "280g whole wheat pasta"
   - "250g chicken breast, sliced thin"

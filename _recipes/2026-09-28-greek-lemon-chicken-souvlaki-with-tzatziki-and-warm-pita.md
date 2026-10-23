@@ -31,18 +31,18 @@ carbs: 42
 fat: 16
 fiber: 6
 ingredients_api:
-  - "400 g chicken breast, skinless, cubed (鸡肉)"
-  - "3 tbsp lemon juice, fresh (柠檬汁)"
-  - "2 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "400 g chicken breast, skinless, cubed (雞肉)"
+  - "3 tbsp lemon juice, fresh (檸檬汁)"
+  - "2 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "3 cloves garlic, minced (蒜末)"
-  - "2 tsp dried oregano (干牛至)"
-  - "1 tsp sea salt (海盐)"
+  - "2 tsp dried oregano (幹牛至)"
+  - "1 tsp sea salt (海鹽)"
   - "0.5 tsp black pepper (黑胡椒)"
-  - "200 g Greek yogurt, non-fat (希腊酸奶)"
-  - "1 medium cucumber, grated (黄瓜)"
-  - "2 tbsp fresh dill, chopped (新鲜莳萝)"
-  - "4 whole wheat pita breads (全麦皮塔饼)"
-  - "1 medium red onion, sliced (红洋葱)"
+  - "200 g Greek yogurt, non-fat (希臘酸奶)"
+  - "1 medium cucumber, grated (黃瓜)"
+  - "2 tbsp fresh dill, chopped (新鮮蒔蘿)"
+  - "4 whole wheat pita breads (全麥皮塔餅)"
+  - "1 medium red onion, sliced (紅洋蔥)"
   - "2 medium tomatoes, chopped (番茄)"
 ingredients_display:
   - "400g skinless chicken breast, cubed"

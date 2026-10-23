@@ -31,18 +31,18 @@ carbs: 12
 fat: 32
 fiber: 3
 ingredients_api:
-  - "680 g cod fillets, skin-on (约680克带皮鳕鱼片)"
-  - "400 g fresh baby spinach (新鲜Baby菠菜)"
+  - "680 g cod fillets, skin-on (約680克帶皮鱈魚片)"
+  - "400 g fresh baby spinach (新鮮Baby菠菜)"
   - "60 g pine nuts (松子)"
-  - "60 ml extra virgin olive oil (特级初榨橄榄油)"
-  - "2 large lemons (2个柠檬)"
+  - "60 ml extra virgin olive oil (特級初榨橄欖油)"
+  - "2 large lemons (2個檸檬)"
   - "6 cloves garlic, thinly sliced (6瓣蒜，切薄片)"
-  - "2 shallots, thinly sliced (2个红葱头，切薄片)"
-  - "80 ml dry white wine (干白葡萄酒)"
-  - "4 sprigs fresh thyme (4枝新鲜百里香)"
-  - "1 tsp sea salt (海盐)"
+  - "2 shallots, thinly sliced (2個紅蔥頭，切薄片)"
+  - "80 ml dry white wine (乾白葡萄酒)"
+  - "4 sprigs fresh thyme (4枝新鮮百里香)"
+  - "1 tsp sea salt (海鹽)"
   - "0.5 tsp black pepper (黑胡椒)"
-  - "0.25 tsp red pepper flakes (红辣椒片)"
+  - "0.25 tsp red pepper flakes (紅辣椒片)"
 ingredients_display:
   - "4 cod fillets (6oz/170g each), skin-on"
   - "400g fresh baby spinach"

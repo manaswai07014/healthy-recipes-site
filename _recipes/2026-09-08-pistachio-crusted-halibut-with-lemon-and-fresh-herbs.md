@@ -31,16 +31,16 @@ carbs: 18
 fat: 24
 fiber: 3
 ingredients_api:
-  - "200 g halibut fillet (大比目鱼片)"
-  - "40 g raw pistachios, shells removed (去壳生开心果)"
-  - "1 tbsp extra virgin olive oil (特级初榨橄榄油)"
-  - "1 medium lemon (柠檬)"
-  - "2 tbsp fresh parsley, finely chopped (新鲜欧芹)"
-  - "1 tbsp fresh dill, finely chopped (新鲜莳萝)"
+  - "200 g halibut fillet (大比目魚片)"
+  - "40 g raw pistachios, shells removed (去殼生開心果)"
+  - "1 tbsp extra virgin olive oil (特級初榨橄欖油)"
+  - "1 medium lemon (檸檬)"
+  - "2 tbsp fresh parsley, finely chopped (新鮮歐芹)"
+  - "1 tbsp fresh dill, finely chopped (新鮮蒔蘿)"
   - "1 clove garlic, minced (蒜末)"
-  - "30 g breadcrumbs, gluten-free if needed (面包屑)"
+  - "30 g breadcrumbs, gluten-free if needed (麪包屑)"
   - "1 large egg white (蛋白)"
-  - "1/4 tsp sea salt (海盐)"
+  - "1/4 tsp sea salt (海鹽)"
   - "1/4 tsp freshly ground black pepper (黑胡椒)"
 ingredients_display:
   - "200g halibut fillet"

@@ -31,18 +31,18 @@ carbs: 18
 fat: 29
 fiber: 4
 ingredients_api:
-  - "150 g large sea scallops (扇贝)"
-  - "3 medium zucchini (西葫芦)"
-  - "2 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "150 g large sea scallops (扇貝)"
+  - "3 medium zucchini (西葫蘆)"
+  - "2 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "4 cloves garlic, minced (大蒜)"
-  - "1 lemon, juiced and zested (柠檬)"
-  - "60 ml dry white wine (干白葡萄酒)"
+  - "1 lemon, juiced and zested (檸檬)"
+  - "60 ml dry white wine (乾白葡萄酒)"
   - "2 tbsp capers, drained (酸豆)"
   - "100 g cherry tomatoes, halved (小番茄)"
-  - "2 tbsp fresh parsley, chopped (欧芹)"
+  - "2 tbsp fresh parsley, chopped (歐芹)"
   - "1 tsp fresh thyme leaves (百里香)"
-  - "1/4 tsp red pepper flakes (红辣椒片)"
-  - "Sea salt and freshly ground black pepper (海盐和黑胡椒)"
+  - "1/4 tsp red pepper flakes (紅辣椒片)"
+  - "Sea salt and freshly ground black pepper (海鹽和黑胡椒)"
 ingredients_display:
   - "150g large sea scallops (about 5-6 scallops)"
   - "3 medium zucchini, spiralized"

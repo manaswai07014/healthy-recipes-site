@@ -31,20 +31,20 @@ carbs: 45
 fat: 16
 fiber: 11
 ingredients_api:
-  - "150g turkey italian sausage (意式土耳其香肠)"
+  - "150g turkey italian sausage (意式土耳其香腸)"
   - "400g canned cannellini beans, drained (白芸豆)"
-  - "200g Lacinato/dinosaur kale (羽衣甘蓝)"
-  - "1 medium onion, diced (洋葱)"
+  - "200g Lacinato/dinosaur kale (羽衣甘藍)"
+  - "1 medium onion, diced (洋蔥)"
   - "3 cloves garlic, minced (大蒜)"
   - "2 celery stalks, diced (芹菜)"
-  - "1 medium carrot, diced (胡萝卜)"
-  - "4 cups low-sodium chicken broth (低钠鸡汤)"
-  - "2 tbsp extra virgin olive oil (特级初榨橄榄油)"
+  - "1 medium carrot, diced (胡蘿蔔)"
+  - "4 cups low-sodium chicken broth (低鈉雞湯)"
+  - "2 tbsp extra virgin olive oil (特級初榨橄欖油)"
   - "1 can diced tomatoes (400g) (去皮番茄丁)"
   - "1 tsp dried rosemary (迷迭香)"
-  - "1/2 tsp red pepper flakes (红辣椒片)"
+  - "1/2 tsp red pepper flakes (紅辣椒片)"
   - "1/2 tsp black pepper (黑胡椒)"
-  - "1/2 tsp salt (盐)"
+  - "1/2 tsp salt (鹽)"
 ingredients_display:
   - "150g Italian turkey sausage"
   - "400g canned cannellini beans, drained and rinsed"

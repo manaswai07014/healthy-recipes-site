@@ -31,17 +31,17 @@ carbs: 62
 fat: 16
 fiber: 12
 ingredients_api:
-  - "200 g red lentils (红扁豆)"
-  - "150 g yellow onion (黄洋葱)"
-  - "100 g carrot (胡萝卜)"
-  - "30 ml extra virgin olive oil (特级初榨橄榄油)"
-  - "1000 ml low-sodium vegetable broth (低钠蔬菜高汤)"
+  - "200 g red lentils (紅扁豆)"
+  - "150 g yellow onion (黃洋蔥)"
+  - "100 g carrot (胡蘿蔔)"
+  - "30 ml extra virgin olive oil (特級初榨橄欖油)"
+  - "1000 ml low-sodium vegetable broth (低鈉蔬菜高湯)"
   - "5 g ground cumin (孜然粉)"
-  - "6 g dried mint (干薄荷)"
-  - "3 g fine sea salt (细海盐)"
-  - "1 g freshly ground black pepper (现磨黑胡椒)"
-  - "30 ml fresh lemon juice (鲜柠檬汁)"
-  - "120 g whole wheat pita bread (全麦皮塔饼)"
+  - "6 g dried mint (幹薄荷)"
+  - "3 g fine sea salt (細海鹽)"
+  - "1 g freshly ground black pepper (現磨黑胡椒)"
+  - "30 ml fresh lemon juice (鮮檸檬汁)"
+  - "120 g whole wheat pita bread (全麥皮塔餅)"
 ingredients_display:
   - "200g red lentils, rinsed and drained"
   - "1 medium yellow onion, finely diced"

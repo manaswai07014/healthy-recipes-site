@@ -31,15 +31,15 @@ carbs: 12
 fat: 26
 fiber: 4
 ingredients_api:
-  - "150 g cod fillet, wild-caught (新鲜鳕鱼柳)"
-  - "100 g haricots verts, trimmed (法国四季豆)"
-  - "20 g basil pesto, store-bought (罗勒青酱)"
-  - "8 ml extra-virgin olive oil (特级初榨橄榄油)"
+  - "150 g cod fillet, wild-caught (新鮮鱈魚柳)"
+  - "100 g haricots verts, trimmed (法國四季豆)"
+  - "20 g basil pesto, store-bought (羅勒青醬)"
+  - "8 ml extra-virgin olive oil (特級初榨橄欖油)"
   - "3 g garlic, minced (蒜末)"
-  - "2 g lemon zest (柠檬皮屑)"
-  - "5 ml lemon juice (柠檬汁)"
-  - "1 g red pepper flakes (红辣椒片)"
-  - "1.5 g fine sea salt (海盐)"
+  - "2 g lemon zest (檸檬皮屑)"
+  - "5 ml lemon juice (檸檬汁)"
+  - "1 g red pepper flakes (紅辣椒片)"
+  - "1.5 g fine sea salt (海鹽)"
   - "1 g black pepper, freshly ground (黑胡椒)"
 ingredients_display:
   - "2 cod fillets (150g each)"
