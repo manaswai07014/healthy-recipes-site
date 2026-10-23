@@ -137,7 +137,7 @@ OUTPUT FORMAT (strict JSON, no markdown, no commentary):
   "keywords": "5-8 long-tail search phrases (comma-separated) e.g. 'easy mediterranean cod recipe, low calorie cod dinner, baked cod with tomatoes'",
   "recipe_name": "Full recipe name (descriptive with modifier)",
   "cuisine": "Italian | Mediterranean | French | Spanish | Greek | European | American",
-  "category": "Main | Soup | Salad | Side",
+  "category": "Main | Soup | Salad | Side | Breakfast",
   "diet_tags": ["Low-Calorie", "High-Protein", "Quick", "Mediterranean", ...],
   "prep_time_mins": <int>,
   "cook_time_mins": <int>,
@@ -215,6 +215,19 @@ THEME_BANK = [
     "Italian cacio e pepe with green peas",
     "Moroccan tagine of chicken with preserved lemon",
     "French chicken chasseur (hunter-style)",
+    # W98 (2026-10-23): breakfast gap fill. Category audit showed Main 110 /
+    # Soup 12 / Side 1 / Salad 1 / Breakfast 0 — the bank had zero breakfast
+    # themes, so the daily picker could never produce one. All eight are
+    # Mediterranean/Western, egg- or dairy-led for protein, and can land in the
+    # 400-600 kcal band.
+    "Mediterranean shakshuka with feta and chickpeas",
+    "Greek yogurt bowl with berries, walnuts and honey",
+    "Spinach and feta omelette with sourdough toast",
+    "Turkish menemen with eggs, peppers and feta",
+    "High-protein cottage cheese pancakes with berries",
+    "Avocado toast with poached eggs and za'atar",
+    "Baked eggs with spinach, tomato and feta",
+    "Quinoa breakfast bowl with yogurt and toasted almonds",
     "Spanish albondigas (turkey meatballs) in tomato sauce",
     "Greek gemista (stuffed tomatoes and peppers)",
     "Italian pesto-crusted cod with green beans",
