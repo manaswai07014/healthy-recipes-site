@@ -657,6 +657,20 @@ def generate_hero_image(slug: str, image_prompt: str) -> Path:
 # ---------------------------------------------------------------------------
 # Recipe → Markdown
 # ---------------------------------------------------------------------------
+def _indent_block(value: str, indent: str = "  ") -> str:
+    """Indent EVERY line of a multi-line block scalar.
+
+    W98 (2026-10-24): `chef_tips` and `introduction` are written as YAML block
+    scalars (`key: |`). Indenting only the first line broke the YAML as soon as
+    the LLM returned more than one paragraph — the continuation lines were read
+    as new top-level keys, the frontmatter failed to parse, and Jekyll silently
+    rendered the page with an empty <h1> and a date-prefixed fallback slug.
+    Empty lines stay empty (trailing spaces are invalid YAML).
+    """
+    lines = (value or "").strip().split("\n")
+    return "\n".join(indent + ln if ln.strip() else "" for ln in lines)
+
+
 def yaml_quote(value) -> str:
     """Safely quote a scalar for YAML frontmatter.
 
@@ -710,10 +724,10 @@ ingredients_display:
 instructions:
 {instructions_yaml}
 introduction: |
-  {recipe["introduction"].strip()}
+{_indent_block(recipe["introduction"])}
 chef_tips: |
-  {recipe["chef_tips"].strip()}
-image_prompt: {recipe.get("image_prompt", "")}
+{_indent_block(recipe["chef_tips"])}
+image_prompt: {yaml_quote(recipe.get("image_prompt", ""))}
 ---
 
 # {recipe["recipe_name"]}
