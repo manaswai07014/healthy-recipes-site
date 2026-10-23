@@ -43,21 +43,28 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 # Manually curated starting list. cron will expand via "related recipes" links.
 
 BBC_SEEDS = [
+    # W97 (2026-10-23): the previous list was mostly stale — turkey-meatballs,
+    # lentil-curry, chicken-shawarma, salmon-bowl, greek-yogurt-chicken,
+    # tuna-pasta, quinoa-salad, sweet-potato-curry, chicken-stir-fry,
+    # mediterranean-cod all returned HTTP 404. This list was re-curated from the
+    # live collection page /recipes/collection/healthy-mediterranean-recipes
+    # and every entry was probe-tested (200).
     "https://www.bbcgoodfood.com/recipes/fish-soup",
+    "https://www.bbcgoodfood.com/recipes/chicken-tzatziki-wraps",
+    "https://www.bbcgoodfood.com/recipes/prawn-harissa-spaghetti",
+    "https://www.bbcgoodfood.com/recipes/herby-lamb-fillet-caponata",
+    "https://www.bbcgoodfood.com/recipes/baked-fish-tomatoes-basil-crispy-crumbs",
+    "https://www.bbcgoodfood.com/recipes/orzo-tomato-soup",
+    "https://www.bbcgoodfood.com/recipes/wild-salmon-veggie-bowl",
+    "https://www.bbcgoodfood.com/recipes/cheesy-aubergine-tomato-spaghetti",
+    "https://www.bbcgoodfood.com/recipes/healthy-bolognese",
+    "https://www.bbcgoodfood.com/recipes/healthy-veggie-platter",
+    "https://www.bbcgoodfood.com/recipes/simple-fish-stew",
+    "https://www.bbcgoodfood.com/recipes/quick-chicken-hummus-bowl",
+    "https://www.bbcgoodfood.com/recipes/roasted-cauli-broc-bowl-tahini-houmous",
+    "https://www.bbcgoodfood.com/recipes/smoky-paprika-seafood-rice",
+    # Collection pages kept for link-discovery expansion
     "https://www.bbcgoodfood.com/recipes/collection/healthy-mediterranean-recipes",
-    "https://www.bbcgoodfood.com/health/mediterranean-diet-recipes",
-    # W83 expansion: individual low-cal recipes with full nutrition data
-    "https://www.bbcgoodfood.com/recipes/greek-style-roast-fish",
-    "https://www.bbcgoodfood.com/recipes/turkey-meatballs",
-    "https://www.bbcgoodfood.com/recipes/lentil-curry",
-    "https://www.bbcgoodfood.com/recipes/chicken-shawarma",
-    "https://www.bbcgoodfood.com/recipes/salmon-bowl",
-    "https://www.bbcgoodfood.com/recipes/greek-yogurt-chicken",
-    "https://www.bbcgoodfood.com/recipes/tuna-pasta",
-    "https://www.bbcgoodfood.com/recipes/quinoa-salad",
-    "https://www.bbcgoodfood.com/recipes/sweet-potato-curry",
-    "https://www.bbcgoodfood.com/recipes/chicken-stir-fry",
-    "https://www.bbcgoodfood.com/recipes/mediterranean-cod",
 ]
 EATINGWELL_SEEDS = [
     "https://www.eatingwell.com/recipes/18011/cuisines-regions/european/low-calorie/mediterranean/",
@@ -123,7 +130,14 @@ SOURCES = {
     "closetcooking": ("Closet Cooking", CLOSET_COOKING_SEEDS),
     "budgetbytes": ("Budget Bytes", BUDGET_BYTES_SEEDS),
 }
-DEFAULT_SOURCES = ["bbc", "acouplecooks"]  # 'both' default = 2 diverse, working sources
+# W97 (2026-10-23): default narrowed to BBC only. The other four sources are
+# currently blocked from this host — probe results that day:
+#   acouplecooks  403  Cloudflare challenge (cf-mitigated: challenge)
+#   eatingwell    402  payment required / hard block
+#   budgetbytes   403  Cloudflare
+#   closetcooking 404  URLs stale
+# Only BBC served 200. Re-add a source here once its seeds probe 200 again.
+DEFAULT_SOURCES = ["bbc"]
 
 USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 
