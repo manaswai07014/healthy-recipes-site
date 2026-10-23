@@ -137,7 +137,7 @@ OUTPUT FORMAT (strict JSON, no markdown, no commentary):
   "keywords": "5-8 long-tail search phrases (comma-separated) e.g. 'easy mediterranean cod recipe, low calorie cod dinner, baked cod with tomatoes'",
   "recipe_name": "Full recipe name (descriptive with modifier)",
   "cuisine": "Italian | Mediterranean | French | Spanish | Greek | European | American",
-  "category": "Main | Soup | Salad | Side | Breakfast",
+  "category": "Main | Soup | Salad | Side | Breakfast  (IMPORTANT: if this dish is egg-, yogurt-, oat- or pancake-led and is normally eaten in the morning — shakshuka, omelette, frittata, menemen, baked eggs, yogurt bowl, porridge — you MUST use Breakfast, even though it could also be served as a main)",
   "diet_tags": ["Low-Calorie", "High-Protein", "Quick", "Mediterranean", ...],
   "prep_time_mins": <int>,
   "cook_time_mins": <int>,
