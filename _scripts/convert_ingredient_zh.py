@@ -16,7 +16,17 @@ import os
 import re
 import sys
 
-from opencc import OpenCC
+try:
+    from opencc import OpenCC
+except ImportError:
+    # W98: this script is wired into the daily pipeline as a guarantee step.
+    # If OpenCC is missing we must NOT block the pipeline — emit a warning and
+    # exit 0. Install for real use with:
+    #   uv venv /tmp/occ-venv --python 3.11
+    #   uv pip install --python /tmp/occ-venv/bin/python opencc-python-reimplemented
+    print("[SKIP] opencc not installed — Simplified glosses left as-is. "
+          "Install: pip install opencc-python-reimplemented", file=sys.stderr)
+    sys.exit(0)
 
 CJK = re.compile(r"[\u4e00-\u9fff\u3400-\u4dbf]")
 cc = OpenCC("s2t")

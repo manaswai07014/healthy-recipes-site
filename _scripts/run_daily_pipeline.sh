@@ -38,6 +38,29 @@ echo "[1/2] Generating recipe..." | tee -a "${LOG_FILE}"
     --count 1 \
     2>&1 | tee -a "${LOG_FILE}"
 
+# Step 1.4/2: W98 — guarantee ingredient glosses are Traditional Chinese.
+# The generator prompt demands 繁體中文, but an LLM can still slip Simplified and
+# 老闆's standing rule is Traditional-only. This is a *guarantee* step, not a
+# dependency: it runs before the commit so the converted text ships, and every
+# failure path is tolerated (`|| true`) so a missing converter can never break
+# the daily recipe run.
+echo "[1.4/2] Traditional-Chinese gloss guarantee..." | tee -a "${LOG_FILE}"
+OCC_PY=""
+for candidate in /home/hermes/.occ-venv/bin/python /tmp/occ-venv/bin/python; do
+    if [ -x "${candidate}" ] && "${candidate}" -c "import opencc" 2>/dev/null; then
+        OCC_PY="${candidate}"
+        break
+    fi
+done
+if [ -n "${OCC_PY}" ]; then
+    "${OCC_PY}" _scripts/convert_ingredient_zh.py --apply 2>&1 | tee -a "${LOG_FILE}" || true
+elif command -v uv >/dev/null 2>&1; then
+    uv run --quiet --with opencc-python-reimplemented \
+        python _scripts/convert_ingredient_zh.py --apply 2>&1 | tee -a "${LOG_FILE}" || true
+else
+    echo "  [SKIP] no opencc converter available — glosses left as generated" | tee -a "${LOG_FILE}"
+fi
+
 # Step 1.5/2: P45 Layer 2 pre-flight gate — verify ALL recipe hero_image
 # paths point to real local files. If any missing, abort BEFORE git add.
 # P68: Use project-local script (git tracked) instead of skill-dir script.

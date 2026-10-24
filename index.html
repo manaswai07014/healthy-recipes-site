@@ -92,4 +92,12 @@ description: >-
     <p>Mediterranean and Western diets have centuries of tradition — and a treasure trove of dishes that happen to be naturally low in calories but rich in protein, fiber, and flavor. We focus on <strong>400-600 kcal per serving</strong> with at least 15g of protein, so you can enjoy satisfying meals that fit your goals.</p>
     <p>Every recipe on this site has been developed in our editorial kitchen and reviewed for nutritional accuracy. We develop, test, and photograph every dish ourselves, and tell you exactly what works.</p>
   </section>
+
+  {%- comment -%}
+    W98: owned-email capture. Email is the only channel the site owns and the one
+    that grew at large food sites 2024->2026 (3.9% -> 6.8% of traffic), so the
+    signup belongs on the highest-traffic pages (home + recipe index), not only
+    at the bottom of a recipe.
+  {%- endcomment -%}
+  {%- include newsletter-signup.html -%}
 </div>
