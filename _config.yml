@@ -72,6 +72,11 @@ collections:
   categories:
     output: true
     permalink: /categories/:path/
+  # W100 (2026-11-19): seasonal pillar pages (healthy-thanksgiving, later
+  # healthy-christmas etc.) — long-tail seasonal SEO entry pages.
+  pillars:
+    output: true
+    permalink: /:name/
 
 defaults:
   # P62: All root pages (about, editorial-policy, ai-disclosure, etc.) MUST use default layout
@@ -95,6 +100,11 @@ defaults:
     values:
       layout: ingredient_page
       seo: false
+  - scope:
+      path: ""
+      type: pillars
+    values:
+      layout: pillar
 
 include:
   - _redirects

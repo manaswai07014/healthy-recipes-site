@@ -1,0 +1,22 @@
+{%- comment -%}
+W100 (2026-11-19): Lead-magnet CTA — the 7-Day Mediterranean Meal Plan PDF.
+Previously the PDF was linked only once in index.html; recipe pages (the pages
+Google actually lands searchers on) had zero exposure. This include is placed
+inside the recipe layout right after the nutrition table so it renders above
+the fold of engagement — the moment a reader thinks "this plan works for me".
+Newsletter form (Buttondown, user waimind) collects the email; the PDF is a
+direct download so the reader gets value before subscribing (reciprocity).
+{%- endcomment -%}
+<aside class="meal-plan-cta no-print" aria-label="Free meal plan download">
+  <div class="mpc-card">
+    <div class="mpc-icon" aria-hidden="true">🥗</div>
+    <div class="mpc-body">
+      <h3 class="mpc-title">Want a full week planned for you?</h3>
+      <p class="mpc-desc">Grab the free <strong>7-Day Mediterranean Meal Plan</strong> — every day 400–600 kcal, 15 g+ protein, built from recipes like this one.</p>
+      <div class="mpc-actions">
+        <a class="mpc-btn mpc-btn-primary" href="{{ '/assets/downloads/7-day-mediterranean-meal-plan.pdf' | relative_url }}">📥 Download free PDF</a>
+        <a class="mpc-btn mpc-btn-alt" href="#newsletter-signup">📬 Get new recipes weekly</a>
+      </div>
+    </div>
+  </div>
+</aside>

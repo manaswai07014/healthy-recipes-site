@@ -1,0 +1,86 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  {%- if page.keywords -%}
+  <meta name="keywords" content="{{ page.keywords | join: ', ' }}">
+  {%- endif -%}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- assign pillar_img = site.static_files | where_exp: 'f', 'f.path contains page.pillar' | first -%}
+  <meta property="og:image" content="{{ site.url }}/assets/pins/{{ page.pillar }}-collection-hero.jpg">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ page.title | jsonify }},
+    "description": {{ page.description | jsonify }},
+    "url": {{ site.url | append: page.url | jsonify }},
+    "isPartOf": { "@type": "WebSite", "name": {{ site.title | jsonify }}, "url": {{ site.url | jsonify }} }
+  }
+  </script>
+  {% if site.cf_analytics_token and site.cf_analytics_token != "" %}
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+          data-cf-beacon='{"token": "{{ site.cf_analytics_token }}"}'></script>
+  {% endif %}
+</head>
+<body>
+{%- include skip-link.html -%}
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">🫒</span><span class="brand-name">{{ site.title }}</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="{{ '/recipes/' | relative_url }}">Recipes</a>
+      <a href="{{ '/categories/' | relative_url }}">Categories</a>
+      <a href="{{ '/cuisines/' | relative_url }}">Cuisines</a>
+    </nav>
+  </div>
+</header>
+
+<nav aria-label="breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li aria-current="page">{{ page.title }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="pillar-page">
+  <div class="container">
+    <header class="recipe-header">
+      <div class="badges">
+        <span class="badge badge-cal">400–600 kcal</span>
+        <span class="badge badge-pro">15 g+ protein</span>
+        <span class="badge badge-time">{{ page.season }}</span>
+      </div>
+      <h1>{{ page.title }}</h1>
+      <p class="lead">{{ page.description }}</p>
+    </header>
+
+    {{ content }}
+
+    {%- include meal-plan-cta.html -%}
+    {%- include newsletter-signup.html -%}
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>{{ site.title }} — healthy Mediterranean recipes, every day under 600 kcal.</p>
+    <p class="small"><a href="{{ '/recipes/' | relative_url }}">All recipes</a> · <a href="{{ '/about/' | relative_url }}">About</a> · <a href="{{ '/editorial-policy/' | relative_url }}">Editorial Policy</a></p>
+  </div>
+</footer>
+</body>
+</html>
