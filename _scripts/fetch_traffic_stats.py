@@ -26,7 +26,11 @@ from pathlib import Path
 CFENV = Path("/home/hermes/.cfenv")
 HERMES_ENV = Path("/home/hermes/.hermes/.env")
 ACCOUNT_ID = "b3e5ac003d206366f1a64379801164e2"
-SITE_TAG = "596fc83bdc884f8fad557fe42a889bb1"
+# W99 (2026-11-18): the old tag 596fc83b... never had beacon data — the live
+# _config.yml cf_analytics_token (actually injected into every page) is
+# 319ada12616548d5b05a3431b83b5944. Querying the wrong tag returned a
+# permanent "Pageviews: 0" for 30+ days (silent fail, P19 pattern).
+SITE_TAG = "319ada12616548d5b05a3431b83b5944"
 GRAPHQL = "https://api.cloudflare.com/client/v4/graphql"
 
 
