@@ -445,19 +445,36 @@ def _call_llm_nvidia(theme: str, max_retries: int = 2) -> Optional[dict]:
         return None
 
     prompt = RECIPE_USER_PROMPT.format(theme=theme)
-    payload = {
-        "model": NVIDIA_MODEL,
-        # 4096 was not enough: deepseek-v4.1-flash also emits reasoning_content,
-        # so the visible JSON got truncated mid-string ("Unterminated string").
-        "max_tokens": 8192,
-        "temperature": 0.6,
-        "messages": [
-            {"role": "system", "content": RECIPE_SYSTEM_PROMPT},
-            {"role": "user", "content": prompt},
-        ],
-    }
+    payloads = [
+        {
+            "model": NVIDIA_MODEL,
+            "max_tokens": 8192,
+            "temperature": 0.6,
+            "messages": [
+                {"role": "system", "content": RECIPE_SYSTEM_PROMPT},
+                {"role": "user", "content": prompt},
+            ],
+            # minimaxai/minimax-m3.1-flash (NVIDIA) defaults to thinking mode:
+            # the trace burns time until the NIM gateway 504s on long prompts.
+            # thinking-off measured 7.2s vs 504 on the plain payload (2026-11-18).
+            "chat_template_kwargs": {"thinking": False},
+        },
+        # fallback: plain payload for models that reject chat_template_kwargs
+        {
+            "model": NVIDIA_MODEL,
+            "max_tokens": 8192,
+            "temperature": 0.6,
+            "messages": [
+                {"role": "system", "content": RECIPE_SYSTEM_PROMPT},
+                {"role": "user", "content": prompt},
+            ],
+        },
+    ]
 
     for attempt in range(1, max_retries + 1):
+        # kwargs (thinking-off) is proven working on minimaxai/minimax-m3.1-flash;
+        # the plain payload 504s in thinking mode, so ALL attempts use kwargs.
+        payload = payloads[0]
         try:
             req = urllib.request.Request(
                 NVIDIA_ENDPOINT,
@@ -474,7 +491,7 @@ def _call_llm_nvidia(theme: str, max_retries: int = 2) -> Optional[dict]:
             choices = data.get("choices") or []
             if not choices:
                 raise ValueError(f"no choices in response: {json.dumps(data)[:200]}")
-            text = choices[0].get("message", {}).get("content", "")
+            text = choices[0].get("message", {}).get("content", "") or ""
             recipe = _extract_json(text)
             return _validate_recipe(recipe)
         except urllib.error.HTTPError as e:
