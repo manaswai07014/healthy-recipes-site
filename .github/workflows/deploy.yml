@@ -1,0 +1,72 @@
+name: Build & Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - name: Sanity check build output
+        run: |
+          set -e
+          test -d _site || { echo "::error::_site 目錄唔存在，build 失敗"; exit 1; }
+          test -f _site/index.html || { echo "::error::_site/index.html 唔存在"; exit 1; }
+          test -f _site/_redirects || { echo "::error::_site/_redirects 唔存在（_config.yml include 失效）"; exit 1; }
+          echo "build ok — files: $(find _site -type f | wc -l)"
+
+      - name: Check Cloudflare credentials
+        id: cf
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CF_TOKEN" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN 未設定 — 只做 build 驗證，跳過 deploy"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure Pages project exists
+        if: steps.cf.outputs.skip != 'true'
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create healthy-recipes-site --production-branch=main
+
+      - name: Deploy to Cloudflare Pages
+        if: steps.cf.outputs.skip != 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=healthy-recipes-site --branch=main --commit-dirty=true
