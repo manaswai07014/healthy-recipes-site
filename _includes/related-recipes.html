@@ -1,0 +1,29 @@
+{%- comment -%}
+  W103 (2026-11-20, Iris): "You might also like" module.
+  Same cuisine first (up to 4), topped up from same category.
+  Excludes the current recipe. Adds internal links on every recipe page.
+{%- endcomment -%}
+<section class="related related-recipes">
+  <h2>You might also like</h2>
+  <ul class="related-list">
+  {%- assign pool = site.recipes | where: 'cuisine', page.cuisine | where_exp: 'r', 'r.url != page.url' -%}
+  {%- assign shown = 0 -%}
+  {%- for r in pool -%}
+    {%- if shown < 4 -%}
+    <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a> — {{ r.calories }} kcal, {{ r.protein }}g protein, {{ r.total_time }} min</li>
+    {%- assign shown = shown | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if shown < 4 -%}
+    {%- assign pool2 = site.recipes | where: 'category', page.category | where_exp: 'r', 'r.url != page.url' -%}
+    {%- for r in pool2 -%}
+      {%- if shown < 4 -%}
+        {%- unless pool contains r -%}
+    <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a> — {{ r.calories }} kcal, {{ r.protein }}g protein, {{ r.total_time }} min</li>
+        {%- assign shown = shown | plus: 1 -%}
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+  </ul>
+</section>
