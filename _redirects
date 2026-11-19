@@ -41,3 +41,11 @@
 # a splat rule here also matches waimind.com itself, causing a 301
 # self-loop that broke robots.txt / sitemap.xml / llms.txt / GSC file
 # (discovered 2026-09-16, W91). Never re-add a cross-domain splat here.
+
+# W103 (2026-11-20, Iris): force 200 at the exact .html URLs.
+# CF Pages built-in "pretty URLs" 308-redirects *.html to extension-less
+# paths, which breaks Google Search Console HTML-file verification
+# (Google requires HTTP 200 at the exact URL). A self-rule with 200
+# is evaluated before the automatic redirect and pins the exact path.
+/google1f7ddc3796c07319.html /google1f7ddc3796c07319.html 200
+/google2d5addaa35c620b5.html /google2d5addaa35c620b5.html 200
