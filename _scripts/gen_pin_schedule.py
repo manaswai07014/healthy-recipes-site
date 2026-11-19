@@ -63,7 +63,7 @@ def parse(md: Path) -> dict:
     if fn:
         y, mo, d, slug = fn.groups()
         fm["_slug"] = slug
-        fm["_url"] = f"{SITE}/{y}/{mo}/{d}/{slug}/"
+        fm["_url"] = f"{SITE}/{y}/{mo}/{d}/{slug}/?utm_source=pinterest&utm_medium=pin&utm_campaign=recipes"
         fm["_date"] = f"{y}-{mo}-{d}"
     return fm
 
