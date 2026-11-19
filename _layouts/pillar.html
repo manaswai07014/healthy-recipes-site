@@ -36,7 +36,7 @@
   {% endif %}
 </head>
 <body>
-{%- include skip-link.html -%}
+<a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">🫒</span><span class="brand-name">{{ site.title }}</span></a>
@@ -57,7 +57,7 @@
   </div>
 </nav>
 
-<article class="pillar-page">
+<article class="pillar-page" id="main">
   <div class="container">
     <header class="recipe-header">
       <div class="badges">
