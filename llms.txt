@@ -6,9 +6,9 @@
 
 - **URL**: https://waimind.com
 - **Owner**: Healthy Recipes Editorial
-- **Recipes published**: 124
-- **Latest recipe**: 2026-10-23
-- **Update cadence**: 2 new recipes daily
+- **Recipes published**: 167
+- **Latest recipe**: 2026-11-19
+- **Update cadence**: 1 new recipe daily
 - **Language**: English
 - **Cuisine focus**: Mediterranean, Italian, Greek, Spanish, French, Turkish
 - **Specialties**: Low-calorie (400-600 kcal/serving), high-protein (>=15g), gluten-free and dairy-free options
@@ -22,36 +22,38 @@
 - [By ingredient](https://waimind.com/ingredients/)
 - [High-protein recipes](https://waimind.com/high-protein/)
 - [Quick recipes (under 30 min)](https://waimind.com/quick/)
-- [How-to guides](https://waimind.com/guides/)
+- [Healthy Thanksgiving recipes](https://waimind.com/healthy-thanksgiving/)
+- [Healthy Christmas dinner recipes](https://waimind.com/healthy-christmas-dinner/)
+- [New Year healthy reset recipes](https://waimind.com/new-year-healthy-recipes/)
 
 ## Latest 25 recipes
 
-1. [Provençal Cod Stew with Fennel, Saffron & White Beans](https://waimind.com/2026/10/23/proven-al-cod-stew-with-fennel-saffron-white-beans/) — 463 kcal, 45g protein, 45 min
-2. [High-Protein Turkish Red Lentil Soup with Mint & Greek Yogurt](https://waimind.com/2026/10/22/high-protein-turkish-red-lentil-soup-with-mint-greek-yogurt/) — 422 kcal, 26g protein, 40 min
-3. [Smoked Paprika Beef Stuffed Pepper Casserole](https://waimind.com/2026/10/20/smoked-paprika-beef-stuffed-pepper-casserole/) — 415 kcal, 32g protein, 45 min
-4. [Greek-Inspired Lamb Burgers with Herb-Feta Yogurt Sauce](https://waimind.com/2026/10/20/greek-inspired-lamb-burgers-with-herb-feta-yogurt-sauce/) — 485 kcal, 32g protein, 30 min
-5. [Moroccan-Spiced Roasted Cauliflower with Herb-Crusted Chicken and Tahini](https://waimind.com/2026/10/19/moroccan-spiced-roasted-cauliflower-with-herb-crusted-chicken-and-tahini/) — 445 kcal, 31g protein, 45 min
-6. [Italian Pesto-Crusted Cod with Haricots Verts and Cherry Tomatoes](https://waimind.com/2026/10/19/italian-pesto-crusted-cod-with-haricots-verts-and-cherry-tomatoes/) — 418 kcal, 38g protein, 35 min
-7. [Spanish Garlic Shrimp with White Beans and Crispy Kale](https://waimind.com/2026/10/18/spanish-garlic-shrimp-with-white-beans-and-crispy-kale/) — 450 kcal, 24g protein, 25 min
-8. [Gambas Al Ajillo with Cannellini Beans](https://waimind.com/2026/10/18/gambas-al-ajillo-with-cannellini-beans/) — 485 kcal, 32g protein, 30 min
-9. [Braised Pork Shank Osso Buco with Bright Gremolata](https://waimind.com/2026/10/17/braised-pork-shank-osso-buco-with-bright-gremolata/) — 485 kcal, 42g protein, 55 min
-10. [Braised Beef Shanks with Bright Gremolata](https://waimind.com/2026/10/17/braised-beef-shanks-with-bright-gremolata/) — 425 kcal, 32g protein, 55 min
-11. [Mediterranean-Inspired Veggie Sushi Bowl with Marinated Tofu and Edamame](https://waimind.com/2026/10/16/mediterranean-inspired-veggie-sushi-bowl-with-marinated-tofu-and-edamame/) — 485 kcal, 22g protein, 35 min
-12. [Light Provençal Beef and Mushroom Daube with Herbed Polenta](https://waimind.com/2026/10/16/light-proven-al-beef-and-mushroom-daube-with-herbed-polenta/) — 485 kcal, 32g protein, 50 min
-13. [Greek Lemon Chicken Souvlaki with Tzatziki](https://waimind.com/2026/10/15/greek-lemon-chicken-souvlaki-with-tzatziki/) — 485 kcal, 38g protein, 40 min
-14. [Tuscan White Bean and Kale Soup with Turkey Sausage](https://waimind.com/2026/10/14/tuscan-white-bean-and-kale-soup-with-turkey-sausage/) — 420 kcal, 22g protein, 45 min
-15. [Mediterranean One-Pot Whole Wheat Pasta with Spinach, Cherry Tomatoes and Grilled Chicken](https://waimind.com/2026/10/14/mediterranean-one-pot-whole-wheat-pasta-with-spinach-cherry-tomatoes-and-grilled-chicken/) — 485 kcal, 32g protein, 35 min
-16. [Sicilian Swordfish Rolls Stuffed with Pine Nuts, Raisins, and Herbs](https://waimind.com/2026/10/13/sicilian-swordfish-rolls-stuffed-with-pine-nuts-raisins-and-herbs/) — 485 kcal, 32g protein, 40 min
-17. [Lemon-Herb Seared Scallops over Zucchini Noodles](https://waimind.com/2026/10/13/lemon-herb-seared-scallops-over-zucchini-noodles/) — 485 kcal, 32g protein, 27 min
-18. [Thai-Style Chicken Lettuce Wraps with Lime and Fresh Herbs](https://waimind.com/2026/10/12/thai-style-chicken-lettuce-wraps-with-lime-and-fresh-herbs/) — 425 kcal, 38g protein, 25 min
-19. [Lemon-Cod Foil Packets with Spinach, Cherry Tomatoes & Pine Nuts](https://waimind.com/2026/10/12/lemon-cod-foil-packets-with-spinach-cherry-tomatoes-pine-nuts/) — 425 kcal, 38g protein, 35 min
-20. [Spanish Albondigas: Turkey Meatballs in Smoky Tomato Sauce](https://waimind.com/2026/10/11/spanish-albondigas-turkey-meatballs-in-smoky-tomato-sauce/) — 436 kcal, 26g protein, 45 min
-21. [Moroccan-Spiced Roasted Cauliflower with Herbed Tahini and Chickpeas](https://waimind.com/2026/10/11/moroccan-spiced-roasted-cauliflower-with-herbed-tahini-and-chickpeas/) — 425 kcal, 18g protein, 45 min
-22. [Italian Pesto-Crusted Cod with Haricots Verts](https://waimind.com/2026/10/10/italian-pesto-crusted-cod-with-haricots-verts/) — 415 kcal, 35g protein, 35 min
-23. [Greek-Inspired Lamb Burgers with Herb-Feta Yogurt Sauce](https://waimind.com/2026/10/10/greek-inspired-lamb-burgers-with-herb-feta-yogurt-sauce/) — 485 kcal, 32g protein, 30 min
-24. [Turkish Red Lentil Soup with Fresh Mint and Lemon](https://waimind.com/2026/10/09/turkish-red-lentil-soup-with-fresh-mint-and-lemon/) — 425 kcal, 26g protein, 35 min
-25. [Crispy Tofu & Edamame Sushi Grain Bowl with Ginger-Soy Dressing](https://waimind.com/2026/10/09/crispy-tofu-edamame-sushi-grain-bowl-with-ginger-soy-dressing/) — 462 kcal, 22g protein, 35 min
+1. [Red Lentil and Mint Soup with Sumac-Roasted Chickpeas](https://waimind.com/2026/11/19/red-lentil-and-mint-soup-with-sumac-roasted-chickpeas/) — 428 kcal, 21g protein, 38 min
+2. [Miso-Edamame Vegetarian Sushi Grain Bowl with Brown Rice](https://waimind.com/2026/11/19/miso-edamame-vegetarian-sushi-grain-bowl-with-brown-rice/) — 485 kcal, 16g protein, 35 min
+3. [Smoky Romesco Grilled Chicken with Charred Mediterranean Vegetables](https://waimind.com/2026/11/18/smoky-romesco-grilled-chicken-with-charred-mediterranean-vegetables/) — 498 kcal, 48g protein, 40 min
+4. [Protein-Rich Tuscan White Bean and Kale Ribollita](https://waimind.com/2026/11/18/protein-rich-tuscan-white-bean-and-kale-ribollita/) — 428 kcal, 19g protein, 38 min
+5. [Moroccan-Spiced Roasted Cauliflower with Chickpeas and Lemon Tahini Yogurt](https://waimind.com/2026/11/17/moroccan-spiced-roasted-cauliflower-with-chickpeas-and-lemon-tahini-yogurt/) — 552 kcal, 29g protein, 40 min
+6. [Greek Shrimp Spanakorizo with Lemon, Dill, and Feta](https://waimind.com/2026/11/15/greek-shrimp-spanakorizo-with-lemon-dill-and-feta/) — 529 kcal, 47g protein, 45 min
+7. [Provençal Saffron and Fennel Fish Stew with Garlic-Rubbed Sourdough](https://waimind.com/2026/11/14/proven-al-saffron-and-fennel-fish-stew-with-garlic-rubbed-sourdough/) — 440 kcal, 41g protein, 45 min
+8. [Italian Turkey-Stuffed Bell Peppers with Brown Rice and Mozzarella](https://waimind.com/2026/11/13/italian-turkey-stuffed-bell-peppers-with-brown-rice-and-mozzarella/) — 443 kcal, 32g protein, 50 min
+9. [High-Protein Turkish Red Lentil Soup with Mint & Chicken](https://waimind.com/2026/11/12/high-protein-turkish-red-lentil-soup-with-mint-chicken/) — 485 kcal, 52g protein, 50 min
+10. [Seafood Linguine with White Wine, Cherry Tomatoes and Mussels](https://waimind.com/2026/11/11/seafood-linguine-with-white-wine-cherry-tomatoes-and-mussels/) — 535 kcal, 43g protein, 35 min
+11. [Linguine with Shrimp, Mussels and Cherry Tomatoes in White Wine](https://waimind.com/2026/11/11/linguine-with-shrimp-mussels-and-cherry-tomatoes-in-white-wine/) — 540 kcal, 40g protein, 35 min
+12. [Thai-Style Chicken Lettuce Wraps with Lime, Herbs & Brown Rice](https://waimind.com/2026/11/10/thai-style-chicken-lettuce-wraps-with-lime-herbs-brown-rice/) — 472 kcal, 40g protein, 30 min
+13. [Spanish Turkey Albondigas in Smoky Tomato Sauce with Whole Wheat Orzo and Green Beans](https://waimind.com/2026/11/10/spanish-turkey-albondigas-in-smoky-tomato-sauce-with-whole-wheat-orzo-and-green-beans/) — 527 kcal, 39g protein, 45 min
+14. [Crispy-Skin Lemon Herb Salmon with Roasted Asparagus and Warm White Bean Salad](https://waimind.com/2026/11/09/crispy-skin-lemon-herb-salmon-with-roasted-asparagus-and-warm-white-bean-salad/) — 535 kcal, 42g protein, 40 min
+15. [Moroccan-Spiced Roasted Cauliflower with Tahini-Yogurt Sauce & Crispy Chickpeas](https://waimind.com/2026/11/08/moroccan-spiced-roasted-cauliflower-with-tahini-yogurt-sauce-crispy-chickpeas/) — 473 kcal, 25g protein, 45 min
+16. [Provençal Cod Stew with Fennel, Saffron and Yogurt Rouille](https://waimind.com/2026/11/07/proven-al-cod-stew-with-fennel-saffron-and-yogurt-rouille/) — 420 kcal, 44g protein, 45 min
+17. [Smoked Paprika Beef & Brown Rice Stuffed Pepper Casserole](https://waimind.com/2026/11/06/smoked-paprika-beef-brown-rice-stuffed-pepper-casserole/) — 430 kcal, 37g protein, 50 min
+18. [Fluffy Cottage Cheese and Oat Pancakes with Warm Honeyed Berries](https://waimind.com/2026/11/06/fluffy-cottage-cheese-and-oat-pancakes-with-warm-honeyed-berries/) — 438 kcal, 33g protein, 30 min
+19. [Vegetarian Sushi Grain Bowl with Edamame, Crispy Tofu and Spicy Yogurt Drizzle](https://waimind.com/2026/11/05/vegetarian-sushi-grain-bowl-with-edamame-crispy-tofu-and-spicy-yogurt-drizzle/) — 571 kcal, 33g protein, 40 min
+20. [Turkish Red Lentil Soup with Dried Mint and Greek Yogurt](https://waimind.com/2026/11/05/turkish-red-lentil-soup-with-dried-mint-and-greek-yogurt/) — 432 kcal, 27g protein, 40 min
+21. [Low-Calorie Italian Seafood Linguine with White Wine, Shrimp, and Scallops](https://waimind.com/2026/11/04/low-calorie-italian-seafood-linguine-with-white-wine-shrimp-and-scallops/) — 573 kcal, 55g protein, 35 min
+22. [Whole-Wheat Linguine with Shrimp, Mussels, and White Wine](https://waimind.com/2026/11/03/whole-wheat-linguine-with-shrimp-mussels-and-white-wine/) — 450 kcal, 37g protein, 40 min
+23. [Rosemary Lamb Fillet with Sicilian Caponata](https://waimind.com/2026/11/03/rosemary-lamb-fillet-with-sicilian-caponata/) — 472 kcal, 40g protein, 45 min
+24. [Spanish Romesco Grilled Chicken with Charred Vegetables and Chickpeas](https://waimind.com/2026/11/02/spanish-romesco-grilled-chicken-with-charred-vegetables-and-chickpeas/) — 490 kcal, 45g protein, 45 min
+25. [Grilled Chicken with Smoky Romesco Sauce and Charred Vegetables](https://waimind.com/2026/11/02/grilled-chicken-with-smoky-romesco-sauce-and-charred-vegetables/) — 456 kcal, 41g protein, 40 min
 
 ## Full index
 
-All 124 recipe URLs are listed in [https://waimind.com/sitemap.xml](https://waimind.com/sitemap.xml).
+All 167 recipe URLs are listed in [https://waimind.com/sitemap.xml](https://waimind.com/sitemap.xml).
